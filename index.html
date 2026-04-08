@@ -142,6 +142,70 @@ tailwind.config = {
         </div>
       </a>
 
+      <!-- Card 3: Top 100 Dashboard -->
+      <a href="forbes_cz_top100_dashboard.html"
+         class="group flex flex-col rounded-xl bg-sand-50 dark:bg-[#1e1e1c] border border-black/10 dark:border-white/10 overflow-hidden no-underline text-inherit transition-all duration-150 hover:border-black/30 dark:hover:border-white/25 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-px">
+
+        <!-- Thumbnail -->
+        <div class="w-full aspect-[16/7] overflow-hidden">
+          <svg viewBox="0 0 460 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" class="w-full h-full">
+            <defs>
+              <radialGradient id="c1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#1D9E75" stop-opacity=".25"/><stop offset="100%" stop-color="#1D9E75" stop-opacity="0"/></radialGradient>
+              <radialGradient id="c2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#D85A30" stop-opacity=".2"/><stop offset="100%" stop-color="#D85A30" stop-opacity="0"/></radialGradient>
+              <radialGradient id="c3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#378ADD" stop-opacity=".2"/><stop offset="100%" stop-color="#378ADD" stop-opacity="0"/></radialGradient>
+            </defs>
+            <rect width="460" height="160" class="svg-bg"/>
+            <!-- grid of dots representing 100 articles -->
+            <g opacity=".55">
+              <!-- row 1 – Inspire me (green) -->
+              <circle cx="30"  cy="28" r="5" fill="#1D9E75"/><circle cx="50"  cy="28" r="5" fill="#1D9E75"/><circle cx="70"  cy="28" r="5" fill="#1D9E75"/><circle cx="90"  cy="28" r="5" fill="#1D9E75"/><circle cx="110" cy="28" r="5" fill="#1D9E75"/>
+              <circle cx="130" cy="28" r="5" fill="#1D9E75"/><circle cx="150" cy="28" r="5" fill="#1D9E75"/><circle cx="170" cy="28" r="5" fill="#1D9E75"/>
+              <!-- Help me (orange) -->
+              <circle cx="190" cy="28" r="5" fill="#D85A30"/><circle cx="210" cy="28" r="5" fill="#D85A30"/><circle cx="230" cy="28" r="5" fill="#D85A30"/><circle cx="250" cy="28" r="5" fill="#D85A30"/><circle cx="270" cy="28" r="5" fill="#D85A30"/>
+              <circle cx="290" cy="28" r="5" fill="#D85A30"/><circle cx="310" cy="28" r="5" fill="#D85A30"/>
+              <!-- Update me (blue) -->
+              <circle cx="330" cy="28" r="5" fill="#378ADD"/><circle cx="350" cy="28" r="5" fill="#378ADD"/><circle cx="370" cy="28" r="5" fill="#378ADD"/><circle cx="390" cy="28" r="5" fill="#378ADD"/><circle cx="410" cy="28" r="5" fill="#378ADD"/>
+              <circle cx="430" cy="28" r="5" fill="#378ADD"/>
+              <!-- row 2 – Give me perspective (purple) -->
+              <circle cx="30"  cy="52" r="5" fill="#7F77DD"/><circle cx="50"  cy="52" r="5" fill="#7F77DD"/><circle cx="70"  cy="52" r="5" fill="#7F77DD"/><circle cx="90"  cy="52" r="5" fill="#7F77DD"/><circle cx="110" cy="52" r="5" fill="#7F77DD"/>
+              <circle cx="130" cy="52" r="5" fill="#7F77DD"/><circle cx="150" cy="52" r="5" fill="#7F77DD"/><circle cx="170" cy="52" r="5" fill="#7F77DD"/>
+              <!-- Educate me (pink) -->
+              <circle cx="190" cy="52" r="5" fill="#D4537E"/><circle cx="210" cy="52" r="5" fill="#D4537E"/><circle cx="230" cy="52" r="5" fill="#D4537E"/><circle cx="250" cy="52" r="5" fill="#D4537E"/><circle cx="270" cy="52" r="5" fill="#D4537E"/>
+              <!-- Amuse (amber) -->
+              <circle cx="290" cy="52" r="5" fill="#BA7517"/><circle cx="310" cy="52" r="5" fill="#BA7517"/><circle cx="330" cy="52" r="5" fill="#BA7517"/><circle cx="350" cy="52" r="5" fill="#BA7517"/>
+              <!-- Connect me (teal) -->
+              <circle cx="370" cy="52" r="5" fill="#5DCAA5"/><circle cx="390" cy="52" r="5" fill="#5DCAA5"/><circle cx="410" cy="52" r="5" fill="#5DCAA5"/>
+            </g>
+            <!-- revenue glow blobs underneath -->
+            <ellipse cx="100" cy="110" rx="80" ry="44" fill="url(#c1)"/>
+            <ellipse cx="270" cy="118" rx="60" ry="36" fill="url(#c2)"/>
+            <ellipse cx="400" cy="108" rx="55" ry="38" fill="url(#c3)"/>
+            <!-- revenue bars -->
+            <rect x="30"  y="88" width="140" height="12" rx="3" fill="#1D9E75" opacity=".7"/>
+            <rect x="30"  y="104" width="56"  height="12" rx="3" fill="#D85A30" opacity=".7"/>
+            <rect x="30"  y="120" width="54"  height="12" rx="3" fill="#7F77DD" opacity=".7"/>
+            <rect x="30"  y="136" width="44"  height="12" rx="3" fill="#378ADD" opacity=".7"/>
+            <!-- funnel shape right -->
+            <path d="M310,82 L430,82 L400,148 L340,148 Z" fill="#1D9E75" opacity=".12"/>
+            <path d="M320,95 L420,95 L398,148 L342,148 Z" fill="#1D9E75" opacity=".1"/>
+            <path d="M332,110 L408,110 L395,148 L345,148 Z" fill="#1D9E75" opacity=".12"/>
+          </svg>
+        </div>
+
+        <!-- Body -->
+        <div class="flex flex-col flex-1 p-5">
+          <h2 class="text-[13px] font-semibold mb-1.5 tracking-tight">Top 100 Dashboard</h2>
+          <p class="text-[12px] leading-relaxed text-ink-600 dark:text-[#a0a098] flex-1">
+            Prehľad 100 najkonverznejších článkov. User needs, formátová matica, membership funnel a revenue analýza.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mt-4">
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-sand-100 dark:bg-[#2a2a28] text-ink-400 dark:text-[#70706a] border border-black/[.14] dark:border-white/[.14]">Top 100</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-sand-100 dark:bg-[#2a2a28] text-ink-400 dark:text-[#70706a] border border-black/[.14] dark:border-white/[.14]">Membership Funnel</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-sand-100 dark:bg-[#2a2a28] text-ink-400 dark:text-[#70706a] border border-black/[.14] dark:border-white/[.14]">Need × Formát</span>
+          </div>
+        </div>
+      </a>
+
     </div>
   </div>
 
