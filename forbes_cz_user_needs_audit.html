@@ -37,9 +37,10 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:1rem 1.5rem 1.25rem}
 .page-nav-inner{max-width:900px;margin:0 auto}
 .page-nav-spacer{height:5.5rem}
-.back-link{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--color-text-tertiary);text-decoration:none;margin-bottom:.6rem;padding:4px 0;transition:color .15s}
-.back-link:hover{color:var(--color-text-primary)}
-.page-nav h1{font-size:20px;font-weight:500;margin-bottom:4px}
+.nav-title{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.back-btn{display:inline-flex;align-items:center;justify-content:center;color:var(--color-text-tertiary);text-decoration:none;flex-shrink:0;transition:color .15s;padding:2px}
+.back-btn:hover{color:var(--color-text-primary)}
+.page-nav h1{font-size:20px;font-weight:500}
 .page-nav p{font-size:13px;color:var(--color-text-tertiary)}
 .wrap{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
@@ -76,8 +77,12 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <body>
 <div class="page-nav">
   <div class="page-nav-inner">
-    <a class="back-link" href="index.html">← Membership Strategy</a>
-    <h1>Forbes.cz – User Needs Audit</h1>
+    <div class="nav-title">
+      <a class="back-btn" href="index.html" aria-label="Späť">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </a>
+      <h1>Forbes.cz – User Needs Audit</h1>
+    </div>
     <p>11 526 článkov za posledný rok · BBC User Needs 2.0 · 27,9M pageviews</p>
   </div>
 </div>
