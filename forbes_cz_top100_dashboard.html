@@ -19,7 +19,10 @@
   --b1:rgba(255,255,255,.10);--b2:rgba(255,255,255,.18);--b3:rgba(255,255,255,.28);
 }}
 body{font-family:var(--sans);background:var(--bg3);color:var(--t1);min-height:100vh}
-.header{background:var(--bg1);border-bottom:0.5px solid var(--b1);padding:1.25rem 2rem;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.header{background:var(--bg1);border-bottom:0.5px solid var(--b1);padding:1rem 2rem 1.25rem}
+.back-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--t3);text-decoration:none;margin-bottom:.5rem;transition:color .15s}
+.back-link:hover{color:var(--t1)}
+.header-row{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
 .header h1{font-size:17px;font-weight:500}
 .header p{font-size:12px;color:var(--t3)}
 .main{max-width:1200px;margin:0 auto;padding:1.5rem}
@@ -100,8 +103,11 @@ tr:hover td{background:var(--bg2)}
 <body>
 
 <div class="header">
-  <h1>Forbes.cz – Top 100 konverzních článků</h1>
-  <p>BBC User Needs 2.0 · 5 pohledů na data · 910 909 CZK revenue · 676 konverzí</p>
+  <a class="back-link" href="index.html">← Membership Strategy</a>
+  <div class="header-row">
+    <h1>Forbes.cz – Top 100 konverzních článků</h1>
+    <p>BBC User Needs 2.0 · 5 pohledů na data · 910 909 CZK revenue · 676 konverzí</p>
+  </div>
 </div>
 
 <div class="main">
