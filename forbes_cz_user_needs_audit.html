@@ -255,5 +255,15 @@ function showTab(t){
   });
 }
 </script>
+<script>
+(function(){
+  var nav=document.querySelector('.page-nav');
+  var spacer=document.querySelector('.page-nav-spacer');
+  function sync(){spacer.style.height=nav.offsetHeight+'px';}
+  sync();
+  window.addEventListener('resize',sync);
+  document.fonts.ready.then(sync);
+})();
+</script>
 </body>
 </html>
