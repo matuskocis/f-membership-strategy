@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forbes.cz – Konverzia vs. Produkcia</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f4f0;
+  --color-background-tertiary:#eeece6;
+  --color-text-primary:#1a1a18;
+  --color-text-secondary:#5a5a56;
+  --color-text-tertiary:#8a8a84;
+  --color-border-tertiary:rgba(0,0,0,0.12);
+  --color-border-secondary:rgba(0,0,0,0.22);
+  --color-border-primary:rgba(0,0,0,0.35);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --color-background-primary:#1e1e1c;
+    --color-background-secondary:#2a2a28;
+    --color-background-tertiary:#242422;
+    --color-text-primary:#e8e6de;
+    --color-text-secondary:#a0a098;
+    --color-text-tertiary:#70706a;
+    --color-border-tertiary:rgba(255,255,255,0.10);
+    --color-border-secondary:rgba(255,255,255,0.18);
+    --color-border-primary:rgba(255,255,255,0.28);
+  }
+}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);padding:2rem 1.5rem;min-height:100vh}
+.wrap{max-width:900px;margin:0 auto}
+header{margin-bottom:2rem}
+header h1{font-size:20px;font-weight:500;margin-bottom:4px}
+header p{font-size:13px;color:var(--color-text-tertiary)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab-btn{padding:5px 14px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;transition:all .15s}
+.tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:var(--color-border-primary);font-weight:500}
+.section{margin-bottom:2rem}
+.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin-bottom:.75rem}
+.stats-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
+.stat-card{flex:1;min-width:90px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px}
+.stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.stat-lbl{font-size:10px;color:var(--color-text-tertiary);margin-top:2px}
+.compare-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.need-label{font-size:12px;color:var(--color-text-secondary);width:175px;flex-shrink:0;text-align:right}
+.bars-pair{flex:1;display:flex;flex-direction:column;gap:3px}
+.bar-track{height:17px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:3px;transition:width .4s;display:flex;align-items:center;padding-left:6px}
+.bar-val{font-size:10px;font-weight:500;white-space:nowrap;color:#fff}
+.delta-badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px;width:62px;text-align:center;flex-shrink:0}
+.delta-pos{background:#eaf3de;color:#3b6d11}
+.delta-neg{background:#fcebeb;color:#a32d2d}
+.delta-neu{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.rev-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.rev-label{font-size:12px;color:var(--color-text-secondary);width:175px;text-align:right;flex-shrink:0}
+.rev-track{flex:1;height:22px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden}
+.rev-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding:0 8px}
+.rev-val{font-size:11px;font-weight:500;color:#fff;white-space:nowrap}
+.rev-extra{font-size:11px;color:var(--color-text-tertiary);width:110px;flex-shrink:0}
+.insight{background:var(--color-background-secondary);border-left:3px solid var(--color-border-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:10px 14px;font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
+.insight strong{color:var(--color-text-primary)}
+.insight.critical{border-left-color:#D85A30}
+.insight.good{border-left-color:#1D9E75}
+.insight.warning{border-left-color:#BA7517}
+.fmt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:600px){.fmt-grid{grid-template-columns:repeat(2,1fr)}}
+.fmt-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px}
+.fmt-name{font-size:11px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.fmt-n{font-size:22px;font-weight:500}
+.fmt-needs{font-size:10px;color:var(--color-text-secondary);margin-top:6px;line-height:1.4}
+.legend-row{display:flex;gap:16px;margin-bottom:1rem;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary)}
+.leg-rect{width:28px;height:8px;border-radius:2px}
+.note{font-size:11px;color:var(--color-text-tertiary);margin-top:.75rem;line-height:1.5;padding:8px 12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Forbes.cz – Konverzia vs. Produkcia</h1>
+  <p>Porovnanie: 11 526 článkov (produkcia) vs. Top 100 konverzných článkov · BBC User Needs 2.0</p>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('gap')">Produkcia vs. Konverzia</button>
+  <button class="tab-btn" onclick="showTab('revenue')">Revenue per need</button>
+  <button class="tab-btn" onclick="showTab('format')">Formát & dĺžka</button>
+  <button class="tab-btn" onclick="showTab('insights')">Závery</button>
+</div>
+
+<!-- TAB: GAP -->
+<div id="tab-gap">
+<div class="stats-row">
+  <div class="stat-card"><div class="stat-num">100</div><div class="stat-lbl">konverzných článkov</div></div>
+  <div class="stat-card"><div class="stat-num">676</div><div class="stat-lbl">konverzií spolu</div></div>
+  <div class="stat-card"><div class="stat-num">910 909</div><div class="stat-lbl">CZK revenue</div></div>
+  <div class="stat-card"><div class="stat-num">1 435</div><div class="stat-lbl">avg order CZK</div></div>
+</div>
+<div class="section">
+  <div class="section-label">Podiel na produkcii vs. podiel v top 100 konverzných článkoch — delta ukazuje kde je výroba neúmerná výsledkom</div>
+  <div class="legend-row">
+    <div class="legend-item"><div class="leg-rect" style="background:#7F77DD"></div>Produkcia (% všetkých 11 526 čl.)</div>
+    <div class="legend-item"><div class="leg-rect" style="background:#1D9E75"></div>Konverzia (% z top 100 konverzných)</div>
+  </div>
+  <div id="compare-bars"></div>
+</div>
+</div>
+
+<!-- TAB: REVENUE -->
+<div id="tab-revenue" style="display:none">
+<div class="section">
+  <div class="section-label">Celkový revenue per user need (top 100 konverzných článkov)</div>
+  <div id="rev-bars"></div>
+</div>
+<div class="section">
+  <div class="section-label">Revenue na článok — ktorá kategória prináša najviac na jeden článok</div>
+  <div id="rev-per-article"></div>
+</div>
+</div>
+
+<!-- TAB: FORMAT -->
+<div id="tab-format" style="display:none">
+<div class="section">
+  <div class="section-label">Formáty v konverzných článkoch (n=100)</div>
+  <div class="fmt-grid" id="fmt-cards"></div>
+</div>
+<div class="section" style="margin-top:1.5rem">
+  <div class="section-label">Priemerná dĺžka článku per user need (slová)</div>
+  <div id="wordcount-bars"></div>
+</div>
+<div class="note">Priemerný konverzný článok má 876 slov a 5 minút čítania. Teasery (&lt;300 slov) tvoria 40–60% konverzných článkov v každej kategórii — paywall hit pri teaser generuje vyšší záujem prejsť cez bránu.</div>
+</div>
+
+<!-- TAB: INSIGHTS -->
+<div id="tab-insights" style="display:none">
+<div class="section">
+  <div class="section-label">Kľúčové zistenia z porovnania produkcia vs. konverzia</div>
+  <div class="insight critical">
+    <strong>Give me perspective: masívna overproduction, minimálna konverzia.</strong> Tvorí 64% celej produkcie ale len 9% konverzných článkov a 6% revenue. Na každý konverzný článok v tejto kategórii pripadá ~7× viac produkcie ako zodpovedá výkonu. Toto je najväčší štrukturálny problém obsahu.
+  </div>
+  <div class="insight good">
+    <strong>Inspire me je motor konverzií.</strong> 13% produkcie → 32% konverzných článkov → 36% revenue. Revenue per článok: 10 195 CZK — najvyšší zo všetkých kategórií. Profily podnikateľov a príbehy "od nuly" sú jasný subscription driver. Redakcia by mala zvýšiť produkciu aspoň 2×.
+  </div>
+  <div class="insight critical">
+    <strong>Help me je systematicky podreprezentovaný pri vysokom konverznom potenciáli.</strong> 7.4% produkcie → 14% konverzných článkov → 14.4% revenue. Konverzný potenciál je takmer 2× vyšší ako produkčný podiel. Revenue per článok (9 360 CZK) porovnateľný s Inspire me. Praktické návody — financie, kariéra, podnikanie — jednoznačne konvertujú.
+  </div>
+  <div class="insight warning">
+    <strong>Amuse/Divert me — prekvapivý konvertor.</strong> Len 0.3% produkcie ale 15% konverzných článkov a 13.7% revenue. Najvyšší avg order: 1 659 CZK. Signál že ľahší entertaining obsah s premium gatingom konvertuje inak ako predpokladáme. Treba overiť na väčšej vzorke.
+  </div>
+  <div class="insight good">
+    <strong>Formát: Feature/Reportáž (30) a Profil (16) dominujú — nie krátke správy.</strong> Teasery (&lt;300 slov) konvertujú prekvapivo dobre — 40–60% konverzných článkov v každej kategórii. Paywall hit pri teaser = vyšší záujem prejsť cez bránu.
+  </div>
+  <div class="insight warning">
+    <strong>Connect me: extrémne revenue per článok (24 421 CZK) — ale len 3 články.</strong> Forbes 30 pod 30 a eventy generujú obrovský revenue na článok. Nie sú škálovateľné, ale konverzná hodnota je neporovnateľná. Každý takýto obsah musí byť za paywallom.
+  </div>
+  <div class="insight">
+    <strong>Update me konvertuje lepšie ako čakáme (14% konv. čl., 10.4% revenue).</strong> Breaking news má konverzný potenciál — ale priemerný order je nižší (1 531 CZK) a revenue per článok najnižší (6 780 CZK). Funguje ako vstupný bod, nie retention driver.
+  </div>
+</div>
+</div>
+
+</div>
+
+<script>
+const needs=[
+  {label:'Inspire me',         prod:13.1,conv:32.0,color:'#1D9E75'},
+  {label:'Amuse/Divert me',    prod:0.3, conv:15.0,color:'#BA7517'},
+  {label:'Help me',            prod:7.4, conv:14.0,color:'#D85A30'},
+  {label:'Update me',          prod:7.9, conv:14.0,color:'#378ADD'},
+  {label:'Give me perspective',prod:64.3,conv:9.0, color:'#7F77DD'},
+  {label:'Educate me',         prod:2.9, conv:7.0, color:'#D4537E'},
+  {label:'Keep me on trend',   prod:3.9, conv:6.0, color:'#888780'},
+  {label:'Connect me',         prod:0.1, conv:3.0, color:'#5DCAA5'},
+];
+const revData=[
+  {label:'Inspire me',         total:326260,per:10195,conv:8.0, color:'#1D9E75'},
+  {label:'Help me',            total:131041,per:9360, conv:8.0, color:'#D85A30'},
+  {label:'Amuse/Divert me',    total:125011,per:8334, conv:6.0, color:'#BA7517'},
+  {label:'Update me',          total:94922, per:6780, conv:5.0, color:'#378ADD'},
+  {label:'Connect me',         total:73265, per:24421,conv:13.0,color:'#5DCAA5'},
+  {label:'Educate me',         total:64006, per:9143, conv:7.0, color:'#D4537E'},
+  {label:'Give me perspective',total:55148, per:6127, conv:5.0, color:'#7F77DD'},
+  {label:'Keep me on trend',   total:41254, per:6875, conv:4.0, color:'#888780'},
+];
+const fmtData=[
+  {name:'Feature/Reportáž',n:30,needs:'Inspire me, Help me, Amuse',color:'#1D9E75'},
+  {name:'Rozhovor',         n:19,needs:'Inspire me, Give me perspective',color:'#7F77DD'},
+  {name:'Profil',           n:16,needs:'Inspire me (100%)',color:'#1D9E75'},
+  {name:'How-to/Návod',     n:12,needs:'Help me, Educate me, Amuse',color:'#D85A30'},
+  {name:'Správa/Novinka',   n:9, needs:'Update me (100%)',color:'#378ADD'},
+  {name:'Zoznam/List',      n:6, needs:'Rôzne',color:'#888780'},
+  {name:'Investigácia',     n:4, needs:'Give me perspective',color:'#7F77DD'},
+  {name:'Event/Výber',      n:4, needs:'Connect me, Amuse',color:'#5DCAA5'},
+];
+const wcData=[
+  {label:'Connect me',         words:2598,color:'#5DCAA5'},
+  {label:'Give me perspective',words:1127,color:'#7F77DD'},
+  {label:'Educate me',         words:1055,color:'#D4537E'},
+  {label:'Amuse/Divert me',    words:994, color:'#BA7517'},
+  {label:'Inspire me',         words:950, color:'#1D9E75'},
+  {label:'Keep me on trend',   words:881, color:'#888780'},
+  {label:'Help me',            words:688, color:'#D85A30'},
+  {label:'Update me',          words:674, color:'#378ADD'},
+];
+
+// Compare bars
+const cb=document.getElementById('compare-bars');
+needs.forEach(n=>{
+  const delta=n.conv-n.prod;
+  const dSign=delta>0?'+':'';
+  const dCls=delta>5?'delta-pos':delta<-5?'delta-neg':'delta-neu';
+  const maxScale=70;
+  cb.innerHTML+=`<div class="compare-row">
+    <div class="need-label">${n.label}</div>
+    <div class="bars-pair">
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.prod,maxScale)/maxScale*100}%;background:#7F77DD">
+        <span class="bar-val">${n.prod}%</span>
+      </div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.conv,maxScale)/maxScale*100}%;background:${n.color}">
+        <span class="bar-val">${n.conv}%</span>
+      </div></div>
+    </div>
+    <div class="delta-badge ${dCls}">${dSign}${delta.toFixed(1)}%</div>
+  </div>`;
+});
+
+// Revenue total
+const maxRev=326260;
+const rb=document.getElementById('rev-bars');
+[...revData].sort((a,b)=>b.total-a.total).forEach(n=>{
+  rb.innerHTML+=`<div class="rev-row">
+    <div class="rev-label">${n.label}</div>
+    <div class="rev-track"><div class="rev-fill" style="width:${n.total/maxRev*100}%;background:${n.color}">
+      <span class="rev-val">${(n.total/1000).toFixed(0)}k CZK</span>
+    </div></div>
+    <div class="rev-extra">${n.per.toLocaleString()} CZK/čl.</div>
+  </div>`;
+});
+
+// Revenue per article
+const maxPer=24421;
+const rpa=document.getElementById('rev-per-article');
+[...revData].sort((a,b)=>b.per-a.per).forEach(n=>{
+  rpa.innerHTML+=`<div class="rev-row">
+    <div class="rev-label">${n.label}</div>
+    <div class="rev-track"><div class="rev-fill" style="width:${n.per/maxPer*100}%;background:${n.color}">
+      <span class="rev-val">${n.per.toLocaleString()} CZK</span>
+    </div></div>
+    <div class="rev-extra">${n.conv} konv./čl.</div>
+  </div>`;
+});
+
+// Format cards
+const fc=document.getElementById('fmt-cards');
+fmtData.forEach(f=>{
+  fc.innerHTML+=`<div class="fmt-card">
+    <div class="fmt-name">${f.name}</div>
+    <div class="fmt-n" style="color:${f.color}">${f.n}</div>
+    <div style="font-size:10px;color:var(--color-text-tertiary);margin-top:2px">článkov</div>
+    <div class="fmt-needs">${f.needs}</div>
+  </div>`;
+});
+
+// Wordcount
+const maxWc=2598;
+const wcEl=document.getElementById('wordcount-bars');
+wcData.forEach(n=>{
+  wcEl.innerHTML+=`<div class="rev-row">
+    <div class="rev-label">${n.label}</div>
+    <div class="rev-track"><div class="rev-fill" style="width:${n.words/maxWc*100}%;background:${n.color}">
+      <span class="rev-val">${n.words.toLocaleString()} slov</span>
+    </div></div>
+    <div class="rev-extra"></div>
+  </div>`;
+});
+
+function showTab(t){
+  ['gap','revenue','format','insights'].forEach(id=>{
+    document.getElementById('tab-'+id).style.display=id===t?'block':'none';
+  });
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{
+    b.classList.toggle('active',['gap','revenue','format','insights'][i]===t);
+  });
+}
+</script>
+</body>
+</html>
