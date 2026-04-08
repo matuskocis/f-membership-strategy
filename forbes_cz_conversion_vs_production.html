@@ -33,13 +33,14 @@
     --color-border-primary:rgba(255,255,255,0.28);
   }
 }
-body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);padding:2rem 1.5rem;min-height:100vh}
-.wrap{max-width:900px;margin:0 auto}
-header{margin-bottom:2rem}
-header h1{font-size:20px;font-weight:500;margin-bottom:4px}
-header p{font-size:13px;color:var(--color-text-tertiary)}
-.back-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--color-text-tertiary);text-decoration:none;margin-bottom:.6rem;transition:color .15s}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);min-height:100vh}
+.page-nav{background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:1rem 1.5rem 1.25rem}
+.page-nav-inner{max-width:900px;margin:0 auto}
+.back-link{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--color-text-tertiary);text-decoration:none;margin-bottom:.6rem;padding:4px 0;transition:color .15s}
 .back-link:hover{color:var(--color-text-primary)}
+.page-nav h1{font-size:20px;font-weight:500;margin-bottom:4px}
+.page-nav p{font-size:13px;color:var(--color-text-tertiary)}
+.wrap{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
 .tab-btn{padding:5px 14px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;transition:all .15s}
 .tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:var(--color-border-primary);font-weight:500}
@@ -83,12 +84,14 @@ header p{font-size:13px;color:var(--color-text-tertiary)}
 </style>
 </head>
 <body>
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a class="back-link" href="index.html">← Membership Strategy</a>
+    <h1>Forbes.cz – Konverzia vs. Produkcia</h1>
+    <p>Porovnanie: 11 526 článkov (produkcia) vs. Top 100 konverzných článkov · BBC User Needs 2.0</p>
+  </div>
+</div>
 <div class="wrap">
-<header>
-  <a class="back-link" href="index.html">← Membership Strategy</a>
-  <h1>Forbes.cz – Konverzia vs. Produkcia</h1>
-  <p>Porovnanie: 11 526 článkov (produkcia) vs. Top 100 konverzných článkov · BBC User Needs 2.0</p>
-</header>
 
 <div class="tabs">
   <button class="tab-btn active" onclick="showTab('gap')">Produkcia vs. Konverzia</button>
