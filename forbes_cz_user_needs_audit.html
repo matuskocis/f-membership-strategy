@@ -34,8 +34,9 @@
   }
 }
 body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);min-height:100vh}
-.page-nav{background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:1rem 1.5rem 1.25rem}
+.page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:1rem 1.5rem 1.25rem}
 .page-nav-inner{max-width:900px;margin:0 auto}
+.page-nav-spacer{height:5.5rem}
 .back-link{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--color-text-tertiary);text-decoration:none;margin-bottom:.6rem;padding:4px 0;transition:color .15s}
 .back-link:hover{color:var(--color-text-primary)}
 .page-nav h1{font-size:20px;font-weight:500;margin-bottom:4px}
@@ -80,6 +81,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
     <p>11 526 článkov za posledný rok · BBC User Needs 2.0 · 27,9M pageviews</p>
   </div>
 </div>
+<div class="page-nav-spacer"></div>
 <div class="wrap">
 
 <div class="tabs">
