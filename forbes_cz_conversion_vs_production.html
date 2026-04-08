@@ -57,9 +57,10 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .compare-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .need-label{font-size:12px;color:var(--color-text-secondary);width:175px;flex-shrink:0;text-align:right}
 .bars-pair{flex:1;display:flex;flex-direction:column;gap:3px}
-.bar-track{height:17px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;position:relative}
-.bar-fill{height:100%;border-radius:3px;transition:width .4s;display:flex;align-items:center;padding-left:6px}
-.bar-val{font-size:10px;font-weight:500;white-space:nowrap;color:#fff}
+.bar-pair-row{display:flex;align-items:center;gap:5px}
+.bar-track{flex:1;height:17px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:3px;transition:width .4s}
+.bar-val{font-size:10px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:30px}
 .delta-badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px;width:62px;text-align:center;flex-shrink:0}
 .delta-pos{background:#eaf3de;color:#3b6d11}
 .delta-neg{background:#fcebeb;color:#a32d2d}
@@ -67,8 +68,8 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .rev-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .rev-label{font-size:12px;color:var(--color-text-secondary);width:175px;text-align:right;flex-shrink:0}
 .rev-track{flex:1;height:22px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden}
-.rev-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding:0 8px}
-.rev-val{font-size:11px;font-weight:500;color:#fff;white-space:nowrap}
+.rev-fill{height:100%;border-radius:3px}
+.rev-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:72px}
 .rev-extra{font-size:11px;color:var(--color-text-tertiary);width:110px;flex-shrink:0}
 .insight{background:var(--color-background-secondary);border-left:3px solid var(--color-border-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:10px 14px;font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
 .insight strong{color:var(--color-text-primary)}
@@ -234,12 +235,14 @@ needs.forEach(n=>{
   cb.innerHTML+=`<div class="compare-row">
     <div class="need-label">${n.label}</div>
     <div class="bars-pair">
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.prod,maxScale)/maxScale*100}%;background:#7F77DD">
-        <span class="bar-val">${n.prod}%</span>
-      </div></div>
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.conv,maxScale)/maxScale*100}%;background:${n.color}">
-        <span class="bar-val">${n.conv}%</span>
-      </div></div>
+      <div class="bar-pair-row">
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.prod,maxScale)/maxScale*100}%;background:#7F77DD"></div></div>
+        <span class="bar-val" style="color:#7F77DD">${n.prod}%</span>
+      </div>
+      <div class="bar-pair-row">
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.conv,maxScale)/maxScale*100}%;background:${n.color}"></div></div>
+        <span class="bar-val" style="color:${n.color}">${n.conv}%</span>
+      </div>
     </div>
     <div class="delta-badge ${dCls}">${dSign}${delta.toFixed(1)}%</div>
   </div>`;
@@ -251,9 +254,8 @@ const rb=document.getElementById('rev-bars');
 [...revData].sort((a,b)=>b.total-a.total).forEach(n=>{
   rb.innerHTML+=`<div class="rev-row">
     <div class="rev-label">${n.label}</div>
-    <div class="rev-track"><div class="rev-fill" style="width:${n.total/maxRev*100}%;background:${n.color}">
-      <span class="rev-val">${(n.total/1000).toFixed(0)}k CZK</span>
-    </div></div>
+    <div class="rev-track"><div class="rev-fill" style="width:${n.total/maxRev*100}%;background:${n.color}"></div></div>
+    <span class="rev-val" style="color:${n.color}">${(n.total/1000).toFixed(0)}k CZK</span>
     <div class="rev-extra">${n.per.toLocaleString()} CZK/čl.</div>
   </div>`;
 });
@@ -264,9 +266,8 @@ const rpa=document.getElementById('rev-per-article');
 [...revData].sort((a,b)=>b.per-a.per).forEach(n=>{
   rpa.innerHTML+=`<div class="rev-row">
     <div class="rev-label">${n.label}</div>
-    <div class="rev-track"><div class="rev-fill" style="width:${n.per/maxPer*100}%;background:${n.color}">
-      <span class="rev-val">${n.per.toLocaleString()} CZK</span>
-    </div></div>
+    <div class="rev-track"><div class="rev-fill" style="width:${n.per/maxPer*100}%;background:${n.color}"></div></div>
+    <span class="rev-val" style="color:${n.color}">${n.per.toLocaleString()} CZK</span>
     <div class="rev-extra">${n.conv} konv./čl.</div>
   </div>`;
 });
@@ -288,9 +289,8 @@ const wcEl=document.getElementById('wordcount-bars');
 wcData.forEach(n=>{
   wcEl.innerHTML+=`<div class="rev-row">
     <div class="rev-label">${n.label}</div>
-    <div class="rev-track"><div class="rev-fill" style="width:${n.words/maxWc*100}%;background:${n.color}">
-      <span class="rev-val">${n.words.toLocaleString()} slov</span>
-    </div></div>
+    <div class="rev-track"><div class="rev-fill" style="width:${n.words/maxWc*100}%;background:${n.color}"></div></div>
+    <span class="rev-val" style="color:${n.color}">${n.words.toLocaleString()} slov</span>
     <div class="rev-extra"></div>
   </div>`;
 });
