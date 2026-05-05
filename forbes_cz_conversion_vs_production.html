@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conversion vs. production analysis: comparing 11,526 Forbes.cz articles against top converting content by user need, format, and revenue.">
+<link rel="preload" as="font" type="font/woff2" href="fonts/ForbesHighlander-Regular-Web.woff2" crossorigin>
 <title>Forbes.cz – Konverzia vs. Produkcia</title>
 <style>
 @font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
@@ -47,7 +49,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .page-nav p{font-size:13px;color:var(--color-text-tertiary);padding-left:30px}
 .wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem 5rem}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
-.tab-btn{padding:5px 14px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
+.tab-btn{padding:5px 14px;min-height:36px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
 .tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:#BE123C;font-weight:500}
 .tab-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
 .section{margin-bottom:2rem}
@@ -74,11 +76,11 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .rev-fill{height:100%;border-radius:3px}
 .rev-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:72px;font-variant-numeric:tabular-nums}
 .rev-extra{font-size:11px;color:var(--color-text-tertiary);width:110px;flex-shrink:0}
-.insight{background:var(--color-background-secondary);border-left:3px solid var(--color-border-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:10px 14px;font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
+.insight{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:10px 14px;font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
 .insight strong{color:var(--color-text-primary)}
-.insight.critical{border-left-color:#D85A30}
-.insight.good{border-left-color:#1D9E75}
-.insight.warning{border-left-color:#BA7517}
+.insight.critical{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.35)}
+.insight.good{background:rgba(29,158,117,.06);border-color:rgba(29,158,117,.35)}
+.insight.warning{background:rgba(186,117,23,.06);border-color:rgba(186,117,23,.35)}
 .fmt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 @media(max-width:600px){.fmt-grid{grid-template-columns:repeat(2,1fr)}}
 .fmt-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px}
