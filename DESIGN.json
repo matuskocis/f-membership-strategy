@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-05T00:00:00Z",
+  "title": "Design System: Forbes.cz Membership Strategy",
+  "extensions": {
+    "colorMeta": {
+      "white":             { "role": "primary",  "displayName": "Pure White",       "canonical": "#FFFFFF",   "tonalRamp": ["#94A3B8","#CBD5E1","#E2E8F0","#F1F5F9","#F8FAFC","#FFFFFF","#FFFFFF","#FFFFFF"] },
+      "surface":           { "role": "primary",  "displayName": "Page Surface",      "canonical": "#F8FAFC",   "tonalRamp": ["#94A3B8","#CBD5E1","#E2E8F0","#F1F5F9","#F8FAFC","#FFFFFF","#FFFFFF","#FFFFFF"] },
+      "dark":              { "role": "primary",  "displayName": "Near-Black",        "canonical": "#020617",   "tonalRamp": ["#020617","#0F172A","#1E293B","#334155","#475569","#64748B","#94A3B8","#CBD5E1"] },
+      "rose":              { "role": "secondary","displayName": "Crimson Rose",      "canonical": "#BE123C",   "tonalRamp": ["#3D0510","#6B0A1C","#950F2B","#BE123C","#E02050","#F06080","#F8A0B8","#FDE0EA"] },
+      "rose-tint":         { "role": "secondary","displayName": "Rose Tint",         "canonical": "#FFF1F2",   "tonalRamp": ["#BE123C","#E02050","#F06080","#F8A0B8","#FDE0EA","#FFF1F2","#FFF1F2","#FFF1F2"] },
+      "rose-deep":         { "role": "secondary","displayName": "Rose Deep",         "canonical": "#9F1239",   "tonalRamp": ["#3D0510","#6B0A1C","#9F1239","#BE123C","#E02050","#F06080","#F8A0B8","#FDE0EA"] },
+      "ink-secondary":     { "role": "neutral",  "displayName": "Slate Mid",         "canonical": "#475569",   "tonalRamp": ["#020617","#0F172A","#1E293B","#334155","#475569","#64748B","#94A3B8","#CBD5E1"] },
+      "ink-tertiary":      { "role": "neutral",  "displayName": "Slate Muted",       "canonical": "#94A3B8",   "tonalRamp": ["#020617","#0F172A","#1E293B","#334155","#475569","#64748B","#94A3B8","#CBD5E1"] },
+      "border-subtle":     { "role": "neutral",  "displayName": "Border Subtle",     "canonical": "#E2E8F0",   "tonalRamp": ["#334155","#475569","#64748B","#94A3B8","#CBD5E1","#E2E8F0","#F1F5F9","#F8FAFC"] },
+      "border":            { "role": "neutral",  "displayName": "Border Standard",   "canonical": "#CBD5E1",   "tonalRamp": ["#334155","#475569","#64748B","#94A3B8","#CBD5E1","#E2E8F0","#F1F5F9","#F8FAFC"] },
+      "dark-surface":      { "role": "neutral",  "displayName": "Dark Surface",      "canonical": "#0F172A",   "tonalRamp": ["#020617","#0F172A","#1E293B","#334155","#475569","#64748B","#94A3B8","#CBD5E1"] },
+      "dark-raised":       { "role": "neutral",  "displayName": "Dark Raised",       "canonical": "#1E293B",   "tonalRamp": ["#020617","#0F172A","#1E293B","#334155","#475569","#64748B","#94A3B8","#CBD5E1"] },
+      "dark-text":         { "role": "neutral",  "displayName": "Dark Text Primary", "canonical": "#F8FAFC",   "tonalRamp": ["#020617","#0F172A","#1E293B","#334155","#475569","#64748B","#94A3B8","#F8FAFC"] },
+      "dark-text-secondary":{ "role": "neutral", "displayName": "Dark Text Secondary","canonical": "#94A3B8",  "tonalRamp": ["#020617","#0F172A","#334155","#475569","#64748B","#94A3B8","#CBD5E1","#F1F5F9"] },
+      "dark-rose":         { "role": "secondary","displayName": "Dark Mode Rose",    "canonical": "#FB7185",   "tonalRamp": ["#3D0510","#6B0A1C","#BE123C","#E02050","#F06080","#FB7185","#F8A0B8","#FDE0EA"] },
+      "data-violet":       { "role": "tertiary", "displayName": "Violet",            "canonical": "#7F77DD",   "tonalRamp": ["#1C1663","#2E2599","#5046C8","#7F77DD","#A9A4EC","#C8C4F4","#E5E3FA","#F3F2FE"] },
+      "data-emerald":      { "role": "tertiary", "displayName": "Emerald",           "canonical": "#1D9E75",   "tonalRamp": ["#062E20","#085041","#0C6B54","#1D9E75","#5DCAA5","#8FDCC0","#C0EEE0","#E1F5EE"] },
+      "data-clay":         { "role": "tertiary", "displayName": "Clay",              "canonical": "#D85A30",   "tonalRamp": ["#4A1508","#7B2310","#A83A1E","#D85A30","#E88560","#F0A888","#F7CCB8","#FAECE7"] },
+      "data-blue":         { "role": "tertiary", "displayName": "Blue",              "canonical": "#378ADD",   "tonalRamp": ["#0C2A52","#0C447C","#1A5FA0","#378ADD","#6AAEE8","#97CBF2","#C5E3F8","#E6F1FB"] },
+      "data-amber":        { "role": "tertiary", "displayName": "Amber",             "canonical": "#BA7517",   "tonalRamp": ["#3A2005","#6B3D08","#8F5510","#BA7517","#D9A045","#ECC278","#F5DCAA","#FAEEDA"] },
+      "data-pink":         { "role": "tertiary", "displayName": "Pink",              "canonical": "#D4537E",   "tonalRamp": ["#410A22","#771535","#A62859","#D4537E","#E587A5","#F0B0C5","#F8D5E2","#FBEAF0"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Page and dashboard titles. ForbesHighlander 400 only — never bold." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles and large stat numbers. ForbesHighlander for headings; system 500 for numeric stats." },
+      "body":     { "displayName": "Body",     "purpose": "Table titles, article names, descriptions. System sans 400." },
+      "label":    { "displayName": "Label",    "purpose": "Section dividers, column headers, category markers. Uppercase system sans 500." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "fast", "value": "150ms ease-out", "purpose": "All interactive state transitions: tab active, hover color, border shift." }
+    ],
+    "breakpoints": [
+      { "name": "sm",  "value": "640px" },
+      { "name": "md",  "value": "768px" },
+      { "name": "lg",  "value": "960px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Tab (Inactive)",
+      "kind": "chip",
+      "refersTo": "tab",
+      "description": "Filter pill at rest. Switches to active variant on click.",
+      "html": "<button class=\"ds-tab\">Všechny kategorie</button>",
+      "css": ".ds-tab { padding: 5px 14px; border-radius: 20px; border: 0.5px solid #CBD5E1; background: #F8FAFC; color: #475569; font-size: 12px; cursor: pointer; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; transition: all 150ms ease-out; white-space: nowrap; } .ds-tab:hover { border-color: #94A3B8; color: #020617; } .ds-tab:focus-visible { outline: 2px solid #BE123C; outline-offset: 2px; }"
+    },
+    {
+      "name": "Tab (Active)",
+      "kind": "chip",
+      "refersTo": "tab-active",
+      "description": "Selected filter pill. White background, dark border, 500 weight.",
+      "html": "<button class=\"ds-tab ds-tab--active\">Membership</button>",
+      "css": ".ds-tab { padding: 5px 14px; border-radius: 20px; border: 0.5px solid #CBD5E1; background: #F8FAFC; color: #475569; font-size: 12px; cursor: pointer; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; transition: all 150ms ease-out; white-space: nowrap; } .ds-tab--active { background: #FFFFFF; color: #020617; border-color: #020617; font-weight: 500; } .ds-tab--active:hover { border-color: #020617; } .ds-tab:focus-visible { outline: 2px solid #BE123C; outline-offset: 2px; }"
+    },
+    {
+      "name": "Stat Card",
+      "kind": "card",
+      "refersTo": "stat-card",
+      "description": "Single summary metric. Number + label only.",
+      "html": "<div class=\"ds-stat-card\"><div class=\"ds-stat-num\">1,247</div><div class=\"ds-stat-lbl\">aktívnych členov</div></div>",
+      "css": ".ds-stat-card { background: #FFFFFF; border: 0.5px solid #E2E8F0; border-radius: 8px; padding: 8px 12px; min-width: 90px; } .ds-stat-num { font-size: 22px; font-weight: 500; color: #020617; line-height: 1.2; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; } .ds-stat-lbl { font-size: 10px; color: #94A3B8; margin-top: 2px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }"
+    },
+    {
+      "name": "Badge (Accent)",
+      "kind": "chip",
+      "refersTo": "badge-accent",
+      "description": "Rose accent badge for high-priority or top-tier labels. One per visual region.",
+      "html": "<span class=\"ds-badge ds-badge--accent\">Priorita 1</span>",
+      "css": ".ds-badge { font-size: 10px; font-weight: 500; border-radius: 8px; padding: 2px 7px; display: inline-block; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; white-space: nowrap; } .ds-badge--accent { background: #FFF1F2; color: #BE123C; } .ds-badge--accent:hover { background: #FDE0EA; }"
+    },
+    {
+      "name": "Badge (Neutral)",
+      "kind": "chip",
+      "refersTo": "badge-neutral",
+      "description": "Default label badge for categories and tiers.",
+      "html": "<span class=\"ds-badge ds-badge--neutral\">Tier 2</span>",
+      "css": ".ds-badge { font-size: 10px; font-weight: 500; border-radius: 8px; padding: 2px 7px; display: inline-block; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; white-space: nowrap; } .ds-badge--neutral { background: #F8FAFC; color: #475569; border: 0.5px solid #E2E8F0; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Structural divider titling a group of content. Never clickable.",
+      "html": "<div class=\"ds-section-label\">Výkonnosť</div>",
+      "css": ".ds-section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: #94A3B8; margin-bottom: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }"
+    },
+    {
+      "name": "Navigation Header",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed top bar on subpages. Forbes Highlander title, back button, subtitle.",
+      "html": "<header class=\"ds-nav\"><div class=\"ds-nav-inner\"><a class=\"ds-back-btn\" href=\"index.html\" aria-label=\"Späť\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 12L6 8l4-4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a><div><h1 class=\"ds-nav-title\">Dashboard</h1><p class=\"ds-nav-sub\">Forbes.cz · Membership Strategy</p></div></div></header>",
+      "css": ".ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #FFFFFF; border-bottom: 0.5px solid #E2E8F0; padding: 1rem 1.5rem 1.25rem; } .ds-nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: flex-start; gap: 6px; } .ds-back-btn { color: #94A3B8; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 2px; margin-top: 6px; flex-shrink: 0; transition: color 150ms ease-out; } .ds-back-btn:hover { color: #020617; } .ds-back-btn:focus-visible { outline: 2px solid #BE123C; outline-offset: 2px; border-radius: 2px; } .ds-nav-title { font-size: 28px; font-weight: 400; font-family: 'ForbesHighlander', Georgia, serif; color: #020617; line-height: 1.15; } .ds-nav-sub { font-size: 13px; color: #94A3B8; padding-left: 22px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Authority",
+    "overview": "The palette is three notes: pure white, near-black, and a single crimson rose. No tonal warmth, no ambient softness — the contrast is the confidence. This is a document that knows what it contains. The Forbes brand is present as structure, not decoration: the Highlander serif in page titles, the 0.5px hairline as the only visual separator.\n\nThe accent rose is used like a highlighter on a printed report. It marks one thing at a time. Its rarity is the point. When rose appears, readers stop.\n\nThis system rejects everything performative: no gradient fills, no shadow theatrics, no BI-tool color coding that turns a dashboard into a rainbow. The design serves professional readers who want to get in, understand, and decide.",
+    "keyCharacteristics": [
+      "Extreme tonal contrast (pure white / near-black) with a single warm accent",
+      "Flat surfaces separated by 0.5px hairlines, not shadows or backgrounds",
+      "ForbesHighlander at 28px/400 weight as the only display voice",
+      "System sans at 11–13px for all data, labels, and body",
+      "Dark mode built on the same near-black as the light mode text"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule",       "body": "Rose appears on at most one element per visual region. Two rose elements in the same viewport compete and both lose. If multiple items qualify for emphasis, use weight or size — not more rose.", "section": "colors" },
+      { "name": "The No-Warm-Neutral Rule", "body": "The neutral scale is cool slate, not warm sand. Introducing warm beige or warm gray reads as a different brand identity. All surface tints must sit on the cool-to-neutral axis.", "section": "colors" },
+      { "name": "The Regular-Weight Rule",  "body": "ForbesHighlander display is always 400 weight. Bold Highlander is available but forbidden in these dashboards — it overpowers the data and tips into marketing register.", "section": "typography" },
+      { "name": "The System Sans Rule",     "body": "No Google Fonts, no web-loaded secondary faces. All non-display text uses the system UI stack. This keeps the dashboards fast, legible at small sizes, and indifferent to network conditions.", "section": "typography" },
+      { "name": "The No-Shadow Rule",       "body": "Shadows are prohibited. A card does not receive a shadow on hover. A modal does not receive a drop shadow. Depth is tonal or it is nothing. If you find yourself reaching for box-shadow, use a border or a background shift instead.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use #BE123C rose as the single accent — once per visual region, on the element that must be seen first.",
+      "Do use 0.5px borders throughout: border-subtle (#E2E8F0) for resting states, border (#CBD5E1) for interactive elements, dark (#020617) for active/selected.",
+      "Do keep ForbesHighlander at 400 weight in dashboards. Regular weight only.",
+      "Do switch the rose accent to #FB7185 in dark mode — the base rose fails contrast on dark surfaces.",
+      "Do use the categorical data colors only for chart series. They are data, not UI chrome.",
+      "Do label all bar chart values outside the fill, colored to match the bar's data color.",
+      "Do keep section labels uppercase at 11px with 0.06em letter-spacing.",
+      "Do limit body line length to 65ch for any prose or descriptive text."
+    ],
+    "donts": [
+      "Don't use Looker Studio or BI-tool visual patterns: color-coded columns, rainbow heatmaps, heavy chrome, panel-per-metric layouts.",
+      "Don't use startup dashboard clichés: gradient cards, large glowing stat numbers, animated counters, hero metrics with accent fills.",
+      "Don't use box-shadow anywhere. No ambient glows, no card lifts, no dropdown shadows.",
+      "Don't use border-left or border-right greater than 0.5px as a colored accent stripe on any card, callout, or list item.",
+      "Don't use gradient text or background-clip: text. All text is a single solid color.",
+      "Don't introduce warm neutrals — sand, beige, warm gray. The neutral scale is cool slate.",
+      "Don't use more than one rose element in the same visual region.",
+      "Don't use the categorical data colors (#7F77DD, #1D9E75, etc.) for UI states, badges, or navigation.",
+      "Don't load additional web fonts. System sans for all body and label text."
+    ]
+  }
+}

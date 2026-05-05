@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forbes.cz – User Needs Audit</title>
 <style>
-@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal}
-@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal}
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
@@ -35,14 +35,14 @@
     --color-border-primary:rgba(255,255,255,0.28);
   }
 }
-body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);min-height:100vh}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);min-height:100vh;font-kerning:normal;font-optical-sizing:auto}
 .page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:1rem 1.5rem 1.25rem}
 .page-nav-inner{max-width:960px;margin:0 auto}
 .page-nav-spacer{height:5.5rem}
 .nav-title{display:flex;align-items:center;gap:6px;margin-bottom:4px}
 .back-btn{display:inline-flex;align-items:center;justify-content:center;color:var(--color-text-tertiary);text-decoration:none;flex-shrink:0;transition:color .15s;padding:2px}
 .back-btn:hover{color:var(--color-text-primary)}
-.page-nav h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif}
+.page-nav h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif;text-wrap:balance}
 .page-nav p{font-size:13px;color:var(--color-text-tertiary);padding-left:30px}
 .wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
@@ -52,13 +52,13 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin-bottom:.75rem}
 .stats-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
 .stat-card{flex:1;min-width:90px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px}
-.stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums}
 .stat-lbl{font-size:10px;color:var(--color-text-tertiary);margin-top:2px}
 .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .bar-label{font-size:12px;color:var(--color-text-secondary);width:160px;flex-shrink:0;text-align:right}
 .bar-track{flex:1;height:22px;background:var(--color-background-secondary);border-radius:4px;overflow:hidden;position:relative}
 .bar-fill{height:100%;border-radius:4px;transition:width .4s}
-.bar-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:40px}
+.bar-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:40px;font-variant-numeric:tabular-nums}
 .bar-extra{font-size:11px;color:var(--color-text-tertiary);width:120px;flex-shrink:0}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 @media(max-width:620px){.grid-2{grid-template-columns:1fr}}
@@ -70,7 +70,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .decile-wrap{overflow-x:auto}
 .decile-table{width:100%;border-collapse:collapse;font-size:11px}
 .decile-table th{text-align:left;padding:4px 8px;color:var(--color-text-tertiary);font-weight:500;border-bottom:0.5px solid var(--color-border-tertiary)}
-.decile-table td{padding:4px 8px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.decile-table td{padding:4px 8px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary);font-variant-numeric:tabular-nums}
 .decile-table tr:last-child td{border-bottom:none}
 .heat{border-radius:3px;padding:2px 6px;font-weight:500}
 .note{font-size:11px;color:var(--color-text-tertiary);margin-top:.75rem;line-height:1.5;padding:8px 12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)}

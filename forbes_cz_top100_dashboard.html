@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forbes.cz – Top 100 Konverzních článků</title>
 <style>
-@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal}
-@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal}
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
@@ -20,14 +20,14 @@
   --t1:#e8e6de;--t2:#a0a098;--t3:#70706a;
   --b1:rgba(255,255,255,.10);--b2:rgba(255,255,255,.18);--b3:rgba(255,255,255,.28);
 }}
-body{font-family:var(--sans);background:var(--bg3);color:var(--t1);min-height:100vh}
+body{font-family:var(--sans);background:var(--bg3);color:var(--t1);min-height:100vh;font-kerning:normal;font-optical-sizing:auto}
 .header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--bg1);border-bottom:0.5px solid var(--b1);padding:1rem 1.5rem 1.25rem}
 .header-inner{max-width:960px;margin:0 auto}
 .header-spacer{height:5.5rem}
 .nav-title{display:flex;align-items:center;gap:6px;margin-bottom:4px}
 .back-btn{display:inline-flex;align-items:center;justify-content:center;color:var(--t3);text-decoration:none;flex-shrink:0;transition:color .15s;padding:2px}
 .back-btn:hover{color:var(--t1)}
-.header h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif}
+.header h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif;text-wrap:balance}
 .header p{font-size:13px;color:var(--t3);padding-left:30px}
 .main{max-width:960px;margin:0 auto;padding:1.5rem}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
@@ -35,7 +35,7 @@ body{font-family:var(--sans);background:var(--bg3);color:var(--t1);min-height:10
 .tab-btn.active{background:var(--bg1);color:var(--t1);border-color:var(--b3);font-weight:500}
 .stats-row{display:flex;gap:10px;margin-bottom:1.5rem;flex-wrap:wrap}
 .stat{flex:1;min-width:100px;background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r);padding:10px 14px}
-.stat-num{font-size:22px;font-weight:500}
+.stat-num{font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
 .stat-lbl{font-size:10px;color:var(--t3);margin-top:2px}
 .section-lbl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-bottom:.75rem}
 .section{margin-bottom:2rem}
@@ -51,7 +51,7 @@ body{font-family:var(--sans);background:var(--bg3);color:var(--t1);min-height:10
 .need-tier{font-size:10px;padding:2px 7px;border-radius:8px;margin-left:auto}
 .need-stats{display:flex;gap:12px}
 .need-stat{font-size:11px;color:var(--t2)}
-.need-stat strong{font-size:14px;font-weight:500;color:var(--t1);display:block}
+.need-stat strong{font-size:14px;font-weight:500;color:var(--t1);display:block;font-variant-numeric:tabular-nums}
 .need-bar{height:3px;border-radius:2px;margin-top:10px;background:var(--bg2)}
 .need-bar-fill{height:100%;border-radius:2px}
 .need-pitch{font-size:11px;color:var(--t2);margin-top:8px;line-height:1.5;border-top:0.5px solid var(--b1);padding-top:8px}
@@ -71,7 +71,7 @@ tr:hover td{background:var(--bg2)}
 .title-link:hover{text-decoration:underline}
 .meta{font-size:10px;color:var(--t3);margin-top:2px}
 .need-pill{font-size:10px;padding:2px 7px;border-radius:8px;white-space:nowrap;display:inline-block}
-.rev-cell{font-weight:500;color:var(--t1);white-space:nowrap}
+.rev-cell{font-weight:500;color:var(--t1);white-space:nowrap;font-variant-numeric:tabular-nums}
 .conv-cell{color:var(--t1)}
 .fmt-cell{font-size:11px}
 .bar-cell{width:80px}
@@ -85,14 +85,14 @@ tr:hover td{background:var(--bg2)}
 .matrix-tbl th,.matrix-tbl td{padding:6px 10px;border:0.5px solid var(--b1);text-align:center}
 .matrix-tbl th{background:var(--bg2);color:var(--t2);font-weight:500}
 .matrix-tbl .row-header{text-align:left;font-weight:500;color:var(--t1);white-space:nowrap}
-.cell-val{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:12px;margin:auto}
+.cell-val{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:12px;margin:auto;font-variant-numeric:tabular-nums}
 
 /* Funnel */
 .funnel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
 .funnel-card{background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--rl);padding:14px 16px}
 .funnel-need{font-size:13px;font-weight:500;margin-bottom:6px}
 .funnel-tier{font-size:10px;padding:3px 9px;border-radius:10px;display:inline-block;margin-bottom:8px}
-.funnel-rev{font-size:20px;font-weight:500;margin-bottom:6px}
+.funnel-rev{font-size:20px;font-weight:500;margin-bottom:6px;font-variant-numeric:tabular-nums}
 .funnel-strategy{font-size:11px;color:var(--t2);line-height:1.5}
 
 /* Filters */

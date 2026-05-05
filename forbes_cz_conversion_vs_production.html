@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forbes.cz – Konverzia vs. Produkcia</title>
 <style>
-@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal}
-@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal}
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
@@ -35,14 +35,14 @@
     --color-border-primary:rgba(255,255,255,0.28);
   }
 }
-body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);min-height:100vh}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);min-height:100vh;font-kerning:normal;font-optical-sizing:auto}
 .page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:1rem 1.5rem 1.25rem}
 .page-nav-inner{max-width:960px;margin:0 auto}
 .page-nav-spacer{height:5.5rem}
 .nav-title{display:flex;align-items:center;gap:6px;margin-bottom:4px}
 .back-btn{display:inline-flex;align-items:center;justify-content:center;color:var(--color-text-tertiary);text-decoration:none;flex-shrink:0;transition:color .15s;padding:2px}
 .back-btn:hover{color:var(--color-text-primary)}
-.page-nav h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif}
+.page-nav h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif;text-wrap:balance}
 .page-nav p{font-size:13px;color:var(--color-text-tertiary);padding-left:30px}
 .wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
@@ -52,7 +52,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin-bottom:.75rem}
 .stats-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
 .stat-card{flex:1;min-width:90px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px}
-.stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums}
 .stat-lbl{font-size:10px;color:var(--color-text-tertiary);margin-top:2px}
 .compare-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .need-label{font-size:12px;color:var(--color-text-secondary);width:175px;flex-shrink:0;text-align:right}
@@ -60,8 +60,8 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .bar-pair-row{display:flex;align-items:center;gap:5px}
 .bar-track{flex:1;height:17px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;position:relative}
 .bar-fill{height:100%;border-radius:3px;transition:width .4s}
-.bar-val{font-size:10px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:30px}
-.delta-badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px;width:62px;text-align:center;flex-shrink:0}
+.bar-val{font-size:10px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:30px;font-variant-numeric:tabular-nums}
+.delta-badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px;width:62px;text-align:center;flex-shrink:0;font-variant-numeric:tabular-nums}
 .delta-pos{background:#eaf3de;color:#3b6d11}
 .delta-neg{background:#fcebeb;color:#a32d2d}
 .delta-neu{background:var(--color-background-secondary);color:var(--color-text-secondary)}
@@ -69,7 +69,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .rev-label{font-size:12px;color:var(--color-text-secondary);width:175px;text-align:right;flex-shrink:0}
 .rev-track{flex:1;height:22px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden}
 .rev-fill{height:100%;border-radius:3px}
-.rev-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:72px}
+.rev-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:72px;font-variant-numeric:tabular-nums}
 .rev-extra{font-size:11px;color:var(--color-text-tertiary);width:110px;flex-shrink:0}
 .insight{background:var(--color-background-secondary);border-left:3px solid var(--color-border-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:10px 14px;font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
 .insight strong{color:var(--color-text-primary)}
@@ -80,7 +80,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 @media(max-width:600px){.fmt-grid{grid-template-columns:repeat(2,1fr)}}
 .fmt-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px}
 .fmt-name{font-size:11px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
-.fmt-n{font-size:22px;font-weight:500}
+.fmt-n{font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
 .fmt-needs{font-size:10px;color:var(--color-text-secondary);margin-top:6px;line-height:1.4}
 .legend-row{display:flex;gap:16px;margin-bottom:1rem;flex-wrap:wrap}
 .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary)}

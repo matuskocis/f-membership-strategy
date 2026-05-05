@@ -39,6 +39,7 @@ tailwind.config = {
          url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
   }
   @font-face {
     font-family: 'ForbesHighlander';
@@ -46,6 +47,7 @@ tailwind.config = {
          url('fonts/ForbesHighlander-Italic-Web.woff') format('woff');
     font-weight: 400;
     font-style: italic;
+    font-display: swap;
   }
   @font-face {
     font-family: 'ForbesHighlander';
@@ -53,6 +55,7 @@ tailwind.config = {
          url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
   }
   @font-face {
     font-family: 'ForbesHighlander';
@@ -60,7 +63,15 @@ tailwind.config = {
          url('fonts/ForbesHighlander-BoldItalic-Web.woff') format('woff');
     font-weight: 700;
     font-style: italic;
+    font-display: swap;
   }
+  /* Typography rendering */
+  body {
+    font-kerning: normal;
+    font-optical-sizing: auto;
+  }
+  h1, h2, h3 { text-wrap: balance; }
+
   /* keep SVG fills responsive to dark mode */
   @media (prefers-color-scheme: dark) {
     .svg-bg { fill: #2a2a28; }
@@ -121,7 +132,7 @@ tailwind.config = {
         <!-- Body -->
         <div class="flex flex-col flex-1 p-5">
           <h2 class="text-lg font-normal font-highlander tracking-tight mb-1.5">User Needs Audit</h2>
-          <p class="text-[12px] leading-relaxed text-ink-600 dark:text-[#a0a098] flex-1">
+          <p class="text-[0.875rem] leading-relaxed text-ink-600 dark:text-[#a0a098] flex-1">
             Distribúcia 11 526 článkov podľa BBC User Needs 2.0. Engagement, decilová analýza a kľúčové zistenia o produkcii vs. výkone.
           </p>
           <div class="flex flex-wrap gap-1.5 mt-4">
@@ -168,7 +179,7 @@ tailwind.config = {
         <!-- Body -->
         <div class="flex flex-col flex-1 p-5">
           <h2 class="text-lg font-normal font-highlander tracking-tight mb-1.5">Konverzia vs. Produkcia</h2>
-          <p class="text-[12px] leading-relaxed text-ink-600 dark:text-[#a0a098] flex-1">
+          <p class="text-[0.875rem] leading-relaxed text-ink-600 dark:text-[#a0a098] flex-1">
             Porovnanie 11 526 článkov (produkcia) s top 100 konverznými článkami. Revenue per need, formáty a strategické závery.
           </p>
           <div class="flex flex-wrap gap-1.5 mt-4">
@@ -232,7 +243,7 @@ tailwind.config = {
         <!-- Body -->
         <div class="flex flex-col flex-1 p-5">
           <h2 class="text-lg font-normal font-highlander tracking-tight mb-1.5">Top 100 Dashboard</h2>
-          <p class="text-[12px] leading-relaxed text-ink-600 dark:text-[#a0a098] flex-1">
+          <p class="text-[0.875rem] leading-relaxed text-ink-600 dark:text-[#a0a098] flex-1">
             Prehľad 100 najkonverznejších článkov. User needs, formátová matica, membership funnel a revenue analýza.
           </p>
           <div class="flex flex-wrap gap-1.5 mt-4">
