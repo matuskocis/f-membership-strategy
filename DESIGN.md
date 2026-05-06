@@ -7,7 +7,7 @@ colors:
   surface: "#F8FAFC"
   dark: "#020617"
   # Accent
-  rose: "#BE123C"
+  rose: "#E11D48"
   rose-tint: "#FFF1F2"
   rose-deep: "#9F1239"
   # Ink scale
@@ -22,16 +22,16 @@ colors:
   dark-text-secondary: "#94A3B8"
   dark-rose: "#FB7185"
   # Data viz (categorical)
-  data-violet: "#7F77DD"
-  data-emerald: "#1D9E75"
-  data-clay: "#D85A30"
-  data-blue: "#378ADD"
-  data-amber: "#BA7517"
-  data-pink: "#D4537E"
+  data-violet: "#a855f7"
+  data-emerald: "#10b981"
+  data-clay: "#f43f5e"
+  data-blue: "#3b82f6"
+  data-amber: "#f59e0b"
+  data-pink: "#ec4899"
 typography:
   display:
     fontFamily: "ForbesHighlander, Georgia, serif"
-    fontSize: "28px"
+    fontSize: "48px"
     fontWeight: 400
     lineHeight: 1.15
   headline:
@@ -40,19 +40,20 @@ typography:
     fontWeight: 400
     lineHeight: 1.2
   body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
-    fontSize: "13px"
+    fontFamily: "Favorit Pro, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    fontSize: "15px"
     fontWeight: 400
     lineHeight: 1.5
   label:
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
-    fontSize: "11px"
+    fontSize: "15px"
     fontWeight: 500
-    letterSpacing: "0.06em"
+    letterSpacing: "0.02em"
 rounded:
   xs: "4px"
   sm: "8px"
-  md: "12px"
+  md: "16px"
+  lg: "24px"
   pill: "20px"
 spacing:
   xs: "4px"
@@ -62,20 +63,20 @@ spacing:
   xl: "40px"
 components:
   tab:
-    backgroundColor: "{colors.surface}"
+    backgroundColor: "transparent"
     textColor: "{colors.ink-secondary}"
-    rounded: "{rounded.pill}"
-    padding: "5px 14px"
+    rounded: "0"
+    padding: "0"
   tab-active:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.dark}"
-    rounded: "{rounded.pill}"
-    padding: "5px 14px"
+    backgroundColor: "transparent"
+    textColor: "{colors.rose}"
+    rounded: "0"
+    padding: "0"
   stat-card:
     backgroundColor: "{colors.white}"
     textColor: "{colors.dark}"
-    rounded: "{rounded.sm}"
-    padding: "8px 12px"
+    rounded: "{rounded.md}"
+    padding: "24px"
   badge-accent:
     backgroundColor: "{colors.rose-tint}"
     textColor: "{colors.rose}"
@@ -92,20 +93,21 @@ components:
 
 ## 1. Overview
 
-**Creative North Star: "The Quiet Authority"**
+**Creative North Star: "The Forbes Data Document"**
 
-The palette is three notes: pure white, near-black, and a single crimson rose. No tonal warmth, no ambient softness — the contrast is the confidence. This is a document that knows what it contains. The Forbes brand is present as structure, not decoration: the Highlander serif in page titles, the 0.5px hairline as the only visual separator.
+The Figma file is the source of truth. The experience is a Forbes-branded data document: a precise editorial home page that leads into dark analytical dashboards. The home page uses a white document canvas, the Forbes wordmark, a 48px Highlander title, large abstract image cards, and understated footer links. Subpages use the same wordmark and footer, then shift into a dark data workspace with underline tabs, large bordered stat cards, horizontal bar analysis, and dense tables.
 
-The accent rose is used like a highlighter on a printed report. It marks one thing at a time. Its rarity is the point. When rose appears, readers stop.
+The accent rose is used for the active tab indicator and rare priority focus. It marks navigation state more than decoration.
 
-This system rejects everything performative: no gradient fills, no shadow theatrics, no BI-tool color coding that turns a dashboard into a rainbow. The design serves professional readers who want to get in, understand, and decide. Every visual element either aids comprehension or is removed.
+This system is restrained, but not as austere as the previous version. The home cards intentionally use 24px radii, abstract color imagery, translucent labels, and card elevation from Figma. The dashboard pages remain flat and analytical: borders, slate tracks, colored bars, and compact tabular structure.
 
 **Key Characteristics:**
-- Extreme tonal contrast (pure white / near-black) with a single warm accent
-- Flat surfaces separated by 0.5px hairlines, not shadows or backgrounds
-- ForbesHighlander at 28px/400 weight as the only display voice
-- System sans at 11–13px for all data, labels, and body
-- Dark mode built on the same near-black as the light mode text
+- Figma-first 1200px document frame with 45px page gutters on desktop
+- ForbesHighlander 48px/400 for the home title; Forbes wordmark in every header
+- Favorit Pro body type in Figma; production must load the licensed web font or fall back cleanly
+- Dark dashboard subpages on `#020617` with `#334155` dividers and tracks
+- Rose `#E11D48` active tab text and underline
+- Home cards: 350 × 373px, 24px radius, abstract image, translucent 9px label chip, Figma card shadow
 
 ## 2. Colors: The Three-Note Palette
 
@@ -141,12 +143,12 @@ Dark mode is built from the near-black DNA of the light mode text color. The two
 ### Data Viz (Categorical)
 Six categorical colors for chart series and user-need segments. These are fixed assignments — each color maps to a content category across all dashboards. They are never used for UI chrome.
 
-- **Violet** (`#7F77DD`): Default first series.
-- **Emerald** (`#1D9E75`): Second series.
-- **Clay** (`#D85A30`): Third series.
-- **Blue** (`#378ADD`): Fourth series.
-- **Amber** (`#BA7517`): Fifth series.
-- **Pink** (`#D4537E`): Sixth series.
+- **Violet** (`#a855f7`): Default first series.
+- **Emerald** (`#10b981`): Second series.
+- **Clay** (`#f43f5e`): Third series.
+- **Blue** (`#3b82f6`): Fourth series.
+- **Amber** (`#f59e0b`): Fifth series.
+- **Pink** (`#ec4899`): Sixth series.
 
 Each data color has a corresponding light tint (~10% opacity) for background fills and heatmap cells.
 
@@ -158,60 +160,60 @@ Each data color has a corresponding light tint (~10% opacity) for background fil
 ## 3. Typography
 
 **Display Font:** ForbesHighlander (with Georgia, serif fallback)
-**Body Font:** System UI stack (–apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif)
+**Body Font:** Favorit Pro in Figma and production when licensed files are available. Fallback: system UI stack (–apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif).
 
 **Character:** The pairing is deliberately unresolved — a licensed editorial serif for titles only, then immediately handing off to the reader's native system font. Nothing decorative in the body. The Highlander carries identity; the sans carries information.
 
 ### Hierarchy
-- **Display** (400 weight, 28px, line-height 1.15): Page and dashboard titles only. Set in ForbesHighlander at regular weight — not bold. The Highlander's weight is its authority; bold defeats the serif's natural authority.
-- **Headline** (400 weight, 22–20px, line-height 1.2): Section titles and large stat numbers. ForbesHighlander for section headings; system 500 weight for numeric stat values.
-- **Body** (400 weight, 13px, line-height 1.5): Table titles, article names, descriptions. System sans.
-- **Label** (500 weight, 11px, letter-spacing 0.06em, uppercase): Section dividers, column headers, category markers. Uppercase system sans. Max line length 65ch.
+- **Display** (400 weight, 48px, line-height 1.125): Home page title only. Set in ForbesHighlander at regular weight.
+- **Subtitle** (400 weight, 32px, line-height 1.24): Home page supporting line. Favorit Pro/system sans.
+- **Dashboard Metrics** (700 weight, 32px, line-height 1.2, letter-spacing 0.64px): Stat numbers on analytical pages.
+- **Body** (400 weight, 15px, line-height 1.2, letter-spacing 0.3px): Navigation breadcrumbs, tabs, chart labels, descriptions, footer links, table text.
+- **Section Title** (700 weight, 15px, line-height 1.2): Chart and analysis group headings. No uppercase transform.
 - **Micro** (400–500 weight, 10px): Timestamps, footnotes, metadata. Never below 10px.
 
 ### Named Rules
 **The Regular-Weight Rule.** ForbesHighlander display is always 400 weight. Bold Highlander is available but forbidden in these dashboards — it overpowers the data and tips into marketing register.
 
-**The System Sans Rule.** No Google Fonts, no web-loaded secondary faces. All non-display text uses the system UI stack. This keeps the dashboards fast, legible at small sizes, and indifferent to network conditions.
+**The Favorit Dependency Rule.** Figma uses Favorit Pro for all non-display text. Production should add licensed `Favorit Pro` web font files locally. Until then, use the system UI stack as the fallback; do not reintroduce Google Inter.
 
 ## 4. Elevation
 
-This system is flat by default. There are no `box-shadow` values in the component vocabulary. Depth is conveyed entirely through tonal layering: the page sits on `surface` (#F8FAFC), cards sit on `white` (#FFFFFF), and separating hairlines are 0.5px at `border-subtle` opacity.
+Dashboard surfaces are flat by default. The analytical pages use tonal layering and borders: the page sits on `dark` (#020617), cards sit on the same dark surface, and separating hairlines use `#334155`.
 
-In dark mode the same logic inverts: the page sits on `dark` (#020617), panels on `dark-surface` (#0F172A), elevated elements (sticky nav, selected rows) on `dark-raised` (#1E293B).
+The home page is the exception because Figma explicitly uses elevated image cards and a document-level shadow. Home cards use the Figma elevation stack: `0 10px 10px -5px rgba(0,0,0,.04), 0 20px 25px -5px rgba(0,0,0,.10)`. Do not apply this card shadow to dashboard tables, stat cards, or charts.
 
 ### Named Rules
-**The No-Shadow Rule.** Shadows are prohibited. A card does not receive a shadow on hover. A modal does not receive a drop shadow. Depth is tonal or it is nothing. If you find yourself reaching for `box-shadow`, use a border or a background shift instead.
+**The Shadow Scope Rule.** Shadows are allowed only where Figma specifies them: the home page document frame and home image cards. Dashboard components remain border-only.
 
 ## 5. Components
 
 All components are measured and direct. State changes are acknowledged with the minimum viable signal: a border shift, a background change, a color swap. No transitions longer than 150ms. No scale transforms. No movement beyond opacity.
 
-### Tabs / Filter Pills
-The primary interactive element across all dashboards. Pills with full-radius borders.
+### Tabs
+The primary interactive element across all dashboards. Figma uses full-width underline tabs, not pills.
 
-- **Shape:** 20px radius (full pill)
-- **Inactive:** `surface` background, `border` border (0.5px), `ink-secondary` text, 12px font
-- **Active:** `white` background, `dark` border (0.5px), `dark` text, 500 weight
-- **Hover:** border shifts to `ink-tertiary`; 150ms transition on all properties
-- **Sizing:** `5px 14px` padding. Font 12px system sans.
+- **Container:** 64px height, full-width, sticky, bottom border `#334155`
+- **Inactive:** transparent background, no border, `#CBD5E1` text, 15px font
+- **Active:** rose `#E11D48` text and 1px underline
+- **Spacing:** 24px between tabs; no pill padding or rounded shape
 
 ### Stat Cards
 Summary metrics. Compact, flat, no hierarchy within the card beyond number → label.
 
-- **Shape:** 8px radius
-- **Background:** `white`
-- **Border:** 0.5px `border-subtle`
-- **Number:** 20–22px, 500 weight, `dark`
-- **Label:** 10px, `ink-tertiary`
-- **Padding:** `8px 12px`
+- **Shape:** 16px radius
+- **Background:** `#020617` on dark dashboards
+- **Border:** 1px `#334155`
+- **Number:** 32px, 700 weight, `white`
+- **Label:** 15px, `#CBD5E1`
+- **Padding:** `24px`
 
-### Section Labels
+### Section Titles
 Structural dividers that title groups of content. Never clickable.
 
-- **Style:** 11px system sans, 500 weight, uppercase, letter-spacing 0.06em, `ink-tertiary`
+- **Style:** 15px Favorit/system sans, 700 weight, no uppercase transform, `white`
 - **Margin below:** 12px before the content it labels
-- No border, no background, no decoration
+- Sections are separated with 1px `#334155` rules where Figma shows dividers.
 
 ### Badges / Tier Pills
 Small inline labels on data items. Two variants only.
@@ -251,7 +253,7 @@ Sortable ranked lists. The primary display surface for article and conversion da
 - **Do** use 0.5px borders throughout. `border-subtle` (#E2E8F0) for resting states, `border` (#CBD5E1) for interactive elements, `dark` (#020617) for active/selected states.
 - **Do** keep ForbesHighlander at 400 weight in dashboards. Regular weight only.
 - **Do** switch the rose accent to `#FB7185` in dark mode. The base rose fails contrast on `#0F172A` and `#020617` surfaces.
-- **Do** use the categorical data colors (#7F77DD, #1D9E75, #D85A30, #378ADD, #BA7517, #D4537E) only for chart series. They are data, not UI.
+- **Do** use the categorical data colors (#a855f7, #10b981, #f43f5e, #3b82f6, #f59e0b, #ec4899) only for chart series. They are data, not UI.
 - **Do** label all bar chart values outside the fill, colored to match the bar's data color.
 - **Do** keep section labels uppercase at 11px with 0.06em letter-spacing. This is the only instance of uppercase text in the system.
 - **Do** limit body line length to 65ch for any prose or descriptive text.
@@ -264,5 +266,5 @@ Sortable ranked lists. The primary display surface for article and conversion da
 - **Don't** use gradient text or `background-clip: text`. All text is a single solid color.
 - **Don't** introduce warm neutrals (sand, beige, warm gray). The neutral scale is cool slate. Warm tones read as a different brand identity.
 - **Don't** use more than one rose element in the same visual region. Two rose accents cancel each other.
-- **Don't** use the categorical data colors (#7F77DD etc.) for UI states, badges, or navigation. They are reserved for chart series meaning.
+- **Don't** use the categorical data colors (#a855f7 etc.) for UI states, badges, or navigation. They are reserved for chart series meaning.
 - **Don't** load additional web fonts. System sans for all body and label text.

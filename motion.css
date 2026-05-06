@@ -1,0 +1,114 @@
+@view-transition{navigation:auto}
+
+.site-header,.page-nav,.header{
+  view-transition-name:app-header;
+}
+.footer,.dashboard-footer{
+  view-transition-name:app-footer;
+}
+.page-main,.wrap,.main{
+  view-transition-name:app-content;
+  animation:content-enter 220ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body.is-route-loading .page-main,
+body.is-route-loading .wrap,
+body.is-route-loading .main{
+  opacity:.35;
+  transform:translateY(4px);
+  pointer-events:none;
+  transition:opacity 160ms cubic-bezier(.2,.8,.2,1),transform 160ms cubic-bezier(.2,.8,.2,1);
+}
+
+[id^="tab-"]{
+  transition:opacity 180ms cubic-bezier(.2,.8,.2,1),transform 180ms cubic-bezier(.2,.8,.2,1);
+}
+.tab-panel-leave,
+.tab-panel-enter{
+  opacity:0!important;
+  transform:translateY(4px);
+  pointer-events:none;
+}
+.tab-panel-active{
+  opacity:1!important;
+  transform:translateY(0);
+}
+
+.card-item,
+.stat-card,.stat,
+.section,
+.fmt-card,.need-card,.funnel-card,
+.insight,.note{
+  animation:item-enter 260ms cubic-bezier(.2,.8,.2,1) both;
+}
+.card-item:nth-child(2),
+.stat-card:nth-child(2),
+.stat:nth-child(2){animation-delay:35ms}
+.card-item:nth-child(3),
+.stat-card:nth-child(3),
+.stat:nth-child(3){animation-delay:70ms}
+.stat-card:nth-child(4),
+.stat:nth-child(4){animation-delay:105ms}
+
+.bar-fill,
+.rev-fill,
+.need-bar-fill,
+.mini-bar-fill{
+  transform-origin:left center;
+  animation:bar-enter 520ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+::view-transition-old(app-content){
+  animation:content-exit 160ms cubic-bezier(.2,.8,.2,1) both;
+}
+::view-transition-new(app-content){
+  animation:content-enter 220ms cubic-bezier(.2,.8,.2,1) both;
+}
+::view-transition-old(app-header),
+::view-transition-new(app-header),
+::view-transition-old(app-footer),
+::view-transition-new(app-footer){
+  animation-duration:1ms;
+}
+
+@keyframes content-enter{
+  from{opacity:0;transform:translateY(6px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes content-exit{
+  from{opacity:1;transform:translateY(0)}
+  to{opacity:0;transform:translateY(4px)}
+}
+@keyframes item-enter{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes bar-enter{
+  from{transform:scaleX(0)}
+  to{transform:scaleX(1)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .page-main,.wrap,.main{animation:none}
+  .card-item,
+  .stat-card,.stat,
+  .section,
+  .fmt-card,.need-card,.funnel-card,
+  .insight,.note,
+  .bar-fill,.rev-fill,.need-bar-fill,.mini-bar-fill{animation:none}
+  body.is-route-loading .page-main,
+  body.is-route-loading .wrap,
+  body.is-route-loading .main,
+  [id^="tab-"]{
+    transition:none!important;
+    transform:none!important;
+  }
+  ::view-transition-old(app-content),
+  ::view-transition-new(app-content),
+  ::view-transition-old(app-header),
+  ::view-transition-new(app-header),
+  ::view-transition-old(app-footer),
+  ::view-transition-new(app-footer){
+    animation:none;
+  }
+}

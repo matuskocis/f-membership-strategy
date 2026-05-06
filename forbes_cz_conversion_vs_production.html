@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="sk" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Conversion vs. production analysis: comparing 11,526 Forbes.cz articles against top converting content by user need, format, and revenue.">
 <link rel="preload" as="font" type="font/woff2" href="fonts/ForbesHighlander-Regular-Web.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Book.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Bold.woff2" crossorigin>
+<link rel="stylesheet" href="fonts/favorit.css">
 <title>Forbes.cz – Konverzia vs. Produkcia</title>
+<script>(function(){var saved=localStorage.getItem('theme');document.documentElement.dataset.theme=saved||document.documentElement.dataset.theme||'dark';})();</script>
 <style>
 @font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
@@ -102,17 +106,20 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   .back-btn:focus-visible{outline-color:#FB7185}
 }
 </style>
+<link rel="stylesheet" href="figma-design.css">
+<link rel="stylesheet" href="motion.css">
 </head>
 <body>
 <div class="page-nav">
   <div class="page-nav-inner">
-    <div class="nav-title">
-      <a class="back-btn" href="index.html" aria-label="Späť">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </a>
-      <h1>Forbes.cz – Konverzia vs. Produkcia</h1>
+    <div class="nav-title" aria-label="Forbes.cz">
+      <a class="brand-logo" href="index.html" aria-label="Forbes Česko home"><img src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
+      <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </div>
-    <p>Porovnanie: 11 526 článkov (produkcia) vs. Top 100 konverzných článkov · BBC User Needs 2.0</p>
+    <p class="breadcrumb"><a href="index.html">Membership Strategy</a> / Konverzia vs. Produkcia</p>
   </div>
 </div>
 <div class="page-nav-spacer"></div>
@@ -136,8 +143,8 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <div class="section">
   <div class="section-label">Podiel na produkcii vs. podiel v top 100 konverzných článkoch — delta ukazuje kde je výroba neúmerná výsledkom</div>
   <div class="legend-row">
-    <div class="legend-item"><div class="leg-rect" style="background:#7F77DD"></div>Produkcia (% všetkých 11 526 čl.)</div>
-    <div class="legend-item"><div class="leg-rect" style="background:#1D9E75"></div>Konverzia (% z top 100 konverzných)</div>
+    <div class="legend-item"><div class="leg-rect" style="background:#a855f7"></div>Produkcia (% všetkých 11 526 čl.)</div>
+    <div class="legend-item"><div class="leg-rect" style="background:#10b981"></div>Konverzia (% z top 100 konverzných)</div>
   </div>
   <div id="compare-bars"></div>
 </div>
@@ -198,46 +205,57 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 
 </div>
 
+<footer class="dashboard-footer">
+  <span>Copyright &copy; 2026 MediaRey, SE</span>
+  <nav aria-label="Social links">
+    <a href="#">Facebook</a>
+    <a href="#">X</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Instagram</a>
+    <a href="#">YouTube</a>
+  </nav>
+</footer>
+
 <script>
 const needs=[
-  {label:'Inspire me',         prod:13.1,conv:32.0,color:'#1D9E75'},
-  {label:'Amuse/Divert me',    prod:0.3, conv:15.0,color:'#BA7517'},
-  {label:'Help me',            prod:7.4, conv:14.0,color:'#D85A30'},
-  {label:'Update me',          prod:7.9, conv:14.0,color:'#378ADD'},
-  {label:'Give me perspective',prod:64.3,conv:9.0, color:'#7F77DD'},
-  {label:'Educate me',         prod:2.9, conv:7.0, color:'#D4537E'},
-  {label:'Keep me on trend',   prod:3.9, conv:6.0, color:'#888780'},
-  {label:'Connect me',         prod:0.1, conv:3.0, color:'#5DCAA5'},
+  {label:'Inspire me',         prod:13.1,conv:32.0,color:'#10b981'},
+  {label:'Amuse/Divert me',    prod:0.3, conv:15.0,color:'#f59e0b'},
+  {label:'Help me',            prod:7.4, conv:14.0,color:'#f43f5e'},
+  {label:'Update me',          prod:7.9, conv:14.0,color:'#3b82f6'},
+  {label:'Give me perspective',prod:64.3,conv:9.0, color:'#a855f7'},
+  {label:'Educate me',         prod:2.9, conv:7.0, color:'#ec4899'},
+  {label:'Keep me on trend',   prod:3.9, conv:6.0, color:'#64748b'},
+  {label:'Connect me',         prod:0.1, conv:3.0, color:'#14b8a6'},
 ];
 const revData=[
-  {label:'Inspire me',         total:326260,per:10195,conv:8.0, color:'#1D9E75'},
-  {label:'Help me',            total:131041,per:9360, conv:8.0, color:'#D85A30'},
-  {label:'Amuse/Divert me',    total:125011,per:8334, conv:6.0, color:'#BA7517'},
-  {label:'Update me',          total:94922, per:6780, conv:5.0, color:'#378ADD'},
-  {label:'Connect me',         total:73265, per:24421,conv:13.0,color:'#5DCAA5'},
-  {label:'Educate me',         total:64006, per:9143, conv:7.0, color:'#D4537E'},
-  {label:'Give me perspective',total:55148, per:6127, conv:5.0, color:'#7F77DD'},
-  {label:'Keep me on trend',   total:41254, per:6875, conv:4.0, color:'#888780'},
+  {label:'Inspire me',         total:326260,per:10195,conv:8.0, color:'#10b981'},
+  {label:'Help me',            total:131041,per:9360, conv:8.0, color:'#f43f5e'},
+  {label:'Amuse/Divert me',    total:125011,per:8334, conv:6.0, color:'#f59e0b'},
+  {label:'Update me',          total:94922, per:6780, conv:5.0, color:'#3b82f6'},
+  {label:'Connect me',         total:73265, per:24421,conv:13.0,color:'#14b8a6'},
+  {label:'Educate me',         total:64006, per:9143, conv:7.0, color:'#ec4899'},
+  {label:'Give me perspective',total:55148, per:6127, conv:5.0, color:'#a855f7'},
+  {label:'Keep me on trend',   total:41254, per:6875, conv:4.0, color:'#64748b'},
 ];
 const fmtData=[
-  {name:'Feature/Reportáž',n:30,needs:'Inspire me, Help me, Amuse',color:'#1D9E75'},
-  {name:'Rozhovor',         n:19,needs:'Inspire me, Give me perspective',color:'#7F77DD'},
-  {name:'Profil',           n:16,needs:'Inspire me (100%)',color:'#1D9E75'},
-  {name:'How-to/Návod',     n:12,needs:'Help me, Educate me, Amuse',color:'#D85A30'},
-  {name:'Správa/Novinka',   n:9, needs:'Update me (100%)',color:'#378ADD'},
-  {name:'Zoznam/List',      n:6, needs:'Rôzne',color:'#888780'},
-  {name:'Investigácia',     n:4, needs:'Give me perspective',color:'#7F77DD'},
-  {name:'Event/Výber',      n:4, needs:'Connect me, Amuse',color:'#5DCAA5'},
+  {name:'Feature/Reportáž',n:30,needs:'Inspire me, Help me, Amuse',color:'#10b981'},
+  {name:'Rozhovor',         n:19,needs:'Inspire me, Give me perspective',color:'#a855f7'},
+  {name:'Profil',           n:16,needs:'Inspire me (100%)',color:'#10b981'},
+  {name:'How-to/Návod',     n:12,needs:'Help me, Educate me, Amuse',color:'#f43f5e'},
+  {name:'Správa/Novinka',   n:9, needs:'Update me (100%)',color:'#3b82f6'},
+  {name:'Zoznam/List',      n:6, needs:'Rôzne',color:'#64748b'},
+  {name:'Investigácia',     n:4, needs:'Give me perspective',color:'#a855f7'},
+  {name:'Event/Výber',      n:4, needs:'Connect me, Amuse',color:'#14b8a6'},
 ];
 const wcData=[
-  {label:'Connect me',         words:2598,color:'#5DCAA5'},
-  {label:'Give me perspective',words:1127,color:'#7F77DD'},
-  {label:'Educate me',         words:1055,color:'#D4537E'},
-  {label:'Amuse/Divert me',    words:994, color:'#BA7517'},
-  {label:'Inspire me',         words:950, color:'#1D9E75'},
-  {label:'Keep me on trend',   words:881, color:'#888780'},
-  {label:'Help me',            words:688, color:'#D85A30'},
-  {label:'Update me',          words:674, color:'#378ADD'},
+  {label:'Connect me',         words:2598,color:'#14b8a6'},
+  {label:'Give me perspective',words:1127,color:'#a855f7'},
+  {label:'Educate me',         words:1055,color:'#ec4899'},
+  {label:'Amuse/Divert me',    words:994, color:'#f59e0b'},
+  {label:'Inspire me',         words:950, color:'#10b981'},
+  {label:'Keep me on trend',   words:881, color:'#64748b'},
+  {label:'Help me',            words:688, color:'#f43f5e'},
+  {label:'Update me',          words:674, color:'#3b82f6'},
 ];
 
 // Compare bars
@@ -251,8 +269,8 @@ needs.forEach(n=>{
     <div class="need-label">${n.label}</div>
     <div class="bars-pair">
       <div class="bar-pair-row">
-        <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.prod,maxScale)/maxScale*100}%;background:#7F77DD"></div></div>
-        <span class="bar-val" style="color:#7F77DD">${n.prod}%</span>
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.prod,maxScale)/maxScale*100}%;background:#a855f7"></div></div>
+        <span class="bar-val" style="color:#a855f7">${n.prod}%</span>
       </div>
       <div class="bar-pair-row">
         <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.conv,maxScale)/maxScale*100}%;background:${n.color}"></div></div>
@@ -314,6 +332,10 @@ var _curTab='gap';
 function showTab(t){
   var ids=['gap','revenue','format','insights'];
   if(_curTab===t)return;
+  if(window.switchDashboardTab){
+    _curTab=window.switchDashboardTab({current:_curTab,next:t,ids:ids});
+    return;
+  }
   var noAnim=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(noAnim){
     ids.forEach(function(id){document.getElementById('tab-'+id).style.display=id===t?'block':'none';});
@@ -344,5 +366,6 @@ function showTab(t){
   document.fonts.ready.then(sync);
 })();
 </script>
+<script src="theme.js"></script>
 </body>
 </html>

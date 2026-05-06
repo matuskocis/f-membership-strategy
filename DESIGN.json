@@ -19,12 +19,12 @@
       "dark-text":         { "role": "neutral",  "displayName": "Dark Text Primary", "canonical": "#F8FAFC",   "tonalRamp": ["#020617","#0F172A","#1E293B","#334155","#475569","#64748B","#94A3B8","#F8FAFC"] },
       "dark-text-secondary":{ "role": "neutral", "displayName": "Dark Text Secondary","canonical": "#94A3B8",  "tonalRamp": ["#020617","#0F172A","#334155","#475569","#64748B","#94A3B8","#CBD5E1","#F1F5F9"] },
       "dark-rose":         { "role": "secondary","displayName": "Dark Mode Rose",    "canonical": "#FB7185",   "tonalRamp": ["#3D0510","#6B0A1C","#BE123C","#E02050","#F06080","#FB7185","#F8A0B8","#FDE0EA"] },
-      "data-violet":       { "role": "tertiary", "displayName": "Violet",            "canonical": "#7F77DD",   "tonalRamp": ["#1C1663","#2E2599","#5046C8","#7F77DD","#A9A4EC","#C8C4F4","#E5E3FA","#F3F2FE"] },
-      "data-emerald":      { "role": "tertiary", "displayName": "Emerald",           "canonical": "#1D9E75",   "tonalRamp": ["#062E20","#085041","#0C6B54","#1D9E75","#5DCAA5","#8FDCC0","#C0EEE0","#E1F5EE"] },
-      "data-clay":         { "role": "tertiary", "displayName": "Clay",              "canonical": "#D85A30",   "tonalRamp": ["#4A1508","#7B2310","#A83A1E","#D85A30","#E88560","#F0A888","#F7CCB8","#FAECE7"] },
-      "data-blue":         { "role": "tertiary", "displayName": "Blue",              "canonical": "#378ADD",   "tonalRamp": ["#0C2A52","#0C447C","#1A5FA0","#378ADD","#6AAEE8","#97CBF2","#C5E3F8","#E6F1FB"] },
-      "data-amber":        { "role": "tertiary", "displayName": "Amber",             "canonical": "#BA7517",   "tonalRamp": ["#3A2005","#6B3D08","#8F5510","#BA7517","#D9A045","#ECC278","#F5DCAA","#FAEEDA"] },
-      "data-pink":         { "role": "tertiary", "displayName": "Pink",              "canonical": "#D4537E",   "tonalRamp": ["#410A22","#771535","#A62859","#D4537E","#E587A5","#F0B0C5","#F8D5E2","#FBEAF0"] }
+      "data-violet":       { "role": "tertiary", "displayName": "Violet",            "canonical": "#a855f7",   "tonalRamp": ["#1C1663","#2E2599","#5046C8","#a855f7","#A9A4EC","#C8C4F4","#E5E3FA","#F3F2FE"] },
+      "data-emerald":      { "role": "tertiary", "displayName": "Emerald",           "canonical": "#10b981",   "tonalRamp": ["#062E20","#085041","#0C6B54","#10b981","#14b8a6","#8FDCC0","#C0EEE0","#E1F5EE"] },
+      "data-clay":         { "role": "tertiary", "displayName": "Clay",              "canonical": "#f43f5e",   "tonalRamp": ["#4A1508","#7B2310","#A83A1E","#f43f5e","#E88560","#F0A888","#F7CCB8","#FAECE7"] },
+      "data-blue":         { "role": "tertiary", "displayName": "Blue",              "canonical": "#3b82f6",   "tonalRamp": ["#0C2A52","#0C447C","#1A5FA0","#3b82f6","#6AAEE8","#97CBF2","#C5E3F8","#E6F1FB"] },
+      "data-amber":        { "role": "tertiary", "displayName": "Amber",             "canonical": "#f59e0b",   "tonalRamp": ["#3A2005","#6B3D08","#8F5510","#f59e0b","#D9A045","#ECC278","#F5DCAA","#FAEEDA"] },
+      "data-pink":         { "role": "tertiary", "displayName": "Pink",              "canonical": "#ec4899",   "tonalRamp": ["#410A22","#771535","#A62859","#ec4899","#E587A5","#F0B0C5","#F8D5E2","#FBEAF0"] }
     },
     "typographyMeta": {
       "display":  { "displayName": "Display",  "purpose": "Page and dashboard titles. ForbesHighlander 400 only — never bold." },
@@ -135,7 +135,7 @@
       "Don't use gradient text or background-clip: text. All text is a single solid color.",
       "Don't introduce warm neutrals — sand, beige, warm gray. The neutral scale is cool slate.",
       "Don't use more than one rose element in the same visual region.",
-      "Don't use the categorical data colors (#7F77DD, #1D9E75, etc.) for UI states, badges, or navigation.",
+      "Don't use the categorical data colors (#a855f7, #10b981, etc.) for UI states, badges, or navigation.",
       "Don't load additional web fonts. System sans for all body and label text."
     ]
   }

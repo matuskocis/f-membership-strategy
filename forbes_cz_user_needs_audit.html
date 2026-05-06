@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="sk" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="User needs audit: distribution of 11,526 Forbes.cz articles across BBC User Needs 2.0 categories, with engagement and decile analysis.">
 <link rel="preload" as="font" type="font/woff2" href="fonts/ForbesHighlander-Regular-Web.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Book.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Bold.woff2" crossorigin>
+<link rel="stylesheet" href="fonts/favorit.css">
 <title>Forbes.cz – User Needs Audit</title>
+<script>(function(){var saved=localStorage.getItem('theme');document.documentElement.dataset.theme=saved||document.documentElement.dataset.theme||'dark';})();</script>
 <style>
 @font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
@@ -91,17 +95,20 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   .back-btn:focus-visible{outline-color:#FB7185}
 }
 </style>
+<link rel="stylesheet" href="figma-design.css">
+<link rel="stylesheet" href="motion.css">
 </head>
 <body>
 <div class="page-nav">
   <div class="page-nav-inner">
-    <div class="nav-title">
-      <a class="back-btn" href="index.html" aria-label="Späť">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </a>
-      <h1>Forbes.cz – User Needs Audit</h1>
+    <div class="nav-title" aria-label="Forbes.cz">
+      <a class="brand-logo" href="index.html" aria-label="Forbes Česko home"><img src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
+      <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </div>
-    <p>11 526 článkov za posledný rok · BBC User Needs 2.0 · 27,9M pageviews</p>
+    <p class="breadcrumb"><a href="index.html">Membership Strategy</a> / User Needs Audit</p>
   </div>
 </div>
 <div class="page-nav-spacer"></div>
@@ -123,12 +130,12 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl">user needs kategórií</div></div>
 </div>
 <div class="legend-row">
-  <div class="legend-item"><div class="leg-dot" style="background:#7F77DD"></div>Give me perspective</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#1D9E75"></div>Inspire me</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#D85A30"></div>Help me</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#378ADD"></div>Update me</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#BA7517"></div>Keep me engaged</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#D4537E"></div>Educate me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#a855f7"></div>Give me perspective</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#10b981"></div>Inspire me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#f43f5e"></div>Help me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#3b82f6"></div>Update me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#f59e0b"></div>Keep me engaged</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#ec4899"></div>Educate me</div>
 </div>
 <div class="section">
   <div class="section-label">Počet článkov — všetky (n=11 526)</div>
@@ -189,16 +196,27 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 
 </div>
 
+<footer class="dashboard-footer">
+  <span>Copyright &copy; 2026 MediaRey, SE</span>
+  <nav aria-label="Social links">
+    <a href="#">Facebook</a>
+    <a href="#">X</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Instagram</a>
+    <a href="#">YouTube</a>
+  </nav>
+</footer>
+
 <script>
 const needs=[
-  {label:'Give me perspective',cls:'gmp',color:'#7F77DD'},
-  {label:'Inspire me',         cls:'ins',color:'#1D9E75'},
-  {label:'Help me',            cls:'hlp',color:'#D85A30'},
-  {label:'Update me',          cls:'upd',color:'#378ADD'},
-  {label:'Keep me engaged',    cls:'kme',color:'#BA7517'},
-  {label:'Educate me',         cls:'edu',color:'#D4537E'},
-  {label:'Divert me',          cls:'div',color:'#888780'},
-  {label:'Connect me',         cls:'con',color:'#B4B2A9'},
+  {label:'Give me perspective',cls:'gmp',color:'#a855f7'},
+  {label:'Inspire me',         cls:'ins',color:'#10b981'},
+  {label:'Help me',            cls:'hlp',color:'#f43f5e'},
+  {label:'Update me',          cls:'upd',color:'#3b82f6'},
+  {label:'Keep me engaged',    cls:'kme',color:'#f59e0b'},
+  {label:'Educate me',         cls:'edu',color:'#ec4899'},
+  {label:'Divert me',          cls:'div',color:'#64748b'},
+  {label:'Connect me',         cls:'con',color:'#94a3b8'},
 ];
 const data={
   all:   [64.3,13.1,7.4,7.9,3.9,2.9,0.3,0.1],
@@ -265,6 +283,10 @@ var _curTab='dist';
 function showTab(t){
   var ids=['dist','engagement','decile','insights'];
   if(_curTab===t)return;
+  if(window.switchDashboardTab){
+    _curTab=window.switchDashboardTab({current:_curTab,next:t,ids:ids});
+    return;
+  }
   var noAnim=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(noAnim){
     ids.forEach(function(id){document.getElementById('tab-'+id).style.display=id===t?'block':'none';});
@@ -295,5 +317,6 @@ function showTab(t){
   document.fonts.ready.then(sync);
 })();
 </script>
+<script src="theme.js"></script>
 </body>
 </html>
