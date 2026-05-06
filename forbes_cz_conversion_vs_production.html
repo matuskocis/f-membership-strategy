@@ -328,10 +328,12 @@ wcData.forEach(n=>{
   </div>`;
 });
 
-var _curTab='gap';
-function showTab(t){
+var _curTab=null;
+function showTab(t,skipHash){
   var ids=['gap','revenue','format','insights'];
+  if(!ids.includes(t))t='gap';
   if(_curTab===t)return;
+  if(!skipHash)history.replaceState(null,'','#'+t);
   if(window.switchDashboardTab){
     _curTab=window.switchDashboardTab({current:_curTab,next:t,ids:ids});
     return;
@@ -355,6 +357,15 @@ function showTab(t){
   }
   document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',ids[i]===t);});
 }
+(function(){
+  var ids=['gap','revenue','format','insights'];
+  var hash=location.hash.replace('#','');
+  showTab(ids.includes(hash)?hash:'gap',true);
+  window.addEventListener('hashchange',function(){
+    var h=location.hash.replace('#','');
+    showTab(ids.includes(h)?h:'gap',true);
+  });
+})();
 </script>
 <script>
 (function(){
