@@ -73,8 +73,12 @@ body{
   line-height:1.2!important;
   letter-spacing:.3px;
   min-height:100vh;
+  display:flex;
+  flex-direction:column;
   -webkit-font-smoothing:antialiased;
 }
+.wrap,.main{flex:1 0 auto}
+.dashboard-footer{flex-shrink:0}
 
 .page-nav,.header{
   position:static!important;
