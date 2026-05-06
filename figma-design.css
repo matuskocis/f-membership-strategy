@@ -580,15 +580,16 @@ tr:hover td{background:rgba(255,255,255,.04)!important}
 .top100-page .matrix-tbl th{
   white-space:nowrap;
   text-align:center!important;
+  position:static!important;
 }
 .top100-page .matrix-tbl tr:first-child th,
-.top100-page .matrix-tbl tr:first-child td{border-top:none}
+.top100-page .matrix-tbl tr:first-child td{border-top:none!important}
 .top100-page .matrix-tbl tr:last-child th,
-.top100-page .matrix-tbl tr:last-child td{border-bottom:none}
+.top100-page .matrix-tbl tr:last-child td{border-bottom:none!important}
 .top100-page .matrix-tbl th:first-child,
-.top100-page .matrix-tbl td:first-child{border-left:none}
+.top100-page .matrix-tbl td:first-child{border-left:none!important}
 .top100-page .matrix-tbl th:last-child,
-.top100-page .matrix-tbl td:last-child{border-right:none}
+.top100-page .matrix-tbl td:last-child{border-right:none!important}
 .top100-page .matrix-tbl .row-header{
   display:flex;
   align-items:center;
