@@ -279,10 +279,11 @@ body{
 .section-label,.section-lbl{
   margin-bottom:12px!important;
   color:var(--figma-text)!important;
-  font-size:15px!important;
+  font-family:var(--figma-sans)!important;
+  font-size:20px!important;
   font-weight:700!important;
-  line-height:1.2!important;
-  letter-spacing:.3px!important;
+  line-height:1.25!important;
+  letter-spacing:0!important;
   text-transform:none!important;
 }
 .legend-row{
@@ -646,13 +647,11 @@ tr:hover td{background:rgba(255,255,255,.04)!important}
   gap:24px;
   flex-wrap:wrap;
 }
-.dashboard-footer,.dashboard-footer a{
+.dashboard-footer{
   color:var(--figma-muted);
   font-size:15px;
   text-decoration:none;
 }
-.dashboard-footer nav{display:flex;gap:24px;flex-wrap:wrap}
-.dashboard-footer a:hover{color:var(--figma-text)}
 
 @media(max-width:800px){
   .page-nav-inner,.header-inner,.wrap,.main{padding-left:20px!important;padding-right:20px!important}

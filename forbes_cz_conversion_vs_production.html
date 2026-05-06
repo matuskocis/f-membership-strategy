@@ -58,7 +58,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .tab-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
 .section{margin-bottom:2rem}
 .section--major{margin-bottom:3rem}
-.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin-bottom:.75rem}
+.section-label{font-family:inherit;font-size:20px;font-weight:700;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--color-text-primary);margin-bottom:.75rem}
 .stats-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
 .stat-card{flex:1;min-width:90px;max-width:160px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px}
 .stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums}
@@ -141,7 +141,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   <div class="stat-card"><div class="stat-num">1 435</div><div class="stat-lbl">avg order CZK</div></div>
 </div>
 <div class="section">
-  <div class="section-label">Podiel na produkcii vs. podiel v top 100 konverzných článkoch — delta ukazuje kde je výroba neúmerná výsledkom</div>
+  <h2 class="section-label">Podiel na produkcii vs. podiel v top 100 konverzných článkoch — delta ukazuje kde je výroba neúmerná výsledkom</h2>
   <div class="legend-row">
     <div class="legend-item"><div class="leg-rect" style="background:#5b8cff"></div>Produkcia (% všetkých 11 526 čl.)</div>
     <div class="legend-item"><div class="leg-rect" style="background:#3dd9ff"></div>Konverzia (% z top 100 konverzných)</div>
@@ -153,11 +153,11 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: REVENUE -->
 <div id="tab-revenue" style="display:none">
 <div class="section">
-  <div class="section-label">Celkový revenue per user need (top 100 konverzných článkov)</div>
+  <h2 class="section-label">Celkový revenue per user need (top 100 konverzných článkov)</h2>
   <div id="rev-bars"></div>
 </div>
 <div class="section">
-  <div class="section-label">Revenue na článok — ktorá kategória prináša najviac na jeden článok</div>
+  <h2 class="section-label">Revenue na článok — ktorá kategória prináša najviac na jeden článok</h2>
   <div id="rev-per-article"></div>
 </div>
 </div>
@@ -165,11 +165,11 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: FORMAT -->
 <div id="tab-format" style="display:none">
 <div class="section">
-  <div class="section-label">Formáty v konverzných článkoch (n=100)</div>
+  <h2 class="section-label">Formáty v konverzných článkoch (n=100)</h2>
   <div class="fmt-grid" id="fmt-cards"></div>
 </div>
 <div class="section" style="margin-top:1.5rem">
-  <div class="section-label">Priemerná dĺžka článku per user need (slová)</div>
+  <h2 class="section-label">Priemerná dĺžka článku per user need (slová)</h2>
   <div id="wordcount-bars"></div>
 </div>
 <div class="note">Priemerný konverzný článok má 876 slov a 5 minút čítania. Teasery (&lt;300 slov) tvoria 40–60% konverzných článkov v každej kategórii — paywall hit pri teaser generuje vyšší záujem prejsť cez bránu.</div>
@@ -178,7 +178,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: INSIGHTS -->
 <div id="tab-insights" style="display:none">
 <div class="section">
-  <div class="section-label">Kľúčové zistenia z porovnania produkcia vs. konverzia</div>
+  <h2 class="section-label">Kľúčové zistenia z porovnania produkcia vs. konverzia</h2>
   <div class="insight critical">
     <strong>Give me perspective: masívna overproduction, minimálna konverzia.</strong> Tvorí 64% celej produkcie ale len 9% konverzných článkov a 6% revenue. Na každý konverzný článok v tejto kategórii pripadá ~7× viac produkcie ako zodpovedá výkonu. Toto je najväčší štrukturálny problém obsahu.
   </div>
@@ -207,13 +207,6 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 
 <footer class="dashboard-footer">
   <span>Copyright &copy; 2026 MediaRey, SE</span>
-  <nav aria-label="Social links">
-    <a href="#">Facebook</a>
-    <a href="#">X</a>
-    <a href="#">LinkedIn</a>
-    <a href="#">Instagram</a>
-    <a href="#">YouTube</a>
-  </nav>
 </footer>
 
 <script>

@@ -59,7 +59,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .section{margin-bottom:2rem}
 .section+.section{margin-top:.25rem}
 .section--major{margin-bottom:3rem}
-.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin-bottom:.75rem}
+.section-label{font-family:inherit;font-size:20px;font-weight:700;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--color-text-primary);margin-bottom:.75rem}
 .stats-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
 .stat-card{flex:1;min-width:90px;max-width:160px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px}
 .stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums}
@@ -140,20 +140,20 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   <div class="legend-item"><div class="leg-dot" style="background:#a78bfa"></div>Connect me</div>
 </div>
 <div class="section">
-  <div class="section-label">Počet článkov — všetky (n=11 526)</div>
+  <h2 class="section-label">Počet článkov — všetky (n=11 526)</h2>
   <div id="bars-all"></div>
 </div>
 <div class="section">
-  <div class="section-label">Pageview podiel — weighted by PV</div>
+  <h2 class="section-label">Pageview podiel — weighted by PV</h2>
   <div id="bars-pv"></div>
 </div>
 <div class="grid-2">
   <div class="section">
-    <div class="section-label">Top 100 podľa PV</div>
+    <h2 class="section-label">Top 100 podľa PV</h2>
     <div id="bars-top100"></div>
   </div>
   <div class="section">
-    <div class="section-label">Top 500 podľa PV</div>
+    <h2 class="section-label">Top 500 podľa PV</h2>
     <div id="bars-top500"></div>
   </div>
 </div>
@@ -162,11 +162,11 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: ENGAGEMENT -->
 <div id="tab-engagement" style="display:none">
 <div class="section">
-  <div class="section-label">Priemerné pageviews na článok</div>
+  <h2 class="section-label">Priemerné pageviews na článok</h2>
   <div id="bars-avg"></div>
 </div>
 <div class="section">
-  <div class="section-label">Engagement index — avg PV top100 / avg PV celok — násobiteľ keď článok "vybuchne"</div>
+  <h2 class="section-label">Engagement index — avg PV top100 / avg PV celok — násobiteľ keď článok "vybuchne"</h2>
   <div id="bars-ratio"></div>
 </div>
 <div class="note">Engagement index hovorí: keď článok v kategórii vybuchne, o koľko násobí priemer kategórie. Vysoký index = vysoká variancia — kategória má potenciál viralitu, ale aj veľa slabých článkov.</div>
@@ -175,7 +175,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: DECILE -->
 <div id="tab-decile" style="display:none">
 <div class="section">
-  <div class="section-label">Zastúpenie user needs per decil (D1 = najmenej čítané, D10 = top čítané)</div>
+  <h2 class="section-label">Zastúpenie user needs per decil (D1 = najmenej čítané, D10 = top čítané)</h2>
   <div class="decile-wrap">
     <table class="decile-table" id="decile-tbl"></table>
   </div>
@@ -186,7 +186,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: INSIGHTS -->
 <div id="tab-insights" style="display:none">
 <div class="section">
-  <div class="section-label">Kľúčové zistenia</div>
+  <h2 class="section-label">Kľúčové zistenia</h2>
   <div class="insight"><strong>Give me perspective dominuje produkcii (64%) aj PV (61%).</strong> Forbes.cz je primárne analytický a komentárový médium. Toto je de facto North Star need — ale zároveň riziko: keď je jedna kategória tak dominantná, ťažšie sa identifikujú conversion drivers.</div>
   <div class="insight"><strong>Inspire me je overperformer.</strong> Tvorí 13% článkov, ale 18% PV a 24% z top 100. Priemerný výkon (3 394 PV/článok) je najvyšší. Portréty podnikateľov a príbehy "od nuly" fungujú mimoriadne dobre — a podľa konverzných dát sú tiež #1 subscription driver.</div>
   <div class="insight"><strong>Keep me engaged má najvyšší avg PV (3 462) a 22.7× engagement index.</strong> Rankingy a žebříčky sú virálne. Tvorí len 3.9% produkcie — pravdepodobne podreprezentovaná kategória s vysokým potenciálom.</div>
@@ -200,13 +200,6 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 
 <footer class="dashboard-footer">
   <span>Copyright &copy; 2026 MediaRey, SE</span>
-  <nav aria-label="Social links">
-    <a href="#">Facebook</a>
-    <a href="#">X</a>
-    <a href="#">LinkedIn</a>
-    <a href="#">Instagram</a>
-    <a href="#">YouTube</a>
-  </nav>
 </footer>
 
 <script>

@@ -45,7 +45,7 @@ body{font-family:var(--sans);background:var(--bg3);color:var(--t1);min-height:10
 .stat{flex:1;min-width:100px;max-width:160px;background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r);padding:10px 14px}
 .stat-num{font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
 .stat-lbl{font-size:10px;color:var(--t3);margin-top:2px}
-.section-lbl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-bottom:.75rem}
+.section-lbl{font-family:inherit;font-size:20px;font-weight:700;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--t1);margin-bottom:.75rem}
 .section{margin-bottom:2rem}
 .section--major{margin-bottom:3rem}
 
@@ -159,7 +159,7 @@ tr:hover td{background:var(--bg2)}
   <div class="stat"><div class="stat-num">6,8</div><div class="stat-lbl">konv./článok avg</div></div>
 </div>
 <div class="section">
-  <div class="section-lbl">User needs podľa revenue, konverzií a publikačného mixu</div>
+  <h2 class="section-lbl">User needs podľa revenue, konverzií a publikačného mixu</h2>
   <div class="needs-grid" id="needs-grid"></div>
 </div>
 </div>
@@ -193,7 +193,7 @@ tr:hover td{background:var(--bg2)}
 <!-- TAB: MATRIX -->
 <div id="tab-matrix" style="display:none">
 <div class="section">
-  <div class="section-lbl">Cross-analýza: User Need × Formát obsahu (počet článkov)</div>
+  <h2 class="section-lbl">Cross-analýza: User Need × Formát obsahu (počet článkov)</h2>
   <div class="matrix-wrap"><table class="matrix-tbl" id="matrix-tbl"></table></div>
 </div>
 </div>
@@ -201,7 +201,7 @@ tr:hover td{background:var(--bg2)}
 <!-- TAB: FUNNEL -->
 <div id="tab-funnel" style="display:none">
 <div class="section">
-  <div class="section-lbl">Membership tier a konverzná stratégia per user need</div>
+  <h2 class="section-lbl">Membership tier a konverzná stratégia per user need</h2>
   <div class="funnel-grid" id="funnel-grid"></div>
 </div>
 </div>
@@ -210,13 +210,6 @@ tr:hover td{background:var(--bg2)}
 
 <footer class="dashboard-footer">
   <span>Copyright &copy; 2026 MediaRey, SE</span>
-  <nav aria-label="Social links">
-    <a href="#">Facebook</a>
-    <a href="#">X</a>
-    <a href="#">LinkedIn</a>
-    <a href="#">Instagram</a>
-    <a href="#">YouTube</a>
-  </nav>
 </footer>
 
 <script>
