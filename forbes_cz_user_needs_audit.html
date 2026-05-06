@@ -130,12 +130,14 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl">user needs kategórií</div></div>
 </div>
 <div class="legend-row">
-  <div class="legend-item"><div class="leg-dot" style="background:#a855f7"></div>Give me perspective</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#10b981"></div>Inspire me</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#f43f5e"></div>Help me</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#3b82f6"></div>Update me</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#f59e0b"></div>Keep me engaged</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#ec4899"></div>Educate me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#5b8cff"></div>Give me perspective</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#3dd9ff"></div>Inspire me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#34d399"></div>Help me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#a3e635"></div>Update me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#fbbf24"></div>Keep me engaged</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#ff8a7a"></div>Educate me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#ff4fd8"></div>Divert me</div>
+  <div class="legend-item"><div class="leg-dot" style="background:#a78bfa"></div>Connect me</div>
 </div>
 <div class="section">
   <div class="section-label">Počet článkov — všetky (n=11 526)</div>
@@ -209,14 +211,14 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 
 <script>
 const needs=[
-  {label:'Give me perspective',cls:'gmp',color:'#a855f7'},
-  {label:'Inspire me',         cls:'ins',color:'#10b981'},
-  {label:'Help me',            cls:'hlp',color:'#f43f5e'},
-  {label:'Update me',          cls:'upd',color:'#3b82f6'},
-  {label:'Keep me engaged',    cls:'kme',color:'#f59e0b'},
-  {label:'Educate me',         cls:'edu',color:'#ec4899'},
-  {label:'Divert me',          cls:'div',color:'#64748b'},
-  {label:'Connect me',         cls:'con',color:'#94a3b8'},
+  {label:'Give me perspective',cls:'gmp',color:'#5b8cff'},
+  {label:'Inspire me',         cls:'ins',color:'#3dd9ff'},
+  {label:'Help me',            cls:'hlp',color:'#34d399'},
+  {label:'Update me',          cls:'upd',color:'#a3e635'},
+  {label:'Keep me engaged',    cls:'kme',color:'#fbbf24'},
+  {label:'Educate me',         cls:'edu',color:'#ff8a7a'},
+  {label:'Divert me',          cls:'div',color:'#ff4fd8'},
+  {label:'Connect me',         cls:'con',color:'#a78bfa'},
 ];
 const data={
   all:   [64.3,13.1,7.4,7.9,3.9,2.9,0.3,0.1],
@@ -289,7 +291,7 @@ function showTab(t,skipHash){
     _curTab=window.switchDashboardTab({current:_curTab,next:t,ids:ids});
     return;
   }
-  var noAnim=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var noAnim=_curTab===null||window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(noAnim){
     ids.forEach(function(id){document.getElementById('tab-'+id).style.display=id===t?'block':'none';});
     _curTab=t;

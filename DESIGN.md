@@ -22,12 +22,14 @@ colors:
   dark-text-secondary: "#94A3B8"
   dark-rose: "#FB7185"
   # Data viz (categorical)
-  data-violet: "#a855f7"
-  data-emerald: "#10b981"
-  data-clay: "#f43f5e"
-  data-blue: "#3b82f6"
-  data-amber: "#f59e0b"
-  data-pink: "#ec4899"
+  data-perspective: "#5b8cff"
+  data-inspire: "#3dd9ff"
+  data-help: "#34d399"
+  data-update: "#a3e635"
+  data-keep: "#fbbf24"
+  data-educate: "#ff8a7a"
+  data-divert: "#ff4fd8"
+  data-connect: "#a78bfa"
 typography:
   display:
     fontFamily: "ForbesHighlander, Georgia, serif"
@@ -141,14 +143,16 @@ Dark mode is built from the near-black DNA of the light mode text color. The two
 - **Dark borders**: `rgba(248, 250, 252, 0.08)` (subtle) and `rgba(248, 250, 252, 0.15)` (standard).
 
 ### Data Viz (Categorical)
-Six categorical colors for chart series and user-need segments. These are fixed assignments — each color maps to a content category across all dashboards. They are never used for UI chrome.
+Eight categorical colors from Figma for chart series and user-need segments. These are fixed assignments — each color maps to one content category across all dashboards. They are never used for UI chrome.
 
-- **Violet** (`#a855f7`): Default first series.
-- **Emerald** (`#10b981`): Second series.
-- **Clay** (`#f43f5e`): Third series.
-- **Blue** (`#3b82f6`): Fourth series.
-- **Amber** (`#f59e0b`): Fifth series.
-- **Pink** (`#ec4899`): Sixth series.
+- **Give me perspective** (`#5b8cff`)
+- **Inspire me** (`#3dd9ff`)
+- **Help me** (`#34d399`)
+- **Update me** (`#a3e635`)
+- **Keep me engaged / on trend** (`#fbbf24`)
+- **Educate me** (`#ff8a7a`)
+- **Divert / Amuse me** (`#ff4fd8`)
+- **Connect me** (`#a78bfa`)
 
 Each data color has a corresponding light tint (~10% opacity) for background fills and heatmap cells.
 
@@ -253,7 +257,7 @@ Sortable ranked lists. The primary display surface for article and conversion da
 - **Do** use 0.5px borders throughout. `border-subtle` (#E2E8F0) for resting states, `border` (#CBD5E1) for interactive elements, `dark` (#020617) for active/selected states.
 - **Do** keep ForbesHighlander at 400 weight in dashboards. Regular weight only.
 - **Do** switch the rose accent to `#FB7185` in dark mode. The base rose fails contrast on `#0F172A` and `#020617` surfaces.
-- **Do** use the categorical data colors (#a855f7, #10b981, #f43f5e, #3b82f6, #f59e0b, #ec4899) only for chart series. They are data, not UI.
+- **Do** use the categorical data colors (#5b8cff, #3dd9ff, #34d399, #a3e635, #fbbf24, #ff8a7a, #ff4fd8, #a78bfa) only for chart series. They are data, not UI.
 - **Do** label all bar chart values outside the fill, colored to match the bar's data color.
 - **Do** keep section labels uppercase at 11px with 0.06em letter-spacing. This is the only instance of uppercase text in the system.
 - **Do** limit body line length to 65ch for any prose or descriptive text.
@@ -266,5 +270,5 @@ Sortable ranked lists. The primary display surface for article and conversion da
 - **Don't** use gradient text or `background-clip: text`. All text is a single solid color.
 - **Don't** introduce warm neutrals (sand, beige, warm gray). The neutral scale is cool slate. Warm tones read as a different brand identity.
 - **Don't** use more than one rose element in the same visual region. Two rose accents cancel each other.
-- **Don't** use the categorical data colors (#a855f7 etc.) for UI states, badges, or navigation. They are reserved for chart series meaning.
+- **Don't** use the categorical data colors (#5b8cff etc.) for UI states, badges, or navigation. They are reserved for chart series meaning.
 - **Don't** load additional web fonts. System sans for all body and label text.

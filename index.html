@@ -144,6 +144,7 @@ body {
   gap: 30px;
   width: 730px;
   max-width: 100%;
+  margin-bottom: 80px;
 }
 .card-item {
   display: flex;
@@ -201,13 +202,16 @@ body {
   line-height: 1.5;
   color: var(--text-2);
   letter-spacing: 0.3px;
+  transition: color 150ms cubic-bezier(0.25,1,0.5,1);
 }
+.card-item:hover .card-desc,
+.card-item:focus-visible .card-desc { color: var(--text); }
 
 /* ── Footer ── */
 .footer {
   width: 100%;
   border-top: 1px solid var(--border);
-  margin-top: 80px;
+  margin-top: 0;
 }
 .footer-inner {
   max-width: 1200px;

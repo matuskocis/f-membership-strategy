@@ -225,14 +225,14 @@ const SEKCE = {"⏱ Update me": {"top_sections": "Fintech (13), Umělá intelige
 const FUNNEL = {"⏱ Update me": {"tier": "Free / Digital", "revenue": 94922.0, "strategy": "Použiť ako acquisition layer – free obsah, ktorý pritiahne traffic. Newsletter teaser."}, "🔍 Give me perspective": {"tier": "Digital", "revenue": 55148.0, "strategy": "Ukazovat preview + paywall. \"Prečo sa to deje\" = engagement hook → registration wall."}, "📚 Educate me": {"tier": "Digital", "revenue": 64006.0, "strategy": "Deep dive série exkluzívne pre členov. \"Premium explainer\" badge na titulku."}, "🔥 Keep me on trend": {"tier": "Digital", "revenue": 41254.0, "strategy": "AI + tech tracking. \"Members see trends 48h before\" – urgency messaging."}, "😄 Amuse/divert me": {"tier": "Digital", "revenue": 125011.0, "strategy": "Lifestyle obsah ako onboarding. Ľahší vstup → upsell na Premium cez harder content."}, "⭐ Inspire me": {"tier": "Premium", "revenue": 326260.0, "strategy": "Exkluzívne profily 1500+ slov len pre Premium. \"Full story\" trigger na paywall."}, "🤝 Connect me": {"tier": "Premium+", "revenue": 73265.0, "strategy": "30u30, Top CEO nominations, Business Fest tickets = community access. Highest ARPU."}, "🛠 Help me": {"tier": "Premium", "revenue": 131041.0, "strategy": "Investičné a kariérne how-to = najvyššia perceived value. Premium = ROI messaging."}};
 
 const NEED_COLORS = {
-  '⭐ Inspire me':        {bg:'#E1F5EE',text:'#085041',bar:'#10b981'},
-  '🛠 Help me':           {bg:'#FAECE7',text:'#712B13',bar:'#f43f5e'},
-  '😄 Amuse/divert me':  {bg:'#FAEEDA',text:'#633806',bar:'#f59e0b'},
-  '⏱ Update me':         {bg:'#E6F1FB',text:'#0C447C',bar:'#3b82f6'},
-  '🔍 Give me perspective':{bg:'#EEEDFE',text:'#3C3489',bar:'#a855f7'},
-  '📚 Educate me':        {bg:'#FBEAF0',text:'#72243E',bar:'#ec4899'},
-  '🔥 Keep me on trend':  {bg:'#F1EFE8',text:'#444441',bar:'#64748b'},
-  '🤝 Connect me':        {bg:'#E1F5EE',text:'#085041',bar:'#14b8a6'},
+  '⭐ Inspire me':        {bg:'#E1F5EE',text:'#085041',bar:'#3dd9ff'},
+  '🛠 Help me':           {bg:'#FAECE7',text:'#712B13',bar:'#34d399'},
+  '😄 Amuse/divert me':  {bg:'#FBEAF0',text:'#72243E',bar:'#ff4fd8'},
+  '⏱ Update me':         {bg:'#E6F1FB',text:'#0C447C',bar:'#a3e635'},
+  '🔍 Give me perspective':{bg:'#EEEDFE',text:'#3C3489',bar:'#5b8cff'},
+  '📚 Educate me':        {bg:'#FBEAF0',text:'#72243E',bar:'#ff8a7a'},
+  '🔥 Keep me on trend':  {bg:'#FAEEDA',text:'#633806',bar:'#fbbf24'},
+  '🤝 Connect me':        {bg:'#E1F5EE',text:'#085041',bar:'#a78bfa'},
 };
 const TIER_COLORS = {
   'Premium+': {bg:'#EEEDFE',text:'#3C3489'},
@@ -242,7 +242,7 @@ const TIER_COLORS = {
 };
 
 function needColor(need){ return NEED_COLORS[need] || {bg:'#f1efe8',text:'#5f5e5a',bar:'#888'}; }
-function tierColor(tier){ const t=TIER_COLORS[tier]; return t?`background:${t.bg};color:${t.text}`:''; }
+function tierColor(tier){ const t=TIER_COLORS[tier]; return t?`color:${t.text}`:''; }
 function needName(need){ return need.split(' ').slice(1).join(' '); }
 
 // Aggregate need stats

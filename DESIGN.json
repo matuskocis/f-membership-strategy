@@ -19,12 +19,14 @@
       "dark-text":         { "role": "neutral",  "displayName": "Dark Text Primary", "canonical": "#F8FAFC",   "tonalRamp": ["#020617","#0F172A","#1E293B","#334155","#475569","#64748B","#94A3B8","#F8FAFC"] },
       "dark-text-secondary":{ "role": "neutral", "displayName": "Dark Text Secondary","canonical": "#94A3B8",  "tonalRamp": ["#020617","#0F172A","#334155","#475569","#64748B","#94A3B8","#CBD5E1","#F1F5F9"] },
       "dark-rose":         { "role": "secondary","displayName": "Dark Mode Rose",    "canonical": "#FB7185",   "tonalRamp": ["#3D0510","#6B0A1C","#BE123C","#E02050","#F06080","#FB7185","#F8A0B8","#FDE0EA"] },
-      "data-violet":       { "role": "tertiary", "displayName": "Violet",            "canonical": "#a855f7",   "tonalRamp": ["#1C1663","#2E2599","#5046C8","#a855f7","#A9A4EC","#C8C4F4","#E5E3FA","#F3F2FE"] },
-      "data-emerald":      { "role": "tertiary", "displayName": "Emerald",           "canonical": "#10b981",   "tonalRamp": ["#062E20","#085041","#0C6B54","#10b981","#14b8a6","#8FDCC0","#C0EEE0","#E1F5EE"] },
-      "data-clay":         { "role": "tertiary", "displayName": "Clay",              "canonical": "#f43f5e",   "tonalRamp": ["#4A1508","#7B2310","#A83A1E","#f43f5e","#E88560","#F0A888","#F7CCB8","#FAECE7"] },
-      "data-blue":         { "role": "tertiary", "displayName": "Blue",              "canonical": "#3b82f6",   "tonalRamp": ["#0C2A52","#0C447C","#1A5FA0","#3b82f6","#6AAEE8","#97CBF2","#C5E3F8","#E6F1FB"] },
-      "data-amber":        { "role": "tertiary", "displayName": "Amber",             "canonical": "#f59e0b",   "tonalRamp": ["#3A2005","#6B3D08","#8F5510","#f59e0b","#D9A045","#ECC278","#F5DCAA","#FAEEDA"] },
-      "data-pink":         { "role": "tertiary", "displayName": "Pink",              "canonical": "#ec4899",   "tonalRamp": ["#410A22","#771535","#A62859","#ec4899","#E587A5","#F0B0C5","#F8D5E2","#FBEAF0"] }
+      "data-perspective":  { "role": "tertiary", "displayName": "Give me perspective","canonical": "#5b8cff",  "tonalRamp": ["#1C1663","#2E2599","#5046C8","#5b8cff","#A9A4EC","#C8C4F4","#E5E3FA","#F3F2FE"] },
+      "data-inspire":      { "role": "tertiary", "displayName": "Inspire me",        "canonical": "#3dd9ff",   "tonalRamp": ["#083344","#0E7490","#0891B2","#3dd9ff","#67E8F9","#A5F3FC","#CFFAFE","#ECFEFF"] },
+      "data-help":         { "role": "tertiary", "displayName": "Help me",           "canonical": "#34d399",   "tonalRamp": ["#062E20","#085041","#0C6B54","#34d399","#8FDCC0","#C0EEE0","#E1F5EE","#F0FDF4"] },
+      "data-update":       { "role": "tertiary", "displayName": "Update me",         "canonical": "#a3e635",   "tonalRamp": ["#1A2E05","#3F6212","#65A30D","#a3e635","#BEF264","#D9F99D","#ECFCCB","#F7FEE7"] },
+      "data-keep":         { "role": "tertiary", "displayName": "Keep me engaged",   "canonical": "#fbbf24",   "tonalRamp": ["#3A2005","#6B3D08","#8F5510","#fbbf24","#FCD34D","#FDE68A","#FEF3C7","#FFFBEB"] },
+      "data-educate":      { "role": "tertiary", "displayName": "Educate me",        "canonical": "#ff8a7a",   "tonalRamp": ["#4A1508","#7B2310","#A83A1E","#ff8a7a","#F0A888","#F7CCB8","#FAECE7","#FFF7ED"] },
+      "data-divert":       { "role": "tertiary", "displayName": "Divert me",         "canonical": "#ff4fd8",   "tonalRamp": ["#410A36","#83186D","#BE2EA3","#ff4fd8","#F0A0E5","#F8C7F1","#FCE7F8","#FDF4FF"] },
+      "data-connect":      { "role": "tertiary", "displayName": "Connect me",        "canonical": "#a78bfa",   "tonalRamp": ["#2E1065","#4C1D95","#6D28D9","#a78bfa","#C4B5FD","#DDD6FE","#EDE9FE","#F5F3FF"] }
     },
     "typographyMeta": {
       "display":  { "displayName": "Display",  "purpose": "Page and dashboard titles. ForbesHighlander 400 only — never bold." },
@@ -135,7 +137,7 @@
       "Don't use gradient text or background-clip: text. All text is a single solid color.",
       "Don't introduce warm neutrals — sand, beige, warm gray. The neutral scale is cool slate.",
       "Don't use more than one rose element in the same visual region.",
-      "Don't use the categorical data colors (#a855f7, #10b981, etc.) for UI states, badges, or navigation.",
+      "Don't use the categorical data colors (#5b8cff, #3dd9ff, etc.) for UI states, badges, or navigation.",
       "Don't load additional web fonts. System sans for all body and label text."
     ]
   }

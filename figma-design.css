@@ -12,6 +12,14 @@
   --figma-border:#334155;
   --figma-rose:#e11d48;
   --figma-track:#334155;
+  --chart-perspective:#5b8cff;
+  --chart-inspire:#3dd9ff;
+  --chart-help:#34d399;
+  --chart-update:#a3e635;
+  --chart-keep:#fbbf24;
+  --chart-educate:#ff8a7a;
+  --chart-divert:#ff4fd8;
+  --chart-connect:#a78bfa;
   --figma-sans:'Favorit Pro',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   --figma-serif:'ForbesHighlander','Forbes Highlander Web',Georgia,serif;
 }
@@ -452,9 +460,10 @@ tr:hover td{background:rgba(255,255,255,.04)!important}
 }
 .top100-page .need-tier,
 .top100-page .funnel-tier{
-  border:1px solid rgba(2,6,23,.08);
+  background:transparent!important;
+  border:0!important;
   border-radius:999px!important;
-  padding:3px 8px!important;
+  padding:0!important;
   font-size:10px!important;
   line-height:1.1;
   white-space:nowrap;
