@@ -422,9 +422,11 @@ function renderFunnel(){
 renderFunnel();
 
 var _curTab=null;
-function showTab(t){
+function showTab(t,skipHash){
   var ids=['needs','articles','matrix','funnel'];
+  if(!ids.includes(t))t='needs';
   if(_curTab===t)return;
+  if(!skipHash)history.replaceState(null,'','#'+t);
   if(window.switchDashboardTab){
     _curTab=window.switchDashboardTab({current:_curTab,next:t,ids:ids});
     return;
@@ -448,6 +450,15 @@ function showTab(t){
   }
   document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',ids[i]===t);});
 }
+(function(){
+  var ids=['needs','articles','matrix','funnel'];
+  var hash=location.hash.replace('#','');
+  showTab(ids.includes(hash)?hash:'needs',true);
+  window.addEventListener('hashchange',function(){
+    var h=location.hash.replace('#','');
+    showTab(ids.includes(h)?h:'needs',true);
+  });
+})();
 </script>
 <script>
 (function(){
