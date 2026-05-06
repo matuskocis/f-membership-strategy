@@ -595,6 +595,7 @@ tr:hover td{background:rgba(255,255,255,.04)!important}
   align-items:center;
   gap:8px;
   min-width:190px;
+  border:none!important;
 }
 .top100-page .cell-val{
   width:34px!important;
