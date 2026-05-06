@@ -124,7 +124,11 @@
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e){
       if (!localStorage.getItem('theme')) {
-        applyTheme(e.matches ? 'dark' : 'light');
+        var theme = e.matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.querySelectorAll('.theme-btn').forEach(function(button){
+          button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        });
       }
     });
   });
