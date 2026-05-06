@@ -279,10 +279,12 @@ tbl.innerHTML=`<thead><tr><th>Decil</th>${needs.slice(0,6).map(n=>`<th>${n.label
     [1,2,3,4,5,6].map(ci=>`<td><span class="heat" style="${heatColor(r[ci],ci)}">${r[ci]}%</span></td>`).join('')+
   '</tr>').join('')+'</tbody>';
 
-var _curTab='dist';
-function showTab(t){
+var _curTab=null;
+function showTab(t,skipHash){
   var ids=['dist','engagement','decile','insights'];
+  if(!ids.includes(t))t='dist';
   if(_curTab===t)return;
+  if(!skipHash)history.replaceState(null,'','#'+t);
   if(window.switchDashboardTab){
     _curTab=window.switchDashboardTab({current:_curTab,next:t,ids:ids});
     return;
@@ -306,6 +308,15 @@ function showTab(t){
   }
   document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',ids[i]===t);});
 }
+(function(){
+  var ids=['dist','engagement','decile','insights'];
+  var hash=location.hash.replace('#','');
+  showTab(ids.includes(hash)?hash:'dist',true);
+  window.addEventListener('hashchange',function(){
+    var h=location.hash.replace('#','');
+    showTab(ids.includes(h)?h:'dist',true);
+  });
+})();
 </script>
 <script>
 (function(){
