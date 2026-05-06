@@ -121,5 +121,11 @@
         applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
       });
     });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e){
+      if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
   });
 })();
