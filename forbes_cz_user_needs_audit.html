@@ -56,6 +56,11 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .tab-btn{padding:5px 14px;min-height:36px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
 .tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:#BE123C;font-weight:500}
 .tab-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.header-controls{display:flex;align-items:center;gap:8px}
+.lang-switch{display:flex;gap:2px;background:var(--color-background-secondary);border-radius:20px;padding:2px}
+.lang-btn{padding:5px 11px;min-height:28px;border:none;background:none;border-radius:18px;font-size:12px;font-weight:500;color:var(--color-text-secondary);cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
+.lang-btn.active{background:var(--color-background-primary);color:var(--color-text-primary)}
+.lang-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
 .section{margin-bottom:2rem}
 .section+.section{margin-top:.25rem}
 .section--major{margin-bottom:3rem}
@@ -93,6 +98,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   .tab-btn:focus-visible{outline-color:#FB7185}
   .back-btn:hover{color:#FB7185}
   .back-btn:focus-visible{outline-color:#FB7185}
+  .lang-btn:focus-visible{outline-color:#FB7185}
 }
 </style>
 <link rel="stylesheet" href="figma-design.css">
@@ -103,10 +109,16 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   <div class="page-nav-inner">
     <div class="nav-title" aria-label="Forbes.cz">
       <a class="brand-logo" href="index.html" aria-label="Forbes Česko home"><img src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
-      <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
-        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
+      <div class="header-controls">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="sk">SK</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
     </div>
     <p class="breadcrumb"><a href="index.html">Membership Strategy</a> / User Needs Audit</p>
   </div>
@@ -115,19 +127,19 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <div class="wrap">
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="showTab('dist')">Distribúcia</button>
+  <button class="tab-btn active" onclick="showTab('dist')" data-i18n="tab-dist">Distribúcia</button>
   <button class="tab-btn" onclick="showTab('engagement')">Engagement</button>
-  <button class="tab-btn" onclick="showTab('decile')">Decilová analýza</button>
+  <button class="tab-btn" onclick="showTab('decile')" data-i18n="tab-decile">Decilová analýza</button>
   <button class="tab-btn" onclick="showTab('insights')">Insights</button>
 </div>
 
 <!-- TAB: DISTRIBÚCIA -->
 <div id="tab-dist">
 <div class="stats-row">
-  <div class="stat-card"><div class="stat-num">11 526</div><div class="stat-lbl">článkov celkom</div></div>
-  <div class="stat-card"><div class="stat-num">27,9M</div><div class="stat-lbl">pageviews spolu</div></div>
-  <div class="stat-card"><div class="stat-num">2 418</div><div class="stat-lbl">priem. PV / článok</div></div>
-  <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl">user needs kategórií</div></div>
+  <div class="stat-card"><div class="stat-num">11 526</div><div class="stat-lbl" data-i18n="stat-articles">článkov celkom</div></div>
+  <div class="stat-card"><div class="stat-num">27,9M</div><div class="stat-lbl" data-i18n="stat-pv">pageviews spolu</div></div>
+  <div class="stat-card"><div class="stat-num">2 418</div><div class="stat-lbl" data-i18n="stat-avgpv">priem. PV / článok</div></div>
+  <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl" data-i18n="stat-categories">user needs kategórií</div></div>
 </div>
 <div class="legend-row">
   <div class="legend-item"><div class="leg-dot" style="background:#5b8cff"></div>Give me perspective</div>
@@ -140,20 +152,20 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   <div class="legend-item"><div class="leg-dot" style="background:#a78bfa"></div>Connect me</div>
 </div>
 <div class="section">
-  <h2 class="section-label">Počet článkov — všetky (n=11 526)</h2>
+  <h2 class="section-label" data-i18n="sec-all">Počet článkov — všetky (n=11 526)</h2>
   <div id="bars-all"></div>
 </div>
 <div class="section">
-  <h2 class="section-label">Pageview podiel — weighted by PV</h2>
+  <h2 class="section-label" data-i18n="sec-pvshare">Pageview podiel — weighted by PV</h2>
   <div id="bars-pv"></div>
 </div>
 <div class="grid-2">
   <div class="section">
-    <h2 class="section-label">Top 100 podľa PV</h2>
+    <h2 class="section-label" data-i18n="sec-top100">Top 100 podľa PV</h2>
     <div id="bars-top100"></div>
   </div>
   <div class="section">
-    <h2 class="section-label">Top 500 podľa PV</h2>
+    <h2 class="section-label" data-i18n="sec-top500">Top 500 podľa PV</h2>
     <div id="bars-top500"></div>
   </div>
 </div>
@@ -162,37 +174,37 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: ENGAGEMENT -->
 <div id="tab-engagement" style="display:none">
 <div class="section">
-  <h2 class="section-label">Priemerné pageviews na článok</h2>
+  <h2 class="section-label" data-i18n="sec-avgpv">Priemerné pageviews na článok</h2>
   <div id="bars-avg"></div>
 </div>
 <div class="section">
-  <h2 class="section-label">Engagement index — avg PV top100 / avg PV celok — násobiteľ keď článok "vybuchne"</h2>
+  <h2 class="section-label" data-i18n="sec-engidx">Engagement index — avg PV top100 / avg PV celok — násobiteľ keď článok "vybuchne"</h2>
   <div id="bars-ratio"></div>
 </div>
-<div class="note">Engagement index hovorí: keď článok v kategórii vybuchne, o koľko násobí priemer kategórie. Vysoký index = vysoká variancia — kategória má potenciál viralitu, ale aj veľa slabých článkov.</div>
+<div class="note" data-i18n="note-engidx">Engagement index hovorí: keď článok v kategórii vybuchne, o koľko násobí priemer kategórie. Vysoký index = vysoká variancia — kategória má potenciál viralitu, ale aj veľa slabých článkov.</div>
 </div>
 
 <!-- TAB: DECILE -->
 <div id="tab-decile" style="display:none">
 <div class="section">
-  <h2 class="section-label">Zastúpenie user needs per decil (D1 = najmenej čítané, D10 = top čítané)</h2>
+  <h2 class="section-label" data-i18n="sec-decile">Zastúpenie user needs per decil (D1 = najmenej čítané, D10 = top čítané)</h2>
   <div class="decile-wrap">
     <table class="decile-table" id="decile-tbl"></table>
   </div>
-  <div class="note" style="margin-top:.75rem">Help me rastie smerom k top decilom (5,6% v D1 → 8–10% v D8–D10). Inspire me podobne. Update me naopak klesá — breaking news má krátkodobý spike ale slabý dlhodobý tail.</div>
+  <div class="note" style="margin-top:.75rem" data-i18n="note-decile">Help me rastie smerom k top decilom (5,6% v D1 → 8–10% v D8–D10). Inspire me podobne. Update me naopak klesá — breaking news má krátkodobý spike ale slabý dlhodobý tail.</div>
 </div>
 </div>
 
 <!-- TAB: INSIGHTS -->
 <div id="tab-insights" style="display:none">
 <div class="section">
-  <h2 class="section-label">Kľúčové zistenia</h2>
-  <div class="insight"><strong>Give me perspective dominuje produkcii (64%) aj PV (61%).</strong> Forbes.cz je primárne analytický a komentárový médium. Toto je de facto North Star need — ale zároveň riziko: keď je jedna kategória tak dominantná, ťažšie sa identifikujú conversion drivers.</div>
-  <div class="insight"><strong>Inspire me je overperformer.</strong> Tvorí 13% článkov, ale 18% PV a 24% z top 100. Priemerný výkon (3 394 PV/článok) je najvyšší. Portréty podnikateľov a príbehy "od nuly" fungujú mimoriadne dobre — a podľa konverzných dát sú tiež #1 subscription driver.</div>
-  <div class="insight"><strong>Keep me engaged má najvyšší avg PV (3 462) a 22.7× engagement index.</strong> Rankingy a žebříčky sú virálne. Tvorí len 3.9% produkcie — pravdepodobne podreprezentovaná kategória s vysokým potenciálom.</div>
-  <div class="insight"><strong>Help me je kriticky podreprezentovaný.</strong> Len 7.4% produkcie, len 2 články v top 100 PV — ale konverzné dáta ukazujú 14% podiel na konverziách a 14.4% na revenue. Praktické návody z oblasti financií, kariéry a podnikania jednoznačne konvertujú lepšie ako ich produkčný podiel naznačuje.</div>
-  <div class="insight"><strong>Update me klesá s rastúcim záujmom.</strong> V D1 (najmenej čítané) má 12.1%, v D10 (top čítané) len 4.6%. Breaking news generuje krátkodobé spiky, ale dlhodobý tail je slabý — nízka retention value.</div>
-  <div class="insight"><strong>Educate me (2.9%) a Divert me (0.3%) sú minimálne zastúpené.</strong> Educate me je discovery kategória vhodná pre SEO a nových čitateľov — jej nízke zastúpenie znižuje príchod nových čitateľov z Mass segmentu.</div>
+  <h2 class="section-label" data-i18n="sec-findings">Kľúčové zistenia</h2>
+  <div class="insight" data-i18n="insight-1" data-i18n-html><strong>Give me perspective dominuje produkcii (64%) aj PV (61%).</strong> Forbes.cz je primárne analytický a komentárový médium. Toto je de facto North Star need — ale zároveň riziko: keď je jedna kategória tak dominantná, ťažšie sa identifikujú conversion drivers.</div>
+  <div class="insight" data-i18n="insight-2" data-i18n-html><strong>Inspire me je overperformer.</strong> Tvorí 13% článkov, ale 18% PV a 24% z top 100. Priemerný výkon (3 394 PV/článok) je najvyšší. Portréty podnikateľov a príbehy "od nuly" fungujú mimoriadne dobre — a podľa konverzných dát sú tiež #1 subscription driver.</div>
+  <div class="insight" data-i18n="insight-3" data-i18n-html><strong>Keep me engaged má najvyšší avg PV (3 462) a 22.7× engagement index.</strong> Rankingy a žebříčky sú virálne. Tvorí len 3.9% produkcie — pravdepodobne podreprezentovaná kategória s vysokým potenciálom.</div>
+  <div class="insight" data-i18n="insight-4" data-i18n-html><strong>Help me je kriticky podreprezentovaný.</strong> Len 7.4% produkcie, len 2 články v top 100 PV — ale konverzné dáta ukazujú 14% podiel na konverziách a 14.4% na revenue. Praktické návody z oblasti financií, kariéry a podnikania jednoznačne konvertujú lepšie ako ich produkčný podiel naznačuje.</div>
+  <div class="insight" data-i18n="insight-5" data-i18n-html><strong>Update me klesá s rastúcim záujmom.</strong> V D1 (najmenej čítané) má 12.1%, v D10 (top čítané) len 4.6%. Breaking news generuje krátkodobé spiky, ale dlhodobý tail je slabý — nízka retention value.</div>
+  <div class="insight" data-i18n="insight-6" data-i18n-html><strong>Educate me (2.9%) a Divert me (0.3%) sú minimálne zastúpené.</strong> Educate me je discovery kategória vhodná pre SEO a nových čitateľov — jej nízke zastúpenie znižuje príchod nových čitateľov z Mass segmentu.</div>
 </div>
 </div>
 
@@ -268,11 +280,16 @@ function heatColor(v,col){
   const alpha=Math.round((0.08+norm*0.45)*255).toString(16).padStart(2,'0');
   return`background:${needs[col-1].color}${alpha}`;
 }
-const tbl=document.getElementById('decile-tbl');
-tbl.innerHTML=`<thead><tr><th>Decil</th>${needs.slice(0,6).map(n=>`<th>${n.label}</th>`).join('')}</tr></thead><tbody>`+
-  decile.map(r=>`<tr><td style="font-weight:500;color:var(--color-text-primary)">D${r[0]}${r[0]===10?' ★':''}</td>`+
-    [1,2,3,4,5,6].map(ci=>`<td><span class="heat" style="${heatColor(r[ci],ci)}">${r[ci]}%</span></td>`).join('')+
-  '</tr>').join('')+'</tbody>';
+function renderDecileTable(){
+  const decilLabel=(window.getLang&&window.getLang()==='en')?'Decile':'Decil';
+  const tbl=document.getElementById('decile-tbl');
+  tbl.innerHTML=`<thead><tr><th>${decilLabel}</th>${needs.slice(0,6).map(n=>`<th>${n.label}</th>`).join('')}</tr></thead><tbody>`+
+    decile.map(r=>`<tr><td style="font-weight:500;color:var(--color-text-primary)">D${r[0]}${r[0]===10?' ★':''}</td>`+
+      [1,2,3,4,5,6].map(ci=>`<td><span class="heat" style="${heatColor(r[ci],ci)}">${r[ci]}%</span></td>`).join('')+
+    '</tr>').join('')+'</tbody>';
+}
+renderDecileTable();
+document.addEventListener('langchange',renderDecileTable);
 
 var _curTab=null;
 function showTab(t,skipHash){
@@ -322,6 +339,32 @@ function showTab(t,skipHash){
   window.addEventListener('resize',sync);
   document.fonts.ready.then(sync);
 })();
+</script>
+<script>
+window.I18N_EN = {
+  "tab-dist": "Distribution",
+  "tab-decile": "Decile analysis",
+  "stat-articles": "articles total",
+  "stat-pv": "pageviews total",
+  "stat-avgpv": "avg. PV / article",
+  "stat-categories": "user needs categories",
+  "sec-all": "Number of articles — all (n=11,526)",
+  "sec-pvshare": "Pageview share — weighted by PV",
+  "sec-top100": "Top 100 by PV",
+  "sec-top500": "Top 500 by PV",
+  "sec-avgpv": "Average pageviews per article",
+  "sec-engidx": "Engagement index — avg PV top100 / avg PV overall — multiplier when an article \"blows up\"",
+  "note-engidx": "The engagement index shows: when an article in a category blows up, by how much it multiplies the category average. A high index = high variance — the category has viral potential, but also many weak articles.",
+  "sec-decile": "User needs share per decile (D1 = least read, D10 = top read)",
+  "note-decile": "Help me grows toward the top deciles (5.6% in D1 → 8–10% in D8–D10). Inspire me follows a similar pattern. Update me, by contrast, declines — breaking news has a short-term spike but a weak long-term tail.",
+  "sec-findings": "Key findings",
+  "insight-1": "<strong>Give me perspective dominates both production (64%) and PV (61%).</strong> Forbes.cz is primarily an analytical and commentary outlet. This is effectively the North Star need — but it's also a risk: when one category is this dominant, conversion drivers are harder to identify.",
+  "insight-2": "<strong>Inspire me is an overperformer.</strong> It makes up 13% of articles, but 18% of PV and 24% of the top 100. Average performance (3,394 PV/article) is the highest. Entrepreneur profiles and \"from scratch\" stories perform exceptionally well — and per the conversion data, they're also the #1 subscription driver.",
+  "insight-3": "<strong>Keep me engaged has the highest avg PV (3,462) and a 22.7× engagement index.</strong> Rankings and lists go viral. It makes up only 3.9% of production — likely an underrepresented category with high potential.",
+  "insight-4": "<strong>Help me is critically underrepresented.</strong> Only 7.4% of production, only 2 articles in the top 100 PV — but conversion data shows a 14% share of conversions and 14.4% of revenue. Practical guides on finance, career, and business clearly convert better than their production share suggests.",
+  "insight-5": "<strong>Update me declines as interest grows.</strong> It has 12.1% in D1 (least read), but only 4.6% in D10 (top read). Breaking news generates short-term spikes, but the long-term tail is weak — low retention value.",
+  "insight-6": "<strong>Educate me (2.9%) and Divert me (0.3%) are minimally represented.</strong> Educate me is a discovery category well-suited for SEO and new readers — its low share limits the inflow of new readers from the Mass segment."
+};
 </script>
 <script src="theme.js"></script>
 </body>
