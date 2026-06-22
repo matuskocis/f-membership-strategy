@@ -56,6 +56,11 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .tab-btn{padding:5px 14px;min-height:36px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
 .tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:#BE123C;font-weight:500}
 .tab-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.header-controls{display:flex;align-items:center;gap:8px}
+.lang-switch{display:flex;gap:2px;background:var(--color-background-secondary);border-radius:20px;padding:2px}
+.lang-btn{padding:5px 11px;min-height:28px;border:none;background:none;border-radius:18px;font-size:12px;font-weight:500;color:var(--color-text-secondary);cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
+.lang-btn.active{background:var(--color-background-primary);color:var(--color-text-primary)}
+.lang-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
 .section{margin-bottom:2rem}
 .section--major{margin-bottom:3rem}
 .section-label{font-family:inherit;font-size:20px;font-weight:700;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--color-text-primary);margin-bottom:.75rem}
@@ -104,6 +109,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   .tab-btn:focus-visible{outline-color:#FB7185}
   .back-btn:hover{color:#FB7185}
   .back-btn:focus-visible{outline-color:#FB7185}
+  .lang-btn:focus-visible{outline-color:#FB7185}
 }
 </style>
 <link rel="stylesheet" href="figma-design.css">
@@ -114,37 +120,43 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   <div class="page-nav-inner">
     <div class="nav-title" aria-label="Forbes.cz">
       <a class="brand-logo" href="index.html" aria-label="Forbes Česko home"><img src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
-      <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
-        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
+      <div class="header-controls">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="sk">SK</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
     </div>
-    <p class="breadcrumb"><a href="index.html">Membership Strategy</a> / Konverzia vs. Produkcia</p>
+    <p class="breadcrumb"><a href="index.html">Membership Strategy</a> / <span data-i18n="breadcrumb">Konverzia vs. Produkcia</span></p>
   </div>
 </div>
 <div class="page-nav-spacer"></div>
 <div class="wrap">
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="showTab('gap')">Produkcia vs. Konverzia</button>
+  <button class="tab-btn active" onclick="showTab('gap')" data-i18n="tab-gap">Produkcia vs. Konverzia</button>
   <button class="tab-btn" onclick="showTab('revenue')">Revenue per need</button>
-  <button class="tab-btn" onclick="showTab('format')">Formát & dĺžka</button>
+  <button class="tab-btn" onclick="showTab('format')" data-i18n="tab-format">Formát &amp; dĺžka</button>
   <button class="tab-btn" onclick="showTab('insights')">Insights</button>
 </div>
 
 <!-- TAB: GAP -->
 <div id="tab-gap">
 <div class="stats-row">
-  <div class="stat-card"><div class="stat-num">100</div><div class="stat-lbl">konverzných článkov</div></div>
-  <div class="stat-card"><div class="stat-num">676</div><div class="stat-lbl">konverzií spolu</div></div>
+  <div class="stat-card"><div class="stat-num">100</div><div class="stat-lbl" data-i18n="stat-convart">konverzných článkov</div></div>
+  <div class="stat-card"><div class="stat-num">676</div><div class="stat-lbl" data-i18n="stat-convtotal">konverzií spolu</div></div>
   <div class="stat-card"><div class="stat-num">910 909</div><div class="stat-lbl">CZK revenue</div></div>
   <div class="stat-card"><div class="stat-num">1 435</div><div class="stat-lbl">avg order CZK</div></div>
 </div>
 <div class="section">
-  <h2 class="section-label">Podiel na produkcii vs. podiel v top 100 konverzných článkoch — delta ukazuje kde je výroba neúmerná výsledkom</h2>
+  <h2 class="section-label" data-i18n="sec-gap">Podiel na produkcii vs. podiel v top 100 konverzných článkoch — delta ukazuje kde je výroba neúmerná výsledkom</h2>
   <div class="legend-row">
-    <div class="legend-item"><div class="leg-rect" style="background:#5b8cff"></div>Produkcia (% všetkých 11 526 čl.)</div>
-    <div class="legend-item"><div class="leg-rect" style="background:#3dd9ff"></div>Konverzia (% z top 100 konverzných)</div>
+    <div class="legend-item"><div class="leg-rect" style="background:#5b8cff"></div><span data-i18n="legend-prod">Produkcia (% všetkých 11 526 čl.)</span></div>
+    <div class="legend-item"><div class="leg-rect" style="background:#3dd9ff"></div><span data-i18n="legend-conv">Konverzia (% z top 100 konverzných)</span></div>
   </div>
   <div id="compare-bars"></div>
 </div>
@@ -153,11 +165,11 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: REVENUE -->
 <div id="tab-revenue" style="display:none">
 <div class="section">
-  <h2 class="section-label">Celkový revenue per user need (top 100 konverzných článkov)</h2>
+  <h2 class="section-label" data-i18n="sec-revtotal">Celkový revenue per user need (top 100 konverzných článkov)</h2>
   <div id="rev-bars"></div>
 </div>
 <div class="section">
-  <h2 class="section-label">Revenue na článok — ktorá kategória prináša najviac na jeden článok</h2>
+  <h2 class="section-label" data-i18n="sec-revperart">Revenue na článok — ktorá kategória prináša najviac na jeden článok</h2>
   <div id="rev-per-article"></div>
 </div>
 </div>
@@ -165,39 +177,39 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: FORMAT -->
 <div id="tab-format" style="display:none">
 <div class="section">
-  <h2 class="section-label">Formáty v konverzných článkoch (n=100)</h2>
+  <h2 class="section-label" data-i18n="sec-formats">Formáty v konverzných článkoch (n=100)</h2>
   <div class="fmt-grid" id="fmt-cards"></div>
 </div>
 <div class="section" style="margin-top:1.5rem">
-  <h2 class="section-label">Priemerná dĺžka článku per user need (slová)</h2>
+  <h2 class="section-label" data-i18n="sec-wordcount">Priemerná dĺžka článku per user need (slová)</h2>
   <div id="wordcount-bars"></div>
 </div>
-<div class="note">Priemerný konverzný článok má 876 slov a 5 minút čítania. Teasery (&lt;300 slov) tvoria 40–60% konverzných článkov v každej kategórii — paywall hit pri teaser generuje vyšší záujem prejsť cez bránu.</div>
+<div class="note" data-i18n="note-format">Priemerný konverzný článok má 876 slov a 5 minút čítania. Teasery (&lt;300 slov) tvoria 40–60% konverzných článkov v každej kategórii — paywall hit pri teaser generuje vyšší záujem prejsť cez bránu.</div>
 </div>
 
 <!-- TAB: INSIGHTS -->
 <div id="tab-insights" style="display:none">
 <div class="section">
-  <h2 class="section-label">Kľúčové zistenia z porovnania produkcia vs. konverzia</h2>
-  <div class="insight critical">
+  <h2 class="section-label" data-i18n="sec-insights">Kľúčové zistenia z porovnania produkcia vs. konverzia</h2>
+  <div class="insight critical" data-i18n="insight-1" data-i18n-html>
     <strong>Give me perspective: masívna overproduction, minimálna konverzia.</strong> Tvorí 64% celej produkcie ale len 9% konverzných článkov a 6% revenue. Na každý konverzný článok v tejto kategórii pripadá ~7× viac produkcie ako zodpovedá výkonu. Toto je najväčší štrukturálny problém obsahu.
   </div>
-  <div class="insight good">
+  <div class="insight good" data-i18n="insight-2" data-i18n-html>
     <strong>Inspire me je motor konverzií.</strong> 13% produkcie → 32% konverzných článkov → 36% revenue. Revenue per článok: 10 195 CZK — najvyšší zo všetkých kategórií. Profily podnikateľov a príbehy "od nuly" sú jasný subscription driver. Redakcia by mala zvýšiť produkciu aspoň 2×.
   </div>
-  <div class="insight critical">
+  <div class="insight critical" data-i18n="insight-3" data-i18n-html>
     <strong>Help me je systematicky podreprezentovaný pri vysokom konverznom potenciáli.</strong> 7.4% produkcie → 14% konverzných článkov → 14.4% revenue. Konverzný potenciál je takmer 2× vyšší ako produkčný podiel. Revenue per článok (9 360 CZK) porovnateľný s Inspire me. Praktické návody — financie, kariéra, podnikanie — jednoznačne konvertujú.
   </div>
-  <div class="insight warning">
+  <div class="insight warning" data-i18n="insight-4" data-i18n-html>
     <strong>Amuse/Divert me — prekvapivý konvertor.</strong> Len 0.3% produkcie ale 15% konverzných článkov a 13.7% revenue. Najvyšší avg order: 1 659 CZK. Signál že ľahší entertaining obsah s premium gatingom konvertuje inak ako predpokladáme. Treba overiť na väčšej vzorke.
   </div>
-  <div class="insight good">
+  <div class="insight good" data-i18n="insight-5" data-i18n-html>
     <strong>Formát: Feature/Reportáž (30) a Profil (16) dominujú — nie krátke správy.</strong> Teasery (&lt;300 slov) konvertujú prekvapivo dobre — 40–60% konverzných článkov v každej kategórii. Paywall hit pri teaser = vyšší záujem prejsť cez bránu.
   </div>
-  <div class="insight warning">
+  <div class="insight warning" data-i18n="insight-6" data-i18n-html>
     <strong>Connect me: extrémne revenue per článok (24 421 CZK) — ale len 3 články.</strong> Forbes 30 pod 30 a eventy generujú obrovský revenue na článok. Nie sú škálovateľné, ale konverzná hodnota je neporovnateľná. Každý takýto obsah musí byť za paywallom.
   </div>
-  <div class="insight">
+  <div class="insight" data-i18n="insight-7" data-i18n-html>
     <strong>Update me konvertuje lepšie ako čakáme (14% konv. čl., 10.4% revenue).</strong> Breaking news má konverzný potenciál — ale priemerný order je nižší (1 531 CZK) a revenue per článok najnižší (6 780 CZK). Funguje ako vstupný bod, nie retention driver.
   </div>
 </div>
@@ -231,14 +243,14 @@ const revData=[
   {label:'Keep me on trend',   total:41254, per:6875, conv:4.0, color:'#fbbf24'},
 ];
 const fmtData=[
-  {name:'Feature/Reportáž',n:30,needs:'Inspire me, Help me, Amuse',color:'#3dd9ff'},
-  {name:'Rozhovor',         n:19,needs:'Inspire me, Give me perspective',color:'#5b8cff'},
-  {name:'Profil',           n:16,needs:'Inspire me (100%)',color:'#3dd9ff'},
-  {name:'How-to/Návod',     n:12,needs:'Help me, Educate me, Amuse',color:'#34d399'},
-  {name:'Správa/Novinka',   n:9, needs:'Update me (100%)',color:'#a3e635'},
-  {name:'Zoznam/List',      n:6, needs:'Rôzne',color:'#a78bfa'},
-  {name:'Investigácia',     n:4, needs:'Give me perspective',color:'#5b8cff'},
-  {name:'Event/Výber',      n:4, needs:'Connect me, Amuse',color:'#a78bfa'},
+  {name:'Feature/Reportáž',nameEn:'Feature/Report',n:30,needs:'Inspire me, Help me, Amuse',color:'#3dd9ff'},
+  {name:'Rozhovor',         nameEn:'Interview',n:19,needs:'Inspire me, Give me perspective',color:'#5b8cff'},
+  {name:'Profil',           nameEn:'Profile',n:16,needs:'Inspire me (100%)',color:'#3dd9ff'},
+  {name:'How-to/Návod',     nameEn:'How-to/Guide',n:12,needs:'Help me, Educate me, Amuse',color:'#34d399'},
+  {name:'Správa/Novinka',   nameEn:'News/Update',n:9, needs:'Update me (100%)',color:'#a3e635'},
+  {name:'Zoznam/List',      nameEn:'List',n:6, needs:'Rôzne',needsEn:'Various',color:'#a78bfa'},
+  {name:'Investigácia',     nameEn:'Investigation',n:4, needs:'Give me perspective',color:'#5b8cff'},
+  {name:'Event/Výber',      nameEn:'Event/Selection',n:4, needs:'Connect me, Amuse',color:'#a78bfa'},
 ];
 const wcData=[
   {label:'Connect me',         words:2598,color:'#a78bfa'},
@@ -274,51 +286,81 @@ needs.forEach(n=>{
   </div>`;
 });
 
+function isEn(){ return window.getLang && window.getLang()==='en'; }
+
 // Revenue total
 const maxRev=326260;
-const rb=document.getElementById('rev-bars');
-[...revData].sort((a,b)=>b.total-a.total).forEach(n=>{
-  rb.innerHTML+=`<div class="rev-row">
-    <div class="rev-label">${n.label}</div>
-    <div class="rev-track"><div class="rev-fill" style="width:${n.total/maxRev*100}%;background:${n.color}"></div></div>
-    <span class="rev-val" style="color:${n.color}">${(n.total/1000).toFixed(0)}k CZK</span>
-    <div class="rev-extra">${n.per.toLocaleString()} CZK/čl.</div>
-  </div>`;
-});
+function renderRevBars(){
+  const rb=document.getElementById('rev-bars');
+  const perArt=isEn()?'CZK/article':'CZK/čl.';
+  rb.innerHTML='';
+  [...revData].sort((a,b)=>b.total-a.total).forEach(n=>{
+    rb.innerHTML+=`<div class="rev-row">
+      <div class="rev-label">${n.label}</div>
+      <div class="rev-track"><div class="rev-fill" style="width:${n.total/maxRev*100}%;background:${n.color}"></div></div>
+      <span class="rev-val" style="color:${n.color}">${(n.total/1000).toFixed(0)}k CZK</span>
+      <div class="rev-extra">${n.per.toLocaleString()} ${perArt}</div>
+    </div>`;
+  });
+}
+renderRevBars();
 
 // Revenue per article
 const maxPer=24421;
-const rpa=document.getElementById('rev-per-article');
-[...revData].sort((a,b)=>b.per-a.per).forEach(n=>{
-  rpa.innerHTML+=`<div class="rev-row">
-    <div class="rev-label">${n.label}</div>
-    <div class="rev-track"><div class="rev-fill" style="width:${n.per/maxPer*100}%;background:${n.color}"></div></div>
-    <span class="rev-val" style="color:${n.color}">${n.per.toLocaleString()} CZK</span>
-    <div class="rev-extra">${n.conv} konv./čl.</div>
-  </div>`;
-});
+function renderRevPerArticle(){
+  const rpa=document.getElementById('rev-per-article');
+  const convArt=isEn()?'conv./article':'konv./čl.';
+  rpa.innerHTML='';
+  [...revData].sort((a,b)=>b.per-a.per).forEach(n=>{
+    rpa.innerHTML+=`<div class="rev-row">
+      <div class="rev-label">${n.label}</div>
+      <div class="rev-track"><div class="rev-fill" style="width:${n.per/maxPer*100}%;background:${n.color}"></div></div>
+      <span class="rev-val" style="color:${n.color}">${n.per.toLocaleString()} CZK</span>
+      <div class="rev-extra">${n.conv} ${convArt}</div>
+    </div>`;
+  });
+}
+renderRevPerArticle();
 
 // Format cards
-const fc=document.getElementById('fmt-cards');
-fmtData.forEach(f=>{
-  fc.innerHTML+=`<div class="fmt-card">
-    <div class="fmt-name">${f.name}</div>
-    <div class="fmt-n" style="color:${f.color}">${f.n}</div>
-    <div style="font-size:10px;color:var(--color-text-tertiary);margin-top:2px">článkov</div>
-    <div class="fmt-needs">${f.needs}</div>
-  </div>`;
-});
+function renderFmtCards(){
+  const fc=document.getElementById('fmt-cards');
+  const en=isEn();
+  const articlesLbl=en?'articles':'článkov';
+  fc.innerHTML='';
+  fmtData.forEach(f=>{
+    fc.innerHTML+=`<div class="fmt-card">
+      <div class="fmt-name">${en&&f.nameEn?f.nameEn:f.name}</div>
+      <div class="fmt-n" style="color:${f.color}">${f.n}</div>
+      <div style="font-size:10px;color:var(--color-text-tertiary);margin-top:2px">${articlesLbl}</div>
+      <div class="fmt-needs">${en&&f.needsEn?f.needsEn:f.needs}</div>
+    </div>`;
+  });
+}
+renderFmtCards();
 
 // Wordcount
 const maxWc=2598;
-const wcEl=document.getElementById('wordcount-bars');
-wcData.forEach(n=>{
-  wcEl.innerHTML+=`<div class="rev-row">
-    <div class="rev-label">${n.label}</div>
-    <div class="rev-track"><div class="rev-fill" style="width:${n.words/maxWc*100}%;background:${n.color}"></div></div>
-    <span class="rev-val" style="color:${n.color}">${n.words.toLocaleString()} slov</span>
-    <div class="rev-extra"></div>
-  </div>`;
+function renderWordcount(){
+  const wcEl=document.getElementById('wordcount-bars');
+  const wordsLbl=isEn()?'words':'slov';
+  wcEl.innerHTML='';
+  wcData.forEach(n=>{
+    wcEl.innerHTML+=`<div class="rev-row">
+      <div class="rev-label">${n.label}</div>
+      <div class="rev-track"><div class="rev-fill" style="width:${n.words/maxWc*100}%;background:${n.color}"></div></div>
+      <span class="rev-val" style="color:${n.color}">${n.words.toLocaleString()} ${wordsLbl}</span>
+      <div class="rev-extra"></div>
+    </div>`;
+  });
+}
+renderWordcount();
+
+document.addEventListener('langchange',function(){
+  renderRevBars();
+  renderRevPerArticle();
+  renderFmtCards();
+  renderWordcount();
 });
 
 var _curTab=null;
@@ -369,6 +411,31 @@ function showTab(t,skipHash){
   window.addEventListener('resize',sync);
   document.fonts.ready.then(sync);
 })();
+</script>
+<script>
+window.I18N_EN = {
+  "breadcrumb": "Conversion vs. Production",
+  "tab-gap": "Production vs. Conversion",
+  "tab-format": "Format & length",
+  "stat-convart": "converting articles",
+  "stat-convtotal": "conversions total",
+  "sec-gap": "Share of production vs. share in the top 100 converting articles — delta shows where production is disproportionate to results",
+  "legend-prod": "Production (% of all 11,526 articles)",
+  "legend-conv": "Conversion (% of top 100 converting)",
+  "sec-revtotal": "Total revenue per user need (top 100 converting articles)",
+  "sec-revperart": "Revenue per article — which category brings the most per article",
+  "sec-formats": "Formats in converting articles (n=100)",
+  "sec-wordcount": "Average article length per user need (words)",
+  "note-format": "The average converting article has 876 words and a 5-minute read time. Teasers (<300 words) make up 40–60% of converting articles in every category — hitting the paywall on a teaser drives higher interest in getting past the gate.",
+  "sec-insights": "Key findings from the production vs. conversion comparison",
+  "insight-1": "<strong>Give me perspective: massive overproduction, minimal conversion.</strong> It makes up 64% of all production but only 9% of converting articles and 6% of revenue. For every converting article in this category, there's ~7× more production than its performance warrants. This is the biggest structural problem in the content mix.",
+  "insight-2": "<strong>Inspire me is the conversion engine.</strong> 13% of production → 32% of converting articles → 36% of revenue. Revenue per article: 10,195 CZK — the highest of all categories. Entrepreneur profiles and \"from scratch\" stories are a clear subscription driver. The newsroom should increase production at least 2×.",
+  "insight-3": "<strong>Help me is systematically underrepresented relative to its high conversion potential.</strong> 7.4% of production → 14% of converting articles → 14.4% of revenue. Conversion potential is almost 2× higher than the production share. Revenue per article (9,360 CZK) is comparable to Inspire me. Practical guides — finance, career, business — clearly convert.",
+  "insight-4": "<strong>Amuse/Divert me — a surprising converter.</strong> Only 0.3% of production but 15% of converting articles and 13.7% of revenue. The highest avg order: 1,659 CZK. A signal that lighter entertaining content with premium gating converts differently than we assume. Worth validating on a larger sample.",
+  "insight-5": "<strong>Format: Feature/Report (30) and Profile (16) dominate — not short news.</strong> Teasers (<300 words) convert surprisingly well — 40–60% of converting articles in every category. Hitting the paywall on a teaser = higher interest in getting past the gate.",
+  "insight-6": "<strong>Connect me: extreme revenue per article (24,421 CZK) — but only 3 articles.</strong> Forbes 30 under 30 and events generate enormous revenue per article. They aren't scalable, but the conversion value is incomparable. All content like this needs to be behind the paywall.",
+  "insight-7": "<strong>Update me converts better than expected (14% of converting articles, 10.4% of revenue).</strong> Breaking news has conversion potential — but the average order is lower (1,531 CZK) and revenue per article is the lowest (6,780 CZK). It works as an entry point, not a retention driver."
+};
 </script>
 <script src="theme.js"></script>
 </body>
