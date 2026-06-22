@@ -95,6 +95,11 @@ body {
 }
 .theme-btn:hover { color: var(--text); background: var(--bg-2); }
 .theme-btn:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
+.header-controls { display: flex; align-items: center; gap: 8px; }
+.lang-switch { display: flex; gap: 2px; background: var(--bg-2); border-radius: 20px; padding: 2px; flex-shrink: 0; }
+.lang-btn { padding: 5px 11px; min-height: 28px; border: none; background: none; border-radius: 18px; font-size: 12px; font-weight: 500; color: var(--text-2); cursor: pointer; font-family: inherit; transition: all 150ms cubic-bezier(0.25,1,0.5,1); }
+.lang-btn.active { background: var(--bg); color: var(--text); }
+.lang-btn:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
 .icon-moon { display: none; }
 [data-theme="dark"] .icon-moon { display: none; }
 [data-theme="dark"] .icon-sun  { display: block; }
@@ -258,17 +263,23 @@ body {
   <div class="nav-inner">
     <a class="brand-logo" href="index.html" aria-label="Forbes Česko home"><img class="forbes-logo" src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
 
-    <button class="theme-btn" aria-label="Toggle theme">
-      <!-- Sun: shown in dark mode -->
-      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-      </svg>
-      <!-- Moon: shown in light mode -->
-      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-    </button>
+    <div class="header-controls">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn active" data-lang="sk">SK</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="theme-btn" aria-label="Toggle theme">
+        <!-- Sun: shown in dark mode -->
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <!-- Moon: shown in light mode -->
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -279,7 +290,7 @@ body {
 
   <div class="headline-block">
     <h1>Membership Strategy</h1>
-    <p class="subtitle">Analytické podklady · BBC User Needs 2.0</p>
+    <p class="subtitle" data-i18n="subtitle">Analytické podklady · BBC User Needs 2.0</p>
   </div>
 
   <div class="cards-grid">
@@ -290,16 +301,16 @@ body {
         <img src="assets/card-user-needs@2x.png" alt="User Needs Audit">
         <div class="card-tag">User Needs Audit</div>
       </div>
-      <p class="card-desc">Distribúcia 11 526 článkov podľa BBC User Needs 2.0. Engagement, decilová analýza a kľúčové zistenia o produkcii vs. výkone.</p>
+      <p class="card-desc" data-i18n="card1-desc">Distribúcia 11 526 článkov podľa BBC User Needs 2.0. Engagement, decilová analýza a kľúčové zistenia o produkcii vs. výkone.</p>
     </a>
 
     <!-- Card 2: Konverzia vs. Produkcia -->
     <a href="forbes_cz_conversion_vs_production.html" class="card-item">
       <div class="card-image">
         <img src="assets/card-konverzia@2x.png" alt="Konverzia vs. Produkcia">
-        <div class="card-tag">Konverzia vs. Produkcia</div>
+        <div class="card-tag" data-i18n="card2-tag">Konverzia vs. Produkcia</div>
       </div>
-      <p class="card-desc">Porovnanie 11 526 článkov (produkcia) s top 100 konverznými článkami. Revenue per need, formáty a strategické závery.</p>
+      <p class="card-desc" data-i18n="card2-desc">Porovnanie 11 526 článkov (produkcia) s top 100 konverznými článkami. Revenue per need, formáty a strategické závery.</p>
     </a>
 
     <!-- Card 3: Top 100 Dashboard -->
@@ -308,7 +319,7 @@ body {
         <img src="assets/card-top100@2x.png" alt="Top 100 Dashboard">
         <div class="card-tag">Top 100 Dashboard</div>
       </div>
-      <p class="card-desc">Prehľad 100 najkonverznejších článkov. User needs, formátová matica, membership funnel a revenue analýza.</p>
+      <p class="card-desc" data-i18n="card3-desc">Prehľad 100 najkonverznejších článkov. User needs, formátová matica, membership funnel a revenue analýza.</p>
     </a>
 
   </div>
@@ -322,6 +333,15 @@ body {
   </div>
 </footer>
 
+<script>
+window.I18N_EN = {
+  "subtitle": "Analytical resources · BBC User Needs 2.0",
+  "card1-desc": "Distribution of 11,526 articles by BBC User Needs 2.0. Engagement, decile analysis, and key findings on production vs. performance.",
+  "card2-tag": "Conversion vs. Production",
+  "card2-desc": "Comparison of 11,526 articles (production) against the top 100 converting articles. Revenue per need, formats, and strategic insights.",
+  "card3-desc": "Overview of the 100 highest-converting articles. User needs, format matrix, membership funnel, and revenue analysis."
+};
+</script>
 <script src="theme.js"></script>
 </body>
 </html>
