@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Legacy membership bridge: value and engagement of Forbes.hu's existing REMP subscriber base, and what content keeps paying subscribers active.">
+<link rel="preload" as="font" type="font/woff2" href="fonts/ForbesHighlander-Regular-Web.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Book.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Bold.woff2" crossorigin>
+<link rel="stylesheet" href="fonts/favorit.css">
+<title>Forbes.hu – Legacy Membership Bridge</title>
+<script>(function(){var saved=localStorage.getItem('theme');document.documentElement.dataset.theme=saved||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');})();</script>
+<style>
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f4f0;
+  --color-background-tertiary:#eeece6;
+  --color-text-primary:#1a1a18;
+  --color-text-secondary:#5a5a56;
+  --color-text-tertiary:#8a8a84;
+  --color-border-tertiary:rgba(0,0,0,0.12);
+  --color-border-secondary:rgba(0,0,0,0.22);
+  --color-border-primary:rgba(0,0,0,0.35);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --color-background-primary:#1e1e1c;
+    --color-background-secondary:#2a2a28;
+    --color-background-tertiary:#242422;
+    --color-text-primary:#e8e6de;
+    --color-text-secondary:#a0a098;
+    --color-text-tertiary:#70706a;
+    --color-border-tertiary:rgba(255,255,255,0.10);
+    --color-border-secondary:rgba(255,255,255,0.18);
+    --color-border-primary:rgba(255,255,255,0.28);
+  }
+}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);min-height:100vh;font-kerning:normal;font-optical-sizing:auto}
+.page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:1rem 1.5rem 1.25rem}
+.page-nav-inner{max-width:960px;margin:0 auto}
+.page-nav-spacer{height:5.5rem}
+.nav-title{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.back-btn{display:inline-flex;align-items:center;justify-content:center;color:var(--color-text-tertiary);text-decoration:none;flex-shrink:0;transition:color 150ms cubic-bezier(0.25,1,0.5,1);padding:2px}
+.back-btn:hover{color:#BE123C}
+.back-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px;border-radius:2px}
+.wordmark{font-family:'ForbesHighlander',Georgia,serif;font-weight:700;font-size:20px;color:var(--color-text-primary);text-decoration:none}
+.brand-logo{display:inline-flex;text-decoration:none}
+.forbes-logo{width:123px;height:32px;object-fit:contain;display:block}
+@media(prefers-color-scheme:dark){.brand-logo img{filter:brightness(0) invert(1)}}
+[data-theme="dark"] .brand-logo img{filter:brightness(0) invert(1)}
+.page-nav h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif;text-wrap:balance}
+.page-nav p{font-size:13px;color:var(--color-text-tertiary);padding-left:30px}
+.wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem 5rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab-btn{padding:5px 14px;min-height:36px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
+.tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:#BE123C;font-weight:500}
+.tab-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.header-controls{display:flex;align-items:center;gap:8px}
+.country-link{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px;font-size:13px;font-weight:500;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:20px;text-decoration:none;flex-shrink:0;transition:color 150ms cubic-bezier(0.25,1,0.5,1),background 150ms cubic-bezier(0.25,1,0.5,1)}
+.country-link:hover{color:var(--color-text-primary)}
+.country-link:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.country-link svg{flex-shrink:0}
+.lang-switch{display:flex;gap:2px;background:var(--color-background-secondary);border-radius:20px;padding:2px}
+.lang-btn{padding:5px 11px;min-height:28px;border:none;background:none;border-radius:18px;font-size:12px;font-weight:500;color:var(--color-text-secondary);cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
+.lang-btn.active{background:var(--color-text-primary);color:var(--color-background-primary)}
+.lang-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.section{margin-bottom:2rem}
+.section--major{margin-bottom:3rem}
+.section-label{font-family:inherit;font-size:20px;font-weight:700;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--color-text-primary);margin-bottom:.75rem}
+.stats-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
+.stat-card{flex:1;min-width:90px;max-width:160px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px}
+.stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums}
+.stat-lbl{font-size:10px;color:var(--color-text-tertiary);margin-top:2px}
+.rev-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.rev-label{font-size:12px;color:var(--color-text-secondary);width:175px;text-align:right;flex-shrink:0}
+.rev-track{flex:1;height:22px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden}
+.rev-fill{height:100%;border-radius:3px}
+.rev-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:90px;font-variant-numeric:tabular-nums}
+.rev-extra{font-size:11px;color:var(--color-text-tertiary);width:140px;flex-shrink:0}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--color-text-secondary);width:160px;flex-shrink:0;text-align:right}
+.bar-track{flex:1;height:22px;background:var(--color-background-secondary);border-radius:4px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:4px;transition:width 400ms cubic-bezier(0.25,1,0.5,1)}
+.bar-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:40px;font-variant-numeric:tabular-nums}
+.bar-extra{font-size:11px;color:var(--color-text-tertiary);width:120px;flex-shrink:0}
+.big-split{display:flex;border-radius:var(--border-radius-md);overflow:hidden;height:48px;margin-bottom:.75rem}
+.split-seg{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#fff}
+.insight{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:10px 14px;font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
+.insight strong{color:var(--color-text-primary)}
+.insight.critical{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.35)}
+.insight.good{background:rgba(29,158,117,.06);border-color:rgba(29,158,117,.35)}
+.insight.warning{background:rgba(186,117,23,.06);border-color:rgba(186,117,23,.35)}
+.note{font-size:11px;color:var(--color-text-tertiary);margin-top:.75rem;line-height:1.5;padding:8px 12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)}
+[id^="tab-"]{transition:opacity 200ms cubic-bezier(0.25,1,0.5,1)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+@media(prefers-color-scheme:dark){
+  .tab-btn.active{border-color:#FB7185}
+  .tab-btn:focus-visible{outline-color:#FB7185}
+  .back-btn:hover{color:#FB7185}
+  .back-btn:focus-visible{outline-color:#FB7185}
+  .lang-btn:focus-visible{outline-color:#FB7185}
+}
+</style>
+<link rel="stylesheet" href="figma-design.css">
+<link rel="stylesheet" href="motion.css">
+</head>
+<body>
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <div class="nav-title" aria-label="Forbes.hu">
+      <a class="brand-logo" href="forbes_hu_index.html" aria-label="Forbes Magyarország home"><img class="forbes-logo" src="assets/forbes-hu-digital.svg" alt="Forbes Magyarország"></a>
+      <div class="header-controls">
+        <a class="country-link" href="index.html" aria-label="Change country">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>Hungary</span>
+        </a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="hu">HU</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+    <p class="breadcrumb"><a href="forbes_hu_index.html">Membership Strategy</a> / <span data-i18n="breadcrumb">Legacy Membership Bridge</span></p>
+  </div>
+</div>
+<div class="page-nav-spacer"></div>
+<div class="wrap">
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('base')" data-i18n="tab-base">Előfizetői bázis</button>
+  <button class="tab-btn" onclick="showTab('bridge')" data-i18n="tab-bridge">Mit olvasnak?</button>
+  <button class="tab-btn" onclick="showTab('insights')">Insights</button>
+</div>
+
+<!-- TAB: BASE -->
+<div id="tab-base">
+<div class="stats-row">
+  <div class="stat-card"><div class="stat-num">4 280</div><div class="stat-lbl" data-i18n="stat-active">aktív előfizetés (end_time &gt; ma)</div></div>
+  <div class="stat-card"><div class="stat-num">8,1%</div><div class="stat-lbl" data-i18n="stat-engaged">látogatott az elmúlt 30 napban</div></div>
+  <div class="stat-card"><div class="stat-num">93,5M</div><div class="stat-lbl">Ft becsült bázisérték</div></div>
+  <div class="stat-card"><div class="stat-num">92,1%</div><div class="stat-lbl" data-i18n="stat-atrisk">érték passzív előfizetőknél</div></div>
+</div>
+<div class="note" data-i18n="note-legacy">Ez a "régi rendszerből" (legacy REMP) származó előfizetői adatbázis — nem azonos a beam rendszer signup/konverzió adataival a másik dashboardon. A két rendszer összekapcsolása a stratégia célja.</div>
+<div class="section" style="margin-top:1.5rem">
+  <h2 class="section-label" data-i18n="sec-split">Aktív bázis megoszlása érték szerint: aktívan olvasó vs. passzív előfizető</h2>
+  <div class="big-split">
+    <div class="split-seg" id="seg-engaged" style="background:#34d399"></div>
+    <div class="split-seg" id="seg-dormant" style="background:#8a8a84"></div>
+  </div>
+  <div class="note" data-i18n="note-split">345 előfizető (8,1%) látogatta az oldalt az elmúlt 30 napban — ők adják a bázis becsült értékének mindössze 7,9%-át (7,4M Ft). A maradék 3 935 előfizető (91,9%) — 86,1M Ft becsült érték — passzív: fizet, de nem olvas. Ez a legnagyobb egyszeri churn-kockázat a teljes elemzésben.</div>
+</div>
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-types">Legnagyobb előfizetési típusok az aktív bázisban</h2>
+  <div id="type-bars"></div>
+</div>
+</div>
+
+<!-- TAB: BRIDGE -->
+<div id="tab-bridge" style="display:none">
+<div class="stats-row">
+  <div class="stat-card"><div class="stat-num">658</div><div class="stat-lbl" data-i18n="stat-matched">azonosított cikklátogatás (30 nap)</div></div>
+</div>
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-bridge">Mit olvasnak az aktívan bejelentkező előfizetők — user need szerint (elmúlt 30 nap)</h2>
+  <div id="bridge-bars"></div>
+</div>
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-compare">Összevetés: mit olvasnak az előfizetők vs. teljes produkció</h2>
+  <div id="compare-bars"></div>
+  <div class="note" data-i18n="note-compare">A produkció a teljes 2016–2026-os cikkállomány megoszlása (User Needs Audit dashboard), az előfizetői olvasás pedig az elmúlt 30 nap cikklátogatásai a legacy bázisból.</div>
+</div>
+</div>
+
+<!-- TAB: INSIGHTS -->
+<div id="tab-insights" style="display:none">
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-findings">Kulcsfontosságú megállapítások</h2>
+  <div class="insight critical" data-i18n="insight-1" data-i18n-html>
+    <strong>A legacy előfizetői bázis becsült 93,5M Ft éves értékének 92%-a passzív felhasználóknál van.</strong> Csak 345 az 4 280 aktív előfizetőből (8,1%) járt az oldalon az elmúlt 30 napban. Ez nem feltétlenül churn a közeljövőben (sok előfizetés több évre szól), de azt jelzi, hogy a termék által nyújtott érték nagy részét a bázis jelenleg nem érzékeli.
+  </div>
+  <div class="insight good" data-i18n="insight-2" data-i18n-html>
+    <strong>Az aktívan olvasó előfizetők aránytalanul sokat olvasnak Inspire me tartalmat.</strong> 11,7% az olvasásokban, szemben a 2,3%-os produkciós aránnyal — ötször nagyobb súllyal, mint amennyit gyártunk belőle. Ugyanez a minta, mint amit a beam-ablak konverziós adatai mutatnak: a portré/interjú tartalom nemcsak új konverziót hoz, hanem a meglévő fizetőket is visszatartja.
+  </div>
+  <div class="insight" data-i18n="insight-3" data-i18n-html>
+    <strong>Give me perspective és Üzlet kategória dominálja az előfizetői olvasást (53,5%, illetve 354/658 cikklátogatás).</strong> Ez konzisztens azzal, hogy a Forbes.hu elsődleges márkaígérete az üzleti/gazdasági elemzés — az aktív előfizetők ezért fizetnek.
+  </div>
+  <div class="insight warning" data-i18n="insight-4" data-i18n-html>
+    <strong>A két rendszer (legacy REMP és beam) egyelőre nincs összekötve.</strong> A legacy bázis és a beam-ablak signup/konverzió adatai különálló populációk. A stratégia következő lépése: közös azonosító (email/user ID) alapján összekapcsolni a két rendszert, hogy lássuk, mennyi átfedés van a régi fizető előfizetők és az új beam-alapú konverziók között — és hogy a régi bázis reaktiválása vagy az új konverziós csatorna erősítése hozza-e nagyobb megtérülést.
+  </div>
+</div>
+</div>
+
+</div>
+
+<footer class="dashboard-footer">
+  <span>Copyright &copy; 2026 Mediarey Hungary Services Zrt.</span>
+</footer>
+
+<script>
+function isEn(){ return window.getLang && window.getLang()==='en'; }
+
+// Split bar
+function renderSplit(){
+  const eng=document.getElementById('seg-engaged');
+  const dor=document.getElementById('seg-dormant');
+  const engPct=7.9, dorPct=92.1;
+  eng.style.width=engPct+'%';
+  dor.style.width=dorPct+'%';
+  eng.textContent=(isEn()?'Engaged: ':'Aktív: ')+'7.4M Ft ('+engPct+'%)';
+  dor.textContent=(isEn()?'Dormant: ':'Passzív: ')+'86.1M Ft ('+dorPct+'%)';
+}
+renderSplit();
+
+const typeData=[
+  {label:'1-year subscription renewal', n:741, price:16490, color:'#5b8cff'},
+  {label:'Prémium éves előfizetés',      n:649, price:18490, color:'#3dd9ff'},
+  {label:'Prémium éves diák előfizetés', n:262, price:13990, color:'#34d399'},
+  {label:'Prémium 2 éves előfizetés',    n:250, price:29990, color:'#a3e635'},
+  {label:'+ MesterAkadémia All In csomag',n:250, price:18490, color:'#fbbf24'},
+  {label:"+ Misi's Dry Gin csomag",       n:193, price:19990, color:'#ff8a7a'},
+  {label:'+ Wizz Air utalvány',          n:185, price:18490, color:'#ff4fd8'},
+  {label:'Forbes Business Club',         n:57,  price:184900,color:'#a78bfa'},
+];
+function renderTypes(){
+  const el=document.getElementById('type-bars');
+  const maxN=741;
+  const subLbl=isEn()?'subscribers':'előfizető';
+  el.innerHTML=typeData.map(t=>`<div class="bar-row">
+    <div class="bar-label">${t.label}</div>
+    <div class="bar-track"><div class="bar-fill" style="width:${t.n/maxN*100}%;background:${t.color}"></div></div>
+    <span class="bar-val" style="color:${t.color}">${t.n}</span>
+    <div class="bar-extra">${t.price.toLocaleString()} Ft/${subLbl.slice(0,3)}</div>
+  </div>`).join('');
+}
+renderTypes();
+
+const bridgeData=[
+  {label:'Give me perspective',pct:53.5,color:'#5b8cff'},
+  {label:'Help me',            pct:17.5,color:'#34d399'},
+  {label:'Inspire me',         pct:11.7,color:'#3dd9ff'},
+  {label:'Divert me',          pct:6.5, color:'#ff4fd8'},
+  {label:'Update me',          pct:5.3, color:'#a3e635'},
+  {label:'Connect me',         pct:2.7, color:'#a78bfa'},
+  {label:'Keep me engaged',    pct:2.7, color:'#fbbf24'},
+];
+function renderBridge(){
+  const el=document.getElementById('bridge-bars');
+  el.innerHTML=bridgeData.map(n=>`<div class="bar-row">
+    <div class="bar-label">${n.label}</div>
+    <div class="bar-track"><div class="bar-fill" style="width:${n.pct/55*100}%;background:${n.color}"></div></div>
+    <span class="bar-val" style="color:${n.color}">${n.pct}%</span>
+    <div class="bar-extra"></div>
+  </div>`).join('');
+}
+renderBridge();
+
+// production vs subscriber-reading compare
+const compareData=[
+  {label:'Give me perspective',prod:54.1,read:53.5,color:'#5b8cff'},
+  {label:'Inspire me',         prod:2.3, read:11.7,color:'#3dd9ff'},
+  {label:'Help me',            prod:22.0,read:17.5,color:'#34d399'},
+  {label:'Update me',          prod:8.1, read:5.3, color:'#a3e635'},
+  {label:'Divert me',          prod:6.8, read:6.5, color:'#ff4fd8'},
+  {label:'Connect me',         prod:2.5, read:2.7, color:'#a78bfa'},
+  {label:'Keep me engaged',    prod:2.9, read:2.7, color:'#fbbf24'},
+  {label:'Educate me',         prod:1.4, read:0.0, color:'#ff8a7a'},
+];
+function renderCompare(){
+  const el=document.getElementById('compare-bars');
+  const prodLbl=isEn()?'Production':'Produkció';
+  const readLbl=isEn()?'Subscriber reading':'Előfizetői olvasás';
+  el.innerHTML=compareData.map(n=>`<div class="section" style="margin-bottom:1rem">
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">${n.label}</div>
+    <div class="bar-row" style="margin-bottom:4px">
+      <div class="bar-label" style="width:120px;font-size:10px">${prodLbl}</div>
+      <div class="bar-track" style="height:16px"><div class="bar-fill" style="width:${n.prod/55*100}%;background:${n.color};opacity:.55"></div></div>
+      <span class="bar-val" style="color:${n.color}">${n.prod}%</span>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label" style="width:120px;font-size:10px">${readLbl}</div>
+      <div class="bar-track" style="height:16px"><div class="bar-fill" style="width:${n.read/55*100}%;background:${n.color}"></div></div>
+      <span class="bar-val" style="color:${n.color}">${n.read}%</span>
+    </div>
+  </div>`).join('');
+}
+renderCompare();
+
+document.addEventListener('langchange',function(){
+  renderSplit(); renderTypes(); renderBridge(); renderCompare();
+});
+
+var _curTab=null;
+function showTab(t,skipHash){
+  var ids=['base','bridge','insights'];
+  if(!ids.includes(t))t='base';
+  if(_curTab===t)return;
+  if(!skipHash)history.replaceState(null,'','#'+t);
+  if(window.switchDashboardTab){
+    _curTab=window.switchDashboardTab({current:_curTab,next:t,ids:ids});
+    return;
+  }
+  var noAnim=_curTab===null||window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(noAnim){
+    ids.forEach(function(id){document.getElementById('tab-'+id).style.display=id===t?'block':'none';});
+    _curTab=t;
+  }else{
+    var out=document.getElementById('tab-'+_curTab);
+    var inEl=document.getElementById('tab-'+t);
+    out.style.opacity='0';
+    setTimeout(function(){
+      out.style.display='none';
+      out.style.opacity='';
+      inEl.style.opacity='0';
+      inEl.style.display='block';
+      requestAnimationFrame(function(){requestAnimationFrame(function(){inEl.style.opacity='1';});});
+      _curTab=t;
+    },150);
+  }
+  document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',ids[i]===t);});
+}
+(function(){
+  var ids=['base','bridge','insights'];
+  var hash=location.hash.replace('#','');
+  showTab(ids.includes(hash)?hash:'base',true);
+  window.addEventListener('hashchange',function(){
+    var h=location.hash.replace('#','');
+    showTab(ids.includes(h)?h:'base',true);
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.page-nav');
+  var spacer=document.querySelector('.page-nav-spacer');
+  function sync(){spacer.style.height=nav.offsetHeight+'px';}
+  sync();
+  window.addEventListener('resize',sync);
+  document.fonts.ready.then(sync);
+})();
+</script>
+<script>
+window.I18N_EN = {
+  "breadcrumb": "Legacy Membership Bridge",
+  "tab-base": "Subscriber base",
+  "tab-bridge": "What do they read?",
+  "stat-active": "active subscriptions (end_time > today)",
+  "stat-engaged": "visited in the last 30 days",
+  "stat-atrisk": "of value sits with passive subscribers",
+  "note-legacy": "This is the subscriber database from the \"old system\" (legacy REMP) — not the same as the beam system's signup/conversion data on the other dashboard. Connecting the two systems is the goal of this strategy.",
+  "sec-split": "Active base split by value: actively reading vs. passive subscriber",
+  "note-split": "345 subscribers (8.1%) visited the site in the last 30 days — they account for only 7.9% of the base's estimated value (7.4M HUF). The remaining 3,935 subscribers (91.9%) — an estimated 86.1M HUF in value — are passive: they pay, but don't read. This is the single biggest churn risk in this whole analysis.",
+  "sec-types": "Largest subscription types in the active base",
+  "stat-matched": "identified article visits (30 days)",
+  "sec-bridge": "What actively logged-in subscribers read — by user need (last 30 days)",
+  "sec-compare": "Comparison: what subscribers read vs. total production",
+  "note-compare": "Production is the distribution across the full 2016–2026 article archive (User Needs Audit dashboard); subscriber reading is article visits in the last 30 days from the legacy base.",
+  "sec-findings": "Key findings",
+  "insight-1": "<strong>92% of the legacy subscriber base's estimated 93.5M HUF annual value sits with passive users.</strong> Only 345 of 4,280 active subscribers (8.1%) visited the site in the last 30 days. This doesn't necessarily mean imminent churn (many subscriptions run for several years), but it shows that most of the base currently isn't experiencing the product's value.",
+  "insight-2": "<strong>Actively reading subscribers read Inspire me content disproportionately.</strong> 11.7% of reads vs. a 2.3% production share — five times the weight of what we produce. This mirrors the pattern from the beam-window conversion data: profile/interview content doesn't just drive new conversion, it also retains existing payers.",
+  "insight-3": "<strong>Give me perspective and the Business category dominate subscriber reading (53.5%, and 354/658 article visits).</strong> This is consistent with Forbes.hu's core brand promise being business/economic analysis — it's what active subscribers are paying for.",
+  "insight-4": "<strong>The two systems (legacy REMP and beam) aren't linked yet.</strong> The legacy base and the beam-window signup/conversion data are separate populations. The next step in the strategy: link the two systems via a shared identifier (email/user ID) to see how much overlap exists between old paying subscribers and new beam-based conversions — and whether reactivating the old base or strengthening the new conversion channel offers the bigger return."
+};
+</script>
+<script src="theme.js"></script>
+</body>
+</html>

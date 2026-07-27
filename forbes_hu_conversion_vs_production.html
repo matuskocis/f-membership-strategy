@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conversion vs. production analysis: Forbes.hu beam-window articles (Nov 2025–Jul 2026) compared against top converting content by user need and revenue.">
+<link rel="preload" as="font" type="font/woff2" href="fonts/ForbesHighlander-Regular-Web.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Book.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Bold.woff2" crossorigin>
+<link rel="stylesheet" href="fonts/favorit.css">
+<title>Forbes.hu – Konverzió vs. Produkció</title>
+<script>(function(){var saved=localStorage.getItem('theme');document.documentElement.dataset.theme=saved||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');})();</script>
+<style>
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f4f0;
+  --color-background-tertiary:#eeece6;
+  --color-text-primary:#1a1a18;
+  --color-text-secondary:#5a5a56;
+  --color-text-tertiary:#8a8a84;
+  --color-border-tertiary:rgba(0,0,0,0.12);
+  --color-border-secondary:rgba(0,0,0,0.22);
+  --color-border-primary:rgba(0,0,0,0.35);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --color-background-primary:#1e1e1c;
+    --color-background-secondary:#2a2a28;
+    --color-background-tertiary:#242422;
+    --color-text-primary:#e8e6de;
+    --color-text-secondary:#a0a098;
+    --color-text-tertiary:#70706a;
+    --color-border-tertiary:rgba(255,255,255,0.10);
+    --color-border-secondary:rgba(255,255,255,0.18);
+    --color-border-primary:rgba(255,255,255,0.28);
+  }
+}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);min-height:100vh;font-kerning:normal;font-optical-sizing:auto}
+.page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:1rem 1.5rem 1.25rem}
+.page-nav-inner{max-width:960px;margin:0 auto}
+.page-nav-spacer{height:5.5rem}
+.nav-title{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.back-btn{display:inline-flex;align-items:center;justify-content:center;color:var(--color-text-tertiary);text-decoration:none;flex-shrink:0;transition:color 150ms cubic-bezier(0.25,1,0.5,1);padding:2px}
+.back-btn:hover{color:#BE123C}
+.back-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px;border-radius:2px}
+.wordmark{font-family:'ForbesHighlander',Georgia,serif;font-weight:700;font-size:20px;color:var(--color-text-primary);text-decoration:none}
+.brand-logo{display:inline-flex;text-decoration:none}
+.forbes-logo{width:123px;height:32px;object-fit:contain;display:block}
+@media(prefers-color-scheme:dark){.brand-logo img{filter:brightness(0) invert(1)}}
+[data-theme="dark"] .brand-logo img{filter:brightness(0) invert(1)}
+.page-nav h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif;text-wrap:balance}
+.page-nav p{font-size:13px;color:var(--color-text-tertiary);padding-left:30px}
+.wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem 5rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab-btn{padding:5px 14px;min-height:36px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
+.tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:#BE123C;font-weight:500}
+.tab-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.header-controls{display:flex;align-items:center;gap:8px}
+.country-link{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px;font-size:13px;font-weight:500;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:20px;text-decoration:none;flex-shrink:0;transition:color 150ms cubic-bezier(0.25,1,0.5,1),background 150ms cubic-bezier(0.25,1,0.5,1)}
+.country-link:hover{color:var(--color-text-primary)}
+.country-link:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.country-link svg{flex-shrink:0}
+.lang-switch{display:flex;gap:2px;background:var(--color-background-secondary);border-radius:20px;padding:2px}
+.lang-btn{padding:5px 11px;min-height:28px;border:none;background:none;border-radius:18px;font-size:12px;font-weight:500;color:var(--color-text-secondary);cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
+.lang-btn.active{background:var(--color-text-primary);color:var(--color-background-primary)}
+.lang-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.section{margin-bottom:2rem}
+.section--major{margin-bottom:3rem}
+.section-label{font-family:inherit;font-size:20px;font-weight:700;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--color-text-primary);margin-bottom:.75rem}
+.stats-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
+.stat-card{flex:1;min-width:90px;max-width:160px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px}
+.stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums}
+.stat-lbl{font-size:10px;color:var(--color-text-tertiary);margin-top:2px}
+.compare-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.need-label{font-size:12px;color:var(--color-text-secondary);width:175px;flex-shrink:0;text-align:right}
+.bars-pair{flex:1;display:flex;flex-direction:column;gap:3px}
+.bar-pair-row{display:flex;align-items:center;gap:5px}
+.bar-track{flex:1;height:17px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:3px;transition:width 400ms cubic-bezier(0.25,1,0.5,1)}
+.bar-val{font-size:10px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:30px;font-variant-numeric:tabular-nums}
+.delta-badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px;width:62px;text-align:center;flex-shrink:0;font-variant-numeric:tabular-nums}
+.delta-pos{background:#eaf3de;color:#3b6d11}
+.delta-neg{background:#fcebeb;color:#a32d2d}
+.delta-neu{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.rev-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.rev-label{font-size:12px;color:var(--color-text-secondary);width:175px;text-align:right;flex-shrink:0}
+.rev-track{flex:1;height:22px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden}
+.rev-fill{height:100%;border-radius:3px}
+.rev-val{font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;min-width:72px;font-variant-numeric:tabular-nums}
+.rev-extra{font-size:11px;color:var(--color-text-tertiary);width:110px;flex-shrink:0}
+.insight{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:10px 14px;font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
+.insight strong{color:var(--color-text-primary)}
+.insight.critical{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.35)}
+.insight.good{background:rgba(29,158,117,.06);border-color:rgba(29,158,117,.35)}
+.insight.warning{background:rgba(186,117,23,.06);border-color:rgba(186,117,23,.35)}
+.legend-row{display:flex;gap:16px;margin-bottom:1rem;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary)}
+.leg-rect{width:28px;height:8px;border-radius:2px}
+.note{font-size:11px;color:var(--color-text-tertiary);margin-top:.75rem;line-height:1.5;padding:8px 12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:1rem}
+.scenario-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:14px 16px}
+.scenario-card.active-scn{border-color:#BE123C}
+.scenario-name{font-size:14px;font-weight:700;margin-bottom:8px}
+.scenario-assump{font-size:11px;color:var(--color-text-tertiary);margin-bottom:10px;line-height:1.5;padding-bottom:10px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.scenario-metric{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--color-text-secondary);margin-bottom:5px;gap:8px}
+.scenario-metric b{color:var(--color-text-primary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.scenario-metric.rev b{font-size:15px}
+[id^="tab-"]{transition:opacity 200ms cubic-bezier(0.25,1,0.5,1)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+@media(prefers-color-scheme:dark){
+  .tab-btn.active{border-color:#FB7185}
+  .tab-btn:focus-visible{outline-color:#FB7185}
+  .back-btn:hover{color:#FB7185}
+  .back-btn:focus-visible{outline-color:#FB7185}
+  .lang-btn:focus-visible{outline-color:#FB7185}
+}
+</style>
+<link rel="stylesheet" href="figma-design.css">
+<link rel="stylesheet" href="motion.css">
+</head>
+<body>
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <div class="nav-title" aria-label="Forbes.hu">
+      <a class="brand-logo" href="forbes_hu_index.html" aria-label="Forbes Magyarország home"><img class="forbes-logo" src="assets/forbes-hu-digital.svg" alt="Forbes Magyarország"></a>
+      <div class="header-controls">
+        <a class="country-link" href="index.html" aria-label="Change country">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>Hungary</span>
+        </a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="hu">HU</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+    <p class="breadcrumb"><a href="forbes_hu_index.html">Membership Strategy</a> / <span data-i18n="breadcrumb">Konverzió vs. Produkció</span></p>
+  </div>
+</div>
+<div class="page-nav-spacer"></div>
+<div class="wrap">
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('gap')" data-i18n="tab-gap">Produkció vs. Konverzió</button>
+  <button class="tab-btn" onclick="showTab('revenue')">Revenue per need</button>
+  <button class="tab-btn" onclick="showTab('signup')" data-i18n="tab-signup">Soft paywall signup</button>
+  <button class="tab-btn" onclick="showTab('paywall')" data-i18n="tab-paywall">Hard paywall szcenáriók</button>
+  <button class="tab-btn" onclick="showTab('insights')">Insights</button>
+</div>
+
+<!-- TAB: GAP -->
+<div id="tab-gap">
+<div class="stats-row">
+  <div class="stat-card"><div class="stat-num">3 973</div><div class="stat-lbl" data-i18n="stat-window">cikk a beam ablakban</div></div>
+  <div class="stat-card"><div class="stat-num">444</div><div class="stat-lbl" data-i18n="stat-convtotal">konverzió összesen</div></div>
+  <div class="stat-card"><div class="stat-num">8 615 994</div><div class="stat-lbl">HUF revenue</div></div>
+  <div class="stat-card"><div class="stat-num">19 405</div><div class="stat-lbl">avg order HUF</div></div>
+</div>
+<div class="note" data-i18n="note-window">Az ablak 2025. november – 2026. július közötti cikkeket fedi le — ekkor indult a beam analytics/konverziós tracking. A korábbi cikkeknél (2016–2025) nincs konverziós adat, csak pageview.</div>
+<div class="section" style="margin-top:1rem">
+  <h2 class="section-label" data-i18n="sec-gap">Produkciós részesedés vs. részesedés a top 100 konverziós cikkben (revenue szerint) — a delta mutatja, hol aránytalan a termelés az eredményhez képest</h2>
+  <div class="legend-row">
+    <div class="legend-item"><div class="leg-rect" style="background:#5b8cff"></div><span data-i18n="legend-prod">Produkció (% a 3 973 beam-ablakos cikkből)</span></div>
+    <div class="legend-item"><div class="leg-rect" style="background:#3dd9ff"></div><span data-i18n="legend-conv">Konverzió (% a top 100 konverziós cikkből)</span></div>
+  </div>
+  <div id="compare-bars"></div>
+</div>
+</div>
+
+<!-- TAB: REVENUE -->
+<div id="tab-revenue" style="display:none">
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-revtotal">Teljes revenue per user need (top 100 konverziós cikk)</h2>
+  <div id="rev-bars"></div>
+</div>
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-revperart">Revenue cikkenként — melyik kategória hozza a legtöbbet egy cikkre vetítve</h2>
+  <div id="rev-per-article"></div>
+</div>
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-readtime">Átlagos olvasási idő per user need (perc, top 100 konverziós cikk)</h2>
+  <div id="rt-bars"></div>
+</div>
+</div>
+
+<!-- TAB: SIGNUP -->
+<div id="tab-signup" style="display:none">
+<div class="stats-row">
+  <div class="stat-card"><div class="stat-num">1 734</div><div class="stat-lbl" data-i18n="stat-signups">signup összesen (soft paywall)</div></div>
+  <div class="stat-card"><div class="stat-num">2.07%</div><div class="stat-lbl" data-i18n="stat-signedinshare">bejelentkezett pageview-arány</div></div>
+  <div class="stat-card"><div class="stat-num">395</div><div class="stat-lbl" data-i18n="stat-signuparts">cikk generált signupot</div></div>
+  <div class="stat-card"><div class="stat-num">444</div><div class="stat-lbl" data-i18n="stat-convtotal">konverzió összesen</div></div>
+</div>
+<div class="note" data-i18n="note-signup">A beam nem tárol egyedi felhasználói azonosítót — a signup és a konverzió cikkenként rögzített esemény, nem egy adott olvasó végigkövetett útja. A "signup → fizetős %" ezért közelítés, nem valódi kohorsz-mutató (pl. a Connect me-nél 260% jön ki, mert 13 konverzió esik 5 signupra — ez csak azt mutatja, hogy ugyanazon cikkkörben mindkettő gyakori, nem azt, hogy ugyanazok a személyek).</div>
+<div class="section" style="margin-top:1rem">
+  <h2 class="section-label" data-i18n="sec-signupgap">Pageview-részesedés vs. signup-részesedés user need szerint — hol generál egy kategória aránytalanul sok/kevés regisztrációt a forgalmához képest</h2>
+  <div class="legend-row">
+    <div class="legend-item"><div class="leg-rect" style="background:#5b8cff"></div><span data-i18n="legend-pv">Pageview-részesedés (% a teljes beam-ablakos forgalomból)</span></div>
+    <div class="legend-item"><div class="leg-rect" style="background:#f59e0b"></div><span data-i18n="legend-su">Signup-részesedés (% az összes signupból)</span></div>
+  </div>
+  <div id="signup-bars"></div>
+</div>
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-s2p">Signup → konverzió arány és revenue user need szerint (közelítő, ld. módszertani megjegyzés fent)</h2>
+  <div id="s2p-bars"></div>
+</div>
+</div>
+
+<!-- TAB: PAYWALL SCENARIOS -->
+<div id="tab-paywall" style="display:none">
+<div class="note" data-i18n="note-paywall-method">A Forbes.hu-nak nincs saját hard paywall múltja, amiből extrapolálni lehetne, és a beam export csak összesített (nem havi bontású) és csak pageview-alapú — egyedi látogató/session szám nélkül. Ezért nem lehet hiteles abszolút "X regisztráció/hónap" számot adni pageview × ipari ráta szorzással (ez látogatónkénti több oldalletöltés miatt jelentősen túlbecsülne). Ehelyett a 3 szcenárió a HU saját, tényleges 9 hónapos alapszámain (1 734 signup, 444 fizetős konverzió, 8 615 994 Ft) fut relatív szorzókkal: (1) signup-növekedési szorzó — mennyivel nő a regisztrációk száma opcionálisról kötelezőre váltva, és (2) regisztrált → fizetős konverziós ráta — iparági benchmarkokból (ápolt/regisztrált olvasók 3–8%-a fizet elő, szemben az anonim ~0,5–2%-kal; regisztrált olvasók kb. 30x nagyobb eséllyel fizetnek elő, mint anonimok). Ez szcenárió-modell, nem havi trendből számolt előrejelzés.</div>
+<div class="scenario-grid">
+  <div class="scenario-card">
+    <div class="scenario-name" data-i18n="scn-cons-name">Konzervatív</div>
+    <div class="scenario-assump" data-i18n="scn-cons-assump">Signup ×5 · regisztrált→fizetős 3%</div>
+    <div class="scenario-metric"><span data-i18n="m-signups">Signup (9 hó)</span><b>8 670</b></div>
+    <div class="scenario-metric"><span data-i18n="m-paid">Fizetős konverzió</span><b>260</b></div>
+    <div class="scenario-metric rev"><span data-i18n="m-rev">Revenue</span><b>5 047 342 Ft</b></div>
+    <div class="scenario-metric"><span data-i18n="m-uplift">Revenue vs. ma</span><b>×0.6</b></div>
+  </div>
+  <div class="scenario-card active-scn">
+    <div class="scenario-name" data-i18n="scn-mod-name">Közepes</div>
+    <div class="scenario-assump" data-i18n="scn-mod-assump">Signup ×15 · regisztrált→fizetős 5%</div>
+    <div class="scenario-metric"><span data-i18n="m-signups">Signup (9 hó)</span><b>26 010</b></div>
+    <div class="scenario-metric"><span data-i18n="m-paid">Fizetős konverzió</span><b>1 300</b></div>
+    <div class="scenario-metric rev"><span data-i18n="m-rev">Revenue</span><b>25 236 712 Ft</b></div>
+    <div class="scenario-metric"><span data-i18n="m-uplift">Revenue vs. ma</span><b>×2.9</b></div>
+  </div>
+  <div class="scenario-card">
+    <div class="scenario-name" data-i18n="scn-agg-name">Agresszív</div>
+    <div class="scenario-assump" data-i18n="scn-agg-assump">Signup ×30 · regisztrált→fizetős 8%</div>
+    <div class="scenario-metric"><span data-i18n="m-signups">Signup (9 hó)</span><b>52 020</b></div>
+    <div class="scenario-metric"><span data-i18n="m-paid">Fizetős konverzió</span><b>4 162</b></div>
+    <div class="scenario-metric rev"><span data-i18n="m-rev">Revenue</span><b>80 757 479 Ft</b></div>
+    <div class="scenario-metric"><span data-i18n="m-uplift">Revenue vs. ma</span><b>×9.4</b></div>
+  </div>
+</div>
+<div class="insight warning" data-i18n="insight-scn-1" data-i18n-html>
+  <strong>A konzervatív szcenárió alacsonyabb bevételt hoz, mint a mai soft paywall.</strong> Ez nem hiba: a mai 444 konverzió egy kicsi, önmagát erősen szelektáló csoportból jön (aki magától regisztrál, motivált). Egy kötelező regisztrációs fal sokkal több, de átlagosan kevésbé motivált regisztrálót termel — ha az onboarding/pricing/nurture nem elég jó, a hígulás miatt a végeredmény akár rosszabb is lehet, mint ma. A végrehajtás minősége dönti el, hogy a közepes/agresszív szcenárió felé mozdulunk-e.
+</div>
+<div class="insight" data-i18n="insight-scn-2" data-i18n-html>
+  <strong>A legacy REMP bázishoz (4 280 aktív előfizetés, kb. 93.5M Ft érték) viszonyítva:</strong> a közepes szcenárió 9 hónap alatt kb. 1 300 új fizetőst hozna (a mai bázis kb. 30%-a), az agresszív kb. 4 160-at (kb. 97%-a) — vagyis egy jól végrehajtott hard paywall reálisan megduplázhatja az aktív előfizetői bázist egy éven belül, egy rosszul végrehajtott viszont alig termel nettó növekedést.
+</div>
+<div class="note" data-i18n="note-scn-sources">Forrás az iparági rátákhoz: The Audiencers / Speciall Media regisztrációs fal és paywall benchmark riportok (regisztrált olvasók 3–8%-os fizetős konverziója, anonim forgalom 0,5–2%-a, regisztráltak kb. 30x nagyobb eséllyel fizetnek elő, mint anonimok). CZ-specifikus hard paywall benchmark egyelőre nem áll rendelkezésre — a CZ dashboardokban nincs signup/paywall-funnel adat, csak revenue/formátum. Ha van tényleges CZ signup→fizetős ráta, ezt frissíteni tudjuk.</div>
+</div>
+
+<!-- TAB: INSIGHTS -->
+<div id="tab-insights" style="display:none">
+<div class="section">
+  <h2 class="section-label" data-i18n="sec-insights">Kulcsfontosságú megállapítások a produkció vs. konverzió összevetéséből</h2>
+  <div class="insight good" data-i18n="insight-1" data-i18n-html>
+    <strong>Inspire me messze a legjobb konverziós motor.</strong> Csak 4% a produkcióban, de 20% a top 100 konverziós cikkben, és 44 246 Ft/cikk revenue-t hoz — a második legmagasabbat. Vállalkozói portrék, interjúk egyértelműen konvertálnak jobban, mint amennyit gyártunk belőlük.
+  </div>
+  <div class="insight critical" data-i18n="insight-2" data-i18n-html>
+    <strong>Help me alultermelt a saját teljesítményéhez képest.</strong> 31.5% a produkcióban, de csak 19% a konverziós top 100-ban — vagyis relatív aránya csökken a konverzióban, annak ellenére hogy abszolút revenue-ja (944 656 Ft) a második legmagasabb. Ez arra utal, hogy a Help me tartalom nagy tömegben termelődik, de csak egy szűkebb szelete konvertál igazán jól.
+  </div>
+  <div class="insight warning" data-i18n="insight-3" data-i18n-html>
+    <strong>Divert me meglepetés-konvertor.</strong> Csak 3.4% a produkcióban, de 12% a top 100 konverziós cikkben, 48 302 Ft/cikk revenue-val — közel az Inspire me szintjéhez. Érdemes megvizsgálni, mely szórakoztató/lifestyle tartalmak működnek ilyen jól, és nagyobb mintán validálni.
+  </div>
+  <div class="insight" data-i18n="insight-4" data-i18n-html>
+    <strong>Update me túltermelt a konverziós hozamához képest.</strong> 19% a produkcióban, de csak 7% a top 100 konverziós cikkben és 33 414 Ft/cikk — a legalacsonyabb revenue/cikk. A hírtartalom forgalmat hoz (lásd a User Needs Audit dashboardot), de nem elsődleges konverziós motor.
+  </div>
+  <div class="insight good" data-i18n="insight-5" data-i18n-html>
+    <strong>Keep me engaged kis mennyiségben, de magas revenue/cikkel (51 176 Ft) — a legmagasabb a mérhető kategóriák közül a Connect me egyetlen cikkét leszámítva.</strong> Rangsorok, listák, toplisták — csak 1.6% a produkcióban. Érdemes lehet bővíteni.
+  </div>
+  <div class="insight" data-i18n="insight-6" data-i18n-html>
+    <strong>Módszertani megjegyzés:</strong> a "konverzió" itt a beam rendszer signup/purchase eventjeit jelenti — ez egy más rendszer, mint a legacy REMP-alapú előfizetői adatbázis (lásd a Legacy Membership Bridge dashboardot). A két rendszer összekapcsolása a stratégia következő lépése.
+  </div>
+</div>
+</div>
+
+</div>
+
+<footer class="dashboard-footer">
+  <span>Copyright &copy; 2026 Mediarey Hungary Services Zrt.</span>
+</footer>
+
+<script>
+const needs=[
+  {label:'Inspire me',         prod:4.0, conv:20.0,color:'#3dd9ff'},
+  {label:'Divert me',          prod:3.4, conv:12.0,color:'#ff4fd8'},
+  {label:'Help me',            prod:31.5,conv:19.0,color:'#34d399'},
+  {label:'Update me',          prod:19.0,conv:7.0, color:'#a3e635'},
+  {label:'Give me perspective',prod:37.6,conv:37.0,color:'#5b8cff'},
+  {label:'Educate me',         prod:0.3, conv:0.0, color:'#ff8a7a'},
+  {label:'Keep me engaged',    prod:1.6, conv:4.0, color:'#fbbf24'},
+  {label:'Connect me',         prod:2.7, conv:1.0, color:'#a78bfa'},
+];
+const revData=[
+  {label:'Give me perspective',total:1498514,per:40500,n:37,color:'#5b8cff'},
+  {label:'Help me',            total:944656, per:49719,n:19,color:'#34d399'},
+  {label:'Inspire me',         total:884926, per:44246,n:20,color:'#3dd9ff'},
+  {label:'Divert me',          total:579622, per:48302,n:12,color:'#ff4fd8'},
+  {label:'Update me',          total:233900, per:33414,n:7, color:'#a3e635'},
+  {label:'Keep me engaged',    total:204702, per:51176,n:4, color:'#fbbf24'},
+  {label:'Connect me',         total:114638, per:114638,n:1,color:'#a78bfa'},
+];
+const rtData=[
+  {label:'Inspire me',         mins:12.4,color:'#3dd9ff'},
+  {label:'Connect me',         mins:5.0, color:'#a78bfa'},
+  {label:'Help me',            mins:6.7, color:'#34d399'},
+  {label:'Divert me',          mins:4.5, color:'#ff4fd8'},
+  {label:'Give me perspective',mins:4.2, color:'#5b8cff'},
+  {label:'Keep me engaged',    mins:3.8, color:'#fbbf24'},
+  {label:'Update me',          mins:2.7, color:'#a3e635'},
+];
+
+const signupData=[
+  {label:'Help me',            pv:28.1, su:29.8, s2p:22.6, amt:2250510, color:'#34d399'},
+  {label:'Inspire me',         pv:10.7, su:29.8, s2p:13.0, amt:1285190, color:'#3dd9ff'},
+  {label:'Give me perspective',pv:39.2, su:26.1, s2p:34.4, amt:3081030, color:'#5b8cff'},
+  {label:'Update me',          pv:11.9, su:5.6,  s2p:27.8, amt:547334, color:'#a3e635'},
+  {label:'Keep me engaged',    pv:3.4,  su:4.7,  s2p:28.0, amt:418978, color:'#fbbf24'},
+  {label:'Divert me',          pv:4.4,  su:3.5,  s2p:62.3, amt:757514, color:'#ff4fd8'},
+  {label:'Connect me',         pv:2.2,  su:0.3,  s2p:260.0,amt:221778, color:'#a78bfa'},
+  {label:'Educate me',         pv:0.2,  su:0.2,  s2p:100.0,amt:53660,  color:'#ff8a7a'},
+];
+
+const sb=document.getElementById('signup-bars');
+signupData.forEach(n=>{
+  const delta=n.su-n.pv;
+  const dSign=delta>0?'+':'';
+  const dCls=delta>5?'delta-pos':delta<-5?'delta-neg':'delta-neu';
+  const maxScale=45;
+  sb.innerHTML+=`<div class="compare-row">
+    <div class="need-label">${n.label}</div>
+    <div class="bars-pair">
+      <div class="bar-pair-row">
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.pv,maxScale)/maxScale*100}%;background:#5b8cff"></div></div>
+        <span class="bar-val" style="color:#5b8cff">${n.pv}%</span>
+      </div>
+      <div class="bar-pair-row">
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.su,maxScale)/maxScale*100}%;background:#f59e0b"></div></div>
+        <span class="bar-val" style="color:#f59e0b">${n.su}%</span>
+      </div>
+    </div>
+    <div class="delta-badge ${dCls}">${dSign}${delta.toFixed(1)}%</div>
+  </div>`;
+});
+
+const maxS2p=260.0;
+function renderS2p(){
+  const el=document.getElementById('s2p-bars');
+  const perArt=isEn()?'HUF revenue':'Ft revenue';
+  el.innerHTML='';
+  [...signupData].sort((a,b)=>b.s2p-a.s2p).forEach(n=>{
+    el.innerHTML+=`<div class="rev-row">
+      <div class="rev-label">${n.label}</div>
+      <div class="rev-track"><div class="rev-fill" style="width:${Math.min(n.s2p,maxS2p)/maxS2p*100}%;background:${n.color}"></div></div>
+      <span class="rev-val" style="color:${n.color}">${n.s2p.toFixed(1)}%</span>
+      <div class="rev-extra">${n.amt.toLocaleString()} ${perArt}</div>
+    </div>`;
+  });
+}
+renderS2p();
+
+const cb=document.getElementById('compare-bars');
+needs.forEach(n=>{
+  const delta=n.conv-n.prod;
+  const dSign=delta>0?'+':'';
+  const dCls=delta>5?'delta-pos':delta<-5?'delta-neg':'delta-neu';
+  const maxScale=45;
+  cb.innerHTML+=`<div class="compare-row">
+    <div class="need-label">${n.label}</div>
+    <div class="bars-pair">
+      <div class="bar-pair-row">
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.prod,maxScale)/maxScale*100}%;background:#5b8cff"></div></div>
+        <span class="bar-val" style="color:#5b8cff">${n.prod}%</span>
+      </div>
+      <div class="bar-pair-row">
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.min(n.conv,maxScale)/maxScale*100}%;background:#3dd9ff"></div></div>
+        <span class="bar-val" style="color:#3dd9ff">${n.conv}%</span>
+      </div>
+    </div>
+    <div class="delta-badge ${dCls}">${dSign}${delta.toFixed(1)}%</div>
+  </div>`;
+});
+
+function isEn(){ return window.getLang && window.getLang()==='en'; }
+
+const maxRev=1498514;
+function renderRevBars(){
+  const rb=document.getElementById('rev-bars');
+  const perArt=isEn()?'HUF/article':'Ft/cikk';
+  rb.innerHTML='';
+  [...revData].sort((a,b)=>b.total-a.total).forEach(n=>{
+    rb.innerHTML+=`<div class="rev-row">
+      <div class="rev-label">${n.label}</div>
+      <div class="rev-track"><div class="rev-fill" style="width:${n.total/maxRev*100}%;background:${n.color}"></div></div>
+      <span class="rev-val" style="color:${n.color}">${(n.total/1000).toFixed(0)}k Ft</span>
+      <div class="rev-extra">${n.per.toLocaleString()} ${perArt}</div>
+    </div>`;
+  });
+}
+renderRevBars();
+
+const maxPer=114638;
+function renderRevPerArticle(){
+  const rpa=document.getElementById('rev-per-article');
+  const convArt=isEn()?'articles':'cikk';
+  rpa.innerHTML='';
+  [...revData].sort((a,b)=>b.per-a.per).forEach(n=>{
+    rpa.innerHTML+=`<div class="rev-row">
+      <div class="rev-label">${n.label}</div>
+      <div class="rev-track"><div class="rev-fill" style="width:${n.per/maxPer*100}%;background:${n.color}"></div></div>
+      <span class="rev-val" style="color:${n.color}">${n.per.toLocaleString()} Ft</span>
+      <div class="rev-extra">n=${n.n} ${convArt}</div>
+    </div>`;
+  });
+}
+renderRevPerArticle();
+
+const maxRt=12.4;
+function renderRt(){
+  const el=document.getElementById('rt-bars');
+  const minLbl=isEn()?'min':'perc';
+  el.innerHTML='';
+  [...rtData].sort((a,b)=>b.mins-a.mins).forEach(n=>{
+    el.innerHTML+=`<div class="rev-row">
+      <div class="rev-label">${n.label}</div>
+      <div class="rev-track"><div class="rev-fill" style="width:${n.mins/maxRt*100}%;background:${n.color}"></div></div>
+      <span class="rev-val" style="color:${n.color}">${n.mins} ${minLbl}</span>
+      <div class="rev-extra"></div>
+    </div>`;
+  });
+}
+renderRt();
+
+document.addEventListener('langchange',function(){
+  renderRevBars();
+  renderRevPerArticle();
+  renderRt();
+  renderS2p();
+});
+
+var _curTab=null;
+function showTab(t,skipHash){
+  var ids=['gap','revenue','signup','paywall','insights'];
+  if(!ids.includes(t))t='gap';
+  if(_curTab===t)return;
+  if(!skipHash)history.replaceState(null,'','#'+t);
+  if(window.switchDashboardTab){
+    _curTab=window.switchDashboardTab({current:_curTab,next:t,ids:ids});
+    return;
+  }
+  var noAnim=_curTab===null||window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(noAnim){
+    ids.forEach(function(id){document.getElementById('tab-'+id).style.display=id===t?'block':'none';});
+    _curTab=t;
+  }else{
+    var out=document.getElementById('tab-'+_curTab);
+    var inEl=document.getElementById('tab-'+t);
+    out.style.opacity='0';
+    setTimeout(function(){
+      out.style.display='none';
+      out.style.opacity='';
+      inEl.style.opacity='0';
+      inEl.style.display='block';
+      requestAnimationFrame(function(){requestAnimationFrame(function(){inEl.style.opacity='1';});});
+      _curTab=t;
+    },150);
+  }
+  document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',ids[i]===t);});
+}
+(function(){
+  var ids=['gap','revenue','signup','paywall','insights'];
+  var hash=location.hash.replace('#','');
+  showTab(ids.includes(hash)?hash:'gap',true);
+  window.addEventListener('hashchange',function(){
+    var h=location.hash.replace('#','');
+    showTab(ids.includes(h)?h:'gap',true);
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.page-nav');
+  var spacer=document.querySelector('.page-nav-spacer');
+  function sync(){spacer.style.height=nav.offsetHeight+'px';}
+  sync();
+  window.addEventListener('resize',sync);
+  document.fonts.ready.then(sync);
+})();
+</script>
+<script>
+window.I18N_EN = {
+  "breadcrumb": "Conversion vs. Production",
+  "tab-gap": "Production vs. Conversion",
+  "stat-window": "articles in the beam window",
+  "stat-convtotal": "conversions total",
+  "note-window": "The window covers November 2025 – July 2026 articles — when beam analytics/conversion tracking began. Earlier articles (2016–2025) have no conversion data, only pageviews.",
+  "sec-gap": "Share of production vs. share in the top 100 converting articles (by revenue) — delta shows where production is disproportionate to results",
+  "legend-prod": "Production (% of the 3,973 beam-window articles)",
+  "legend-conv": "Conversion (% of top 100 converting articles)",
+  "sec-revtotal": "Total revenue per user need (top 100 converting articles)",
+  "sec-revperart": "Revenue per article — which category brings the most per article",
+  "sec-readtime": "Average reading time per user need (minutes, top 100 converting articles)",
+  "sec-insights": "Key findings from the production vs. conversion comparison",
+  "insight-1": "<strong>Inspire me is by far the strongest conversion engine.</strong> Only 4% of production, but 20% of the top 100 converting articles, generating 44,246 HUF/article in revenue — the second highest. Entrepreneur profiles and interviews clearly convert better than their production share suggests.",
+  "insight-2": "<strong>Help me is underperforming relative to its production weight.</strong> 31.5% of production, but only 19% of the converting top 100 — its relative share shrinks in conversion even though its absolute revenue (944,656 HUF) is the second highest. This suggests Help me content is produced in bulk, but only a narrower slice converts really well.",
+  "insight-3": "<strong>Divert me is a surprise converter.</strong> Only 3.4% of production, but 12% of the top 100 converting articles, at 48,302 HUF/article — close to Inspire me's level. Worth investigating which entertainment/lifestyle content performs this well, and validating on a larger sample.",
+  "insight-4": "<strong>Update me is overproduced relative to its conversion yield.</strong> 19% of production, but only 7% of the top 100 converting articles and 33,414 HUF/article — the lowest revenue per article. News content drives traffic (see the User Needs Audit dashboard), but isn't a primary conversion driver.",
+  "insight-5": "<strong>Keep me engaged is small in volume but high in revenue per article (51,176 HUF)</strong> — the highest among measurable categories aside from Connect me's single article. Rankings and lists make up only 1.6% of production. Worth expanding.",
+  "insight-6": "<strong>Methodology note:</strong> \"conversion\" here refers to the beam system's signup/purchase events — a different system from the legacy REMP-based subscriber database (see the Legacy Membership Bridge dashboard). Connecting the two systems is the next step in the strategy.",
+  "tab-signup": "Soft Paywall Signup",
+  "tab-paywall": "Hard Paywall Scenarios",
+  "stat-signups": "signups total (soft paywall)",
+  "stat-signedinshare": "signed-in pageview share",
+  "stat-signuparts": "articles generated a signup",
+  "note-signup": "Beam doesn't store a unique user ID — signups and conversions are recorded per article, not as one reader's tracked journey. \"Signup → paid %\" is therefore an approximation, not a real cohort metric (e.g. Connect me shows 260% because 13 conversions land on 5 signups — that only shows both are common in the same article set, not that they're the same people).",
+  "sec-signupgap": "Pageview share vs. signup share by user need — where a category generates disproportionately more/fewer registrations relative to its traffic",
+  "legend-pv": "Pageview share (% of total beam-window traffic)",
+  "legend-su": "Signup share (% of all signups)",
+  "sec-s2p": "Signup → conversion rate and revenue by user need (approximate, see methodology note above)",
+  "note-paywall-method": "Forbes.hu has no hard-paywall history of its own to extrapolate from, and the beam export is aggregate-only (not monthly) and pageview-based only — no unique visitor/session count. So a credible absolute \"X registrations/month\" figure can't be produced by multiplying pageviews by an industry rate (that would significantly overcount, since one visitor generates several pageviews). Instead, the 3 scenarios run on HU's own actual 9-month baseline (1,734 signups, 444 paid conversions, 8,615,994 HUF) with relative multipliers: (1) a signup-growth multiplier — how much registrations grow moving from optional to mandatory, and (2) a registered→paid conversion rate — from industry benchmarks (nurtured/registered readers convert 3–8% vs. ~0.5–2% for anonymous traffic; registered readers are roughly 30x more likely to subscribe than anonymous ones). This is a scenario model, not a forecast built from a monthly trend.",
+  "scn-cons-name": "Conservative",
+  "scn-cons-assump": "Signup ×5 · registered→paid 3%",
+  "scn-mod-name": "Moderate",
+  "scn-mod-assump": "Signup ×15 · registered→paid 5%",
+  "scn-agg-name": "Aggressive",
+  "scn-agg-assump": "Signup ×30 · registered→paid 8%",
+  "m-signups": "Signups (9 mo)",
+  "m-paid": "Paid conversions",
+  "m-rev": "Revenue",
+  "m-uplift": "Revenue vs. today",
+  "insight-scn-1": "<strong>The conservative scenario produces less revenue than today's soft paywall.</strong> That's not an error: today's 444 conversions come from a small, heavily self-selected group (people who register voluntarily are motivated). A mandatory registration wall produces far more, but on average less motivated, registrants — if onboarding/pricing/nurture aren't good enough, dilution can make the outcome worse than today. Execution quality decides whether it lands closer to the moderate/aggressive scenario.",
+  "insight-scn-2": "<strong>Relative to the legacy REMP base (4,280 active subscriptions, ~93.5M HUF value):</strong> the moderate scenario would add roughly 1,300 new paid subscribers over 9 months (~30% of today's base), the aggressive one roughly 4,160 (~97%) — meaning a well-executed hard paywall could realistically double the active subscriber base within a year, while a poorly executed one would produce little net growth.",
+  "note-scn-sources": "Sources for the industry rates: The Audiencers / Speciall Media registration-wall and paywall benchmark reports (registered readers convert 3–8% to paid vs. 0.5–2% for anonymous traffic; registered readers are roughly 30x more likely to subscribe than anonymous ones). A CZ-specific hard-paywall benchmark isn't available yet — the CZ dashboards contain no signup/paywall-funnel data, only revenue/format. If a real CZ signup→paid rate becomes available, this can be updated."
+};
+</script>
+<script src="theme.js"></script>
+</body>
+</html>

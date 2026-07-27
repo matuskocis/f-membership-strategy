@@ -1,5 +1,10 @@
 (function(){
-  function getLang(){ return localStorage.getItem('lang') || 'sk'; }
+  function nativeLang(){
+    var btn = document.querySelector('.lang-btn:not([data-lang="en"])');
+    return btn ? btn.dataset.lang : (document.documentElement.getAttribute('lang') || 'sk');
+  }
+  // Only two states per page: English or the page's native language.
+  function getLang(){ return localStorage.getItem('lang') === 'en' ? 'en' : nativeLang(); }
 
   function captureI18nOriginals(){
     if (window.__i18nOriginals) return window.__i18nOriginals;

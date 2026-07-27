@@ -1,40 +1,46 @@
 <!DOCTYPE html>
-<html lang="sk" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Forbes.cz membership strategy: analytical dashboards for content conversion, user needs, and revenue performance.">
+<meta name="description" content="Forbes Membership: analytical materials for membership strategy, by country.">
 <link rel="preload" as="font" type="font/woff2" href="fonts/ForbesHighlander-Regular-Web.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Book.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Bold.woff2" crossorigin>
 <link rel="stylesheet" href="fonts/favorit.css">
 <link rel="stylesheet" href="motion.css">
-<title>Forbes.cz – Membership Strategy</title>
+<title>Forbes Membership – Analytical Materials</title>
 <script>(function(){var saved=localStorage.getItem('theme');document.documentElement.dataset.theme=saved||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');})();</script>
 <style>
 @font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Regular-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Regular-Web.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
 
 :root {
-  --bg:       #ffffff;
-  --bg-2:     #f8fafc;
-  --text:     #020617;
-  --text-2:   #64748b;
-  --border:   #e2e8f0;
-  --rose:     #e11d48;
-  --sans:     'Favorit Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  --serif:    'ForbesHighlander', Georgia, serif;
+  --bg:            #ffffff;
+  --bg-2:          #f8fafc;
+  --text:          #020617;
+  --text-2:        #64748b;
+  --text-choose:   #475569;
+  --surface-tert:  #f1f5f9;
+  --border:        #e2e8f0;
+  --rose:          #e11d48;
+  --forbes-red:    #e50b16;
+  --sans:          'Favorit Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --serif:         'ForbesHighlander', Georgia, serif;
 }
 [data-theme="dark"] {
-  --bg:       #020617;
-  --bg-2:     #0f172a;
-  --text:     #ffffff;
-  --text-2:   #cbd5e1;
-  --border:   #334155;
+  --bg:            #020617;
+  --bg-2:          #0f172a;
+  --text:          #ffffff;
+  --text-2:        #cbd5e1;
+  --text-choose:   #cbd5e1;
+  --surface-tert:  #334155;
+  --border:        #334155;
 }
 
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body { height: 100%; }
 body {
   font-family: var(--sans);
   font-size: 15px;
@@ -47,42 +53,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Nav ── */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  height: 88px;
-  display: flex;
-  align-items: center;
-}
-.nav-inner {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 45px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.forbes-logo {
-  height: 32px;
-  width: auto;
-  flex-shrink: 0;
-  display:block;
-}
-.brand-logo {
-  display:inline-flex;
-  color:var(--text);
-  text-decoration:none;
-}
-[data-theme="dark"] .brand-logo img {
-  filter: brightness(0) invert(1);
-}
-
 .theme-btn {
+  position: fixed;
+  top: 24px; right: 24px;
+  z-index: 10;
   width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
   background: none;
@@ -91,164 +65,153 @@ body {
   color: var(--text-2);
   border-radius: 8px;
   transition: color 150ms cubic-bezier(0.25,1,0.5,1), background 150ms cubic-bezier(0.25,1,0.5,1);
-  flex-shrink: 0;
 }
 .theme-btn:hover { color: var(--text); background: var(--bg-2); }
 .theme-btn:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
-.header-controls { display: flex; align-items: center; gap: 8px; }
-.lang-switch { display: flex; gap: 2px; background: var(--bg-2); border-radius: 20px; padding: 2px; flex-shrink: 0; }
-.lang-btn { padding: 5px 11px; min-height: 28px; border: none; background: none; border-radius: 18px; font-size: 12px; font-weight: 500; color: var(--text-2); cursor: pointer; font-family: inherit; transition: all 150ms cubic-bezier(0.25,1,0.5,1); }
-.lang-btn.active { background: var(--bg); color: var(--text); }
-.lang-btn:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
 .icon-moon { display: none; }
 [data-theme="dark"] .icon-moon { display: none; }
 [data-theme="dark"] .icon-sun  { display: block; }
 [data-theme="light"] .icon-sun  { display: none; }
 [data-theme="light"] .icon-moon { display: block; }
 
-/* ── Main layout ── */
-.nav-spacer { height: 88px; }
-
-.page-main {
+.intro-main {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 80px;
-  padding: 80px 45px 0;
+  padding: 120px 45px;
+  min-height: 100vh;
 }
 
-/* ── Headline block ── */
-.headline-block {
+.intro-top {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-items: flex-start;
   width: 730px;
   max-width: 100%;
 }
-.headline-block h1 {
+.badge-membership {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--forbes-red);
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.intro-top h1 {
   font-family: var(--serif);
   font-weight: 700;
   font-size: 48px;
-  line-height: 1.125;
+  line-height: 1.083;
   letter-spacing: -0.48px;
   color: var(--text);
   text-wrap: balance;
 }
-.headline-block .subtitle {
+
+.intro-country {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 730px;
+  max-width: 100%;
+}
+.choose-country {
   font-family: var(--serif);
   font-weight: 400;
   font-size: 32px;
   line-height: 1.24;
-  color: var(--text-2);
+  color: var(--text-choose);
 }
 
-/* ── Cards grid ── */
-.cards-grid {
-  display: grid;
-  grid-template-columns: 350px 350px;
-  gap: 30px;
-  width: 730px;
-  max-width: 100%;
-  margin-bottom: 80px;
-}
-.card-item {
+.country-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  text-decoration: none;
-  color: inherit;
-}
-.card-image {
-  position: relative;
-  width: 350px;
-  height: 350px;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid rgba(2,6,23,0.08);
-  box-shadow: 0 10px 10px -5px rgba(0,0,0,.04), 0 20px 25px -5px rgba(0,0,0,.10);
-  transition: transform 200ms cubic-bezier(0.25,1,0.5,1);
-}
-[data-theme="dark"] .card-image {
-  border-color: rgba(2,6,23,0.8);
-}
-.card-item:hover .card-image {
-  transform: translateY(-2px);
-}
-.card-item:focus-visible { outline: none; }
-.card-item:focus-visible .card-image {
-  outline: 2px solid var(--rose);
-  outline-offset: 3px;
-}
-.card-image img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-}
-.card-tag {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: rgba(255,255,255,0.72);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid #e2e8f0;
-  border-radius: 9px;
-  padding: 4px 8px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #020617;
-  letter-spacing: 0.3px;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-.card-desc {
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--text-2);
-  letter-spacing: 0.3px;
-  transition: color 150ms cubic-bezier(0.25,1,0.5,1);
-}
-.card-item:hover .card-desc,
-.card-item:focus-visible .card-desc { color: var(--text); }
-
-/* ── Footer ── */
-.footer {
   width: 100%;
-  border-top: 1px solid var(--border);
-  margin-top: 0;
 }
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 45px;
+.country-opt {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.18px;
+  color: var(--text);
+  transition: background 150ms cubic-bezier(0.25,1,0.5,1), border-color 150ms cubic-bezier(0.25,1,0.5,1);
+  position: relative;
 }
-.footer-copy {
-  font-size: 15px;
-  color: var(--text-2);
-  letter-spacing: 0.3px;
-}
-.footer-social {
+.country-list a.country-opt:hover { background: var(--bg-2); border-color: var(--rose); z-index: 1; }
+.country-list a.country-opt:focus-visible { outline: 2px solid var(--rose); outline-offset: -2px; }
+.country-opt + .country-opt { margin-top: -1px; }
+.country-opt:first-child { border-radius: 12px 12px 0 0; }
+.country-opt:last-child { border-radius: 0 0 12px 12px; }
+.country-opt.disabled { cursor: default; }
+.country-opt .opt-label {
   display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  transition: transform 200ms cubic-bezier(0.25,1,0.5,1);
+}
+.country-list a.country-opt:hover .opt-label { transform: translateX(3px); }
+.country-opt.disabled .opt-text { opacity: .4; }
+.country-opt .opt-text { display: inline-block; }
+.flag {
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1;
+}
+.country-opt.disabled .flag { opacity: .4; }
+.badge-soon {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--surface-tert);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 13px;
+  white-space: nowrap;
+}
+.chevron {
+  flex-shrink: 0;
+  color: var(--text-2);
+  transition: transform 200ms cubic-bezier(0.25,1,0.5,1), color 150ms cubic-bezier(0.25,1,0.5,1);
+}
+.country-list a.country-opt:hover .chevron { transform: translateX(4px); color: var(--rose); }
+.country-opt.disabled .chevron { opacity: .4; }
+
+/* ── Entrance ── */
+.intro-top { animation: rise-in 420ms cubic-bezier(0.2,0.8,0.2,1) both; }
+.choose-country { animation: rise-in 420ms cubic-bezier(0.2,0.8,0.2,1) both 80ms; }
+.country-opt { animation: rise-in 420ms cubic-bezier(0.2,0.8,0.2,1) both; }
+.country-opt:nth-child(1) { animation-delay: 160ms; }
+.country-opt:nth-child(2) { animation-delay: 210ms; }
+.country-opt:nth-child(3) { animation-delay: 260ms; }
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Responsive ── */
 @media (max-width: 800px) {
-  .nav-inner { padding: 0 20px; }
-  .page-main { padding: 40px 20px 0; gap: 48px; }
-  .headline-block { width: 100%; }
-  .headline-block h1 { font-size: 36px; }
-  .headline-block .subtitle { font-size: 20px; }
-  .cards-grid { grid-template-columns: 1fr; width: 100%; }
-  .card-image { width: 100%; height: auto; aspect-ratio: 1; }
-  .footer-inner { padding: 32px 20px; }
+  .intro-main { padding: 64px 20px; gap: 48px; }
+  .intro-top h1 { font-size: 34px; }
+  .choose-country { font-size: 24px; }
+  .country-opt { padding: 18px; font-size: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -258,90 +221,47 @@ body {
 </head>
 <body>
 
-<!-- Fixed nav -->
-<header class="nav">
-  <div class="nav-inner">
-    <a class="brand-logo" href="index.html" aria-label="Forbes Česko home"><img class="forbes-logo" src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
+<main class="intro-main">
 
-    <div class="header-controls">
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button class="lang-btn active" data-lang="sk">SK</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+  <div class="intro-top">
+    <span class="badge-membership">Forbes Membership</span>
+    <h1>Analytical Materials for Membership</h1>
+  </div>
+
+  <div class="intro-country">
+    <p class="choose-country">Choose country</p>
+    <div class="country-list">
+
+      <a class="country-opt" href="forbes_cz_index.html">
+        <span class="opt-label">
+          <span class="flag" aria-hidden="true">🇨🇿</span>
+          <span class="opt-text">Forbes Czechia</span>
+        </span>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+
+      <a class="country-opt" href="forbes_hu_index.html">
+        <span class="opt-label">
+          <span class="flag" aria-hidden="true">🇭🇺</span>
+          <span class="opt-text">Forbes Hungary</span>
+        </span>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+
+      <div class="country-opt disabled" aria-disabled="true">
+        <span class="opt-label">
+          <span class="flag" aria-hidden="true">🇸🇰</span>
+          <span class="opt-text">Forbes Slovakia</span>
+          <span class="badge-soon">Coming Soon</span>
+        </span>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </div>
-      <button class="theme-btn" aria-label="Toggle theme">
-        <!-- Sun: shown in dark mode -->
-        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-        </svg>
-        <!-- Moon: shown in light mode -->
-        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </button>
+
     </div>
-  </div>
-</header>
-
-<div class="nav-spacer"></div>
-
-<!-- Page content -->
-<main class="page-main">
-
-  <div class="headline-block">
-    <h1>Membership Strategy</h1>
-    <p class="subtitle" data-i18n="subtitle">Analytické podklady · BBC User Needs 2.0</p>
-  </div>
-
-  <div class="cards-grid">
-
-    <!-- Card 1: User Needs Audit -->
-    <a href="forbes_cz_user_needs_audit.html" class="card-item">
-      <div class="card-image">
-        <img src="assets/card-user-needs@2x.png" alt="User Needs Audit">
-        <div class="card-tag">User Needs Audit</div>
-      </div>
-      <p class="card-desc" data-i18n="card1-desc">Distribúcia 11 526 článkov podľa BBC User Needs 2.0. Engagement, decilová analýza a kľúčové zistenia o produkcii vs. výkone.</p>
-    </a>
-
-    <!-- Card 2: Konverzia vs. Produkcia -->
-    <a href="forbes_cz_conversion_vs_production.html" class="card-item">
-      <div class="card-image">
-        <img src="assets/card-konverzia@2x.png" alt="Konverzia vs. Produkcia">
-        <div class="card-tag" data-i18n="card2-tag">Konverzia vs. Produkcia</div>
-      </div>
-      <p class="card-desc" data-i18n="card2-desc">Porovnanie 11 526 článkov (produkcia) s top 100 konverznými článkami. Revenue per need, formáty a strategické závery.</p>
-    </a>
-
-    <!-- Card 3: Top 100 Dashboard -->
-    <a href="forbes_cz_top100_dashboard.html" class="card-item">
-      <div class="card-image">
-        <img src="assets/card-top100@2x.png" alt="Top 100 Dashboard">
-        <div class="card-tag">Top 100 Dashboard</div>
-      </div>
-      <p class="card-desc" data-i18n="card3-desc">Prehľad 100 najkonverznejších článkov. User needs, formátová matica, membership funnel a revenue analýza.</p>
-    </a>
-
   </div>
 
 </main>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-inner">
-    <span class="footer-copy">Copyright &copy; 2026 MediaRey, SE</span>
-  </div>
-</footer>
-
-<script>
-window.I18N_EN = {
-  "subtitle": "Analytical resources · BBC User Needs 2.0",
-  "card1-desc": "Distribution of 11,526 articles by BBC User Needs 2.0. Engagement, decile analysis, and key findings on production vs. performance.",
-  "card2-tag": "Conversion vs. Production",
-  "card2-desc": "Comparison of 11,526 articles (production) against the top 100 converting articles. Revenue per need, formats, and strategic insights.",
-  "card3-desc": "Overview of the 100 highest-converting articles. User needs, format matrix, membership funnel, and revenue analysis."
-};
-</script>
 <script src="theme.js"></script>
 </body>
 </html>

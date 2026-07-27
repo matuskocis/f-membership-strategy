@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="sk" data-theme="dark">
+<html lang="hu" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="User needs audit: distribution of 11,526 Forbes.cz articles across BBC User Needs 2.0 categories, with engagement and decile analysis.">
+<meta name="description" content="User needs audit: distribution of 32,018 Forbes.hu articles (2016–2026) across BBC User Needs 2.0 categories, with engagement and decile analysis.">
 <link rel="preload" as="font" type="font/woff2" href="fonts/ForbesHighlander-Regular-Web.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Book.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/FavoritPro-Bold.woff2" crossorigin>
 <link rel="stylesheet" href="fonts/favorit.css">
-<title>Forbes.cz – User Needs Audit</title>
+<title>Forbes.hu – User Needs Audit</title>
 <script>(function(){var saved=localStorage.getItem('theme');document.documentElement.dataset.theme=saved||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');})();</script>
 <style>
 @font-face{font-family:'ForbesHighlander';src:url('fonts/ForbesHighlander-Bold-Web.woff2') format('woff2'),url('fonts/ForbesHighlander-Bold-Web.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
@@ -49,6 +49,11 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .back-btn{display:inline-flex;align-items:center;justify-content:center;color:var(--color-text-tertiary);text-decoration:none;flex-shrink:0;transition:color 150ms cubic-bezier(0.25,1,0.5,1);padding:2px}
 .back-btn:hover{color:#BE123C}
 .back-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px;border-radius:2px}
+.wordmark{font-family:'ForbesHighlander',Georgia,serif;font-weight:700;font-size:20px;color:var(--color-text-primary);text-decoration:none}
+.brand-logo{display:inline-flex;text-decoration:none}
+.forbes-logo{width:123px;height:32px;object-fit:contain;display:block}
+@media(prefers-color-scheme:dark){.brand-logo img{filter:brightness(0) invert(1)}}
+[data-theme="dark"] .brand-logo img{filter:brightness(0) invert(1)}
 .page-nav h1{font-size:28px;font-weight:400;font-family:'ForbesHighlander',Georgia,serif;text-wrap:balance}
 .page-nav p{font-size:13px;color:var(--color-text-tertiary);padding-left:30px}
 .wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem 5rem}
@@ -66,7 +71,6 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .lang-btn.active{background:var(--color-text-primary);color:var(--color-background-primary)}
 .lang-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
 .section{margin-bottom:2rem}
-.section+.section{margin-top:.25rem}
 .section--major{margin-bottom:3rem}
 .section-label{font-family:inherit;font-size:20px;font-weight:700;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--color-text-primary);margin-bottom:.75rem}
 .stats-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
@@ -111,15 +115,15 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <body>
 <div class="page-nav">
   <div class="page-nav-inner">
-    <div class="nav-title" aria-label="Forbes.cz">
-      <a class="brand-logo" href="forbes_cz_index.html" aria-label="Forbes Česko home"><img src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
+    <div class="nav-title" aria-label="Forbes.hu">
+      <a class="brand-logo" href="forbes_hu_index.html" aria-label="Forbes Magyarország home"><img class="forbes-logo" src="assets/forbes-hu-digital.svg" alt="Forbes Magyarország"></a>
       <div class="header-controls">
         <a class="country-link" href="index.html" aria-label="Change country">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <span>Czechia</span>
+          <span>Hungary</span>
         </a>
         <div class="lang-switch" role="group" aria-label="Language">
-          <button class="lang-btn active" data-lang="sk">SK</button>
+          <button class="lang-btn active" data-lang="hu">HU</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
         <button class="theme-btn header-icon" type="button" aria-label="Switch theme">
@@ -128,26 +132,26 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
         </button>
       </div>
     </div>
-    <p class="breadcrumb"><a href="forbes_cz_index.html">Membership Strategy</a> / User Needs Audit</p>
+    <p class="breadcrumb"><a href="forbes_hu_index.html">Membership Strategy</a> / User Needs Audit</p>
   </div>
 </div>
 <div class="page-nav-spacer"></div>
 <div class="wrap">
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="showTab('dist')" data-i18n="tab-dist">Distribúcia</button>
+  <button class="tab-btn active" onclick="showTab('dist')" data-i18n="tab-dist">Eloszlás</button>
   <button class="tab-btn" onclick="showTab('engagement')">Engagement</button>
-  <button class="tab-btn" onclick="showTab('decile')" data-i18n="tab-decile">Decilová analýza</button>
+  <button class="tab-btn" onclick="showTab('decile')" data-i18n="tab-decile">Decilis elemzés</button>
   <button class="tab-btn" onclick="showTab('insights')">Insights</button>
 </div>
 
 <!-- TAB: DISTRIBÚCIA -->
 <div id="tab-dist">
 <div class="stats-row">
-  <div class="stat-card"><div class="stat-num">11 526</div><div class="stat-lbl" data-i18n="stat-articles">článkov celkom</div></div>
-  <div class="stat-card"><div class="stat-num">27,9M</div><div class="stat-lbl" data-i18n="stat-pv">pageviews spolu</div></div>
-  <div class="stat-card"><div class="stat-num">2 418</div><div class="stat-lbl" data-i18n="stat-avgpv">priem. PV / článok</div></div>
-  <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl" data-i18n="stat-categories">user needs kategórií</div></div>
+  <div class="stat-card"><div class="stat-num">32 018</div><div class="stat-lbl" data-i18n="stat-articles">cikk összesen (2016–2026)</div></div>
+  <div class="stat-card"><div class="stat-num">41,8M</div><div class="stat-lbl" data-i18n="stat-pv">pageview összesen</div></div>
+  <div class="stat-card"><div class="stat-num">1 305</div><div class="stat-lbl" data-i18n="stat-avgpv">átlag PV / cikk</div></div>
+  <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl" data-i18n="stat-categories">user needs kategória</div></div>
 </div>
 <div class="legend-row">
   <div class="legend-item"><div class="leg-dot" style="background:#5b8cff"></div>Give me perspective</div>
@@ -160,20 +164,20 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
   <div class="legend-item"><div class="leg-dot" style="background:#a78bfa"></div>Connect me</div>
 </div>
 <div class="section">
-  <h2 class="section-label" data-i18n="sec-all">Počet článkov — všetky (n=11 526)</h2>
+  <h2 class="section-label" data-i18n="sec-all">Cikkek száma — összes (n=32 018)</h2>
   <div id="bars-all"></div>
 </div>
 <div class="section">
-  <h2 class="section-label" data-i18n="sec-pvshare">Pageview podiel — weighted by PV</h2>
+  <h2 class="section-label" data-i18n="sec-pvshare">Pageview részesedés — PV szerint súlyozva</h2>
   <div id="bars-pv"></div>
 </div>
 <div class="grid-2">
   <div class="section">
-    <h2 class="section-label" data-i18n="sec-top100">Top 100 podľa PV</h2>
+    <h2 class="section-label" data-i18n="sec-top100">Top 100 PV szerint</h2>
     <div id="bars-top100"></div>
   </div>
   <div class="section">
-    <h2 class="section-label" data-i18n="sec-top500">Top 500 podľa PV</h2>
+    <h2 class="section-label" data-i18n="sec-top500">Top 500 PV szerint</h2>
     <div id="bars-top500"></div>
   </div>
 </div>
@@ -182,44 +186,44 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <!-- TAB: ENGAGEMENT -->
 <div id="tab-engagement" style="display:none">
 <div class="section">
-  <h2 class="section-label" data-i18n="sec-avgpv">Priemerné pageviews na článok</h2>
+  <h2 class="section-label" data-i18n="sec-avgpv">Átlagos pageview cikkenként</h2>
   <div id="bars-avg"></div>
 </div>
 <div class="section">
-  <h2 class="section-label" data-i18n="sec-engidx">Engagement index — avg PV top100 / avg PV celok — násobiteľ keď článok "vybuchne"</h2>
+  <h2 class="section-label" data-i18n="sec-engidx">Engagement index — top100 átlag PV / teljes átlag PV — szorzó, amikor egy cikk "berobban"</h2>
   <div id="bars-ratio"></div>
 </div>
-<div class="note" data-i18n="note-engidx">Engagement index hovorí: keď článok v kategórii vybuchne, o koľko násobí priemer kategórie. Vysoký index = vysoká variancia — kategória má potenciál viralitu, ale aj veľa slabých článkov.</div>
+<div class="note" data-i18n="note-engidx">Az engagement index azt mutatja, hogy amikor egy kategórián belüli cikk berobban, mennyivel szorozza meg a kategória átlagát. Magas index = magas szórás — a kategóriának van virális potenciálja, de sok gyenge cikke is.</div>
 </div>
 
 <!-- TAB: DECILE -->
 <div id="tab-decile" style="display:none">
 <div class="section">
-  <h2 class="section-label" data-i18n="sec-decile">Zastúpenie user needs per decil (D1 = najmenej čítané, D10 = top čítané)</h2>
+  <h2 class="section-label" data-i18n="sec-decile">User needs megoszlása decilisenként (D1 = legkevésbé olvasott, D10 = legtöbbet olvasott)</h2>
   <div class="decile-wrap">
     <table class="decile-table" id="decile-tbl"></table>
   </div>
-  <div class="note" style="margin-top:.75rem" data-i18n="note-decile">Help me rastie smerom k top decilom (5,6% v D1 → 8–10% v D8–D10). Inspire me podobne. Update me naopak klesá — breaking news má krátkodobý spike ale slabý dlhodobý tail.</div>
+  <div class="note" style="margin-top:.75rem" data-i18n="note-decile">A Help me és az Update me a legfelső decilisekben ugranak meg drasztikusan (D8–D10) — ez elsősorban néhány extrém sikerű, pénzügyi témájú vagy hírértékű cikknek köszönhető, nem egyenletes eloszlásnak.</div>
 </div>
 </div>
 
 <!-- TAB: INSIGHTS -->
 <div id="tab-insights" style="display:none">
 <div class="section">
-  <h2 class="section-label" data-i18n="sec-findings">Kľúčové zistenia</h2>
-  <div class="insight" data-i18n="insight-1" data-i18n-html><strong>Give me perspective dominuje produkcii (64%) aj PV (61%).</strong> Forbes.cz je primárne analytický a komentárový médium. Toto je de facto North Star need — ale zároveň riziko: keď je jedna kategória tak dominantná, ťažšie sa identifikujú conversion drivers.</div>
-  <div class="insight" data-i18n="insight-2" data-i18n-html><strong>Inspire me je overperformer.</strong> Tvorí 13% článkov, ale 18% PV a 24% z top 100. Priemerný výkon (3 394 PV/článok) je najvyšší. Portréty podnikateľov a príbehy "od nuly" fungujú mimoriadne dobre — a podľa konverzných dát sú tiež #1 subscription driver.</div>
-  <div class="insight" data-i18n="insight-3" data-i18n-html><strong>Keep me engaged má najvyšší avg PV (3 462) a 22.7× engagement index.</strong> Rankingy a žebříčky sú virálne. Tvorí len 3.9% produkcie — pravdepodobne podreprezentovaná kategória s vysokým potenciálom.</div>
-  <div class="insight" data-i18n="insight-4" data-i18n-html><strong>Help me je kriticky podreprezentovaný.</strong> Len 7.4% produkcie, len 2 články v top 100 PV — ale konverzné dáta ukazujú 14% podiel na konverziách a 14.4% na revenue. Praktické návody z oblasti financií, kariéry a podnikania jednoznačne konvertujú lepšie ako ich produkčný podiel naznačuje.</div>
-  <div class="insight" data-i18n="insight-5" data-i18n-html><strong>Update me klesá s rastúcim záujmom.</strong> V D1 (najmenej čítané) má 12.1%, v D10 (top čítané) len 4.6%. Breaking news generuje krátkodobé spiky, ale dlhodobý tail je slabý — nízka retention value.</div>
-  <div class="insight" data-i18n="insight-6" data-i18n-html><strong>Educate me (2.9%) a Divert me (0.3%) sú minimálne zastúpené.</strong> Educate me je discovery kategória vhodná pre SEO a nových čitateľov — jej nízke zastúpenie znižuje príchod nových čitateľov z Mass segmentu.</div>
+  <h2 class="section-label" data-i18n="sec-findings">Kulcsfontosságú megállapítások</h2>
+  <div class="insight" data-i18n="insight-1" data-i18n-html><strong>Give me perspective dominálja a produkciót (54%), de a PV-t már kevésbé (34%).</strong> A Forbes.hu elsősorban elemző/üzleti-hír orientált médium, de az arány azt mutatja, hogy ez a kategória alulteljesít a saját súlyához képest — sok cikk, viszonylag alacsony átlagolvasottsággal (832 PV/cikk).</div>
+  <div class="insight" data-i18n="insight-2" data-i18n-html><strong>Inspire me kimagasló teljesítményű, de drasztikusan alultermelt.</strong> Csak 2.3%-a a cikkeknek, de 9.3% a PV-nek és 15% a top 100-nak. Átlagteljesítménye (5 342 PV/cikk) a legmagasabb az összes kategória közül — 4×-6× az átlag felett. Portrék, interjúk, vállalkozói sztorik egyértelműen túlteljesítenek.</div>
+  <div class="insight" data-i18n="insight-3" data-i18n-html><strong>Help me a legnagyobb tömegű kategória a Give me perspective után (22%), közepes teljesítménnyel.</strong> 1 365 átlag PV/cikk, 81.5× engagement index — vagyis ha egy Help me cikk berobban, azt nagyon megteszi (pénzügyi kalkulátorok, gyakorlati tanácsok).</div>
+  <div class="insight" data-i18n="insight-4" data-i18n-html><strong>Update me alulreprezentált a termelésben (8.1%), de aránytalanul jól teljesít PV-ben (21.5%) és a top decilisekben.</strong> A hír jellegű tartalom rövid távon nagyon jól hoz forgalmat — de ez nem feltétlenül jelent hosszútávú engagement-et vagy konverziót (lásd a konverziós dashboardot).</div>
+  <div class="insight" data-i18n="insight-5" data-i18n-html><strong>Educate me (1.4%) és Connect me (2.5%) minimálisan vannak jelen.</strong> Az Educate me tipikusan SEO- és discovery-barát kategória — alacsony részesedése korlátozza az új, nem-fizető olvasók beáramlását.</div>
+  <div class="insight" data-i18n="insight-6" data-i18n-html><strong>Fontos módszertani megjegyzés:</strong> a user needs kategóriákat nem a szerkesztőség jelölte meg — kategória, tag és cím alapján automatikusan soroltuk be a cikkeket a BBC User Needs 2.0 keretrendszerbe. Ez egy első közelítés, amit érdemes szerkesztőségi véleményezéssel pontosítani.</div>
 </div>
 </div>
 
 </div>
 
 <footer class="dashboard-footer">
-  <span>Copyright &copy; 2026 MediaRey, SE</span>
+  <span>Copyright &copy; 2026 Mediarey Hungary Services Zrt.</span>
 </footer>
 
 <script>
@@ -234,32 +238,32 @@ const needs=[
   {label:'Connect me',         cls:'con',color:'#a78bfa'},
 ];
 const data={
-  all:   [64.3,13.1,7.4,7.9,3.9,2.9,0.3,0.1],
-  pv:    [60.9,18.4,6.9,5.5,5.5,2.4,0.3,0.1],
-  top100:[59.0,24.0,2.0,7.0,7.0,1.0,0.0,0.0],
-  top500:[58.8,18.8,6.6,6.4,6.2,2.8,0.2,0.2],
-  avg:   [2290,3394,2242,1677,3462,1975,2052,2028],
-  ratio: [27.6,20.5,24.5,29.4,22.7,26.3,null,null],
-  n:     [7413,1512,858,912,444,336,36,15],
+  all:   [54.1,2.3,22.0,8.1,2.9,1.4,6.8,2.5],
+  pv:    [34.5,9.3,23.0,21.5,4.3,0.4,4.9,2.0],
+  top100:[39.0,15.0,21.0,11.0,7.0,1.0,5.0,1.0],
+  top500:[38.0,10.8,22.6,19.0,4.6,0.4,4.2,0.4],
+  avg:   [832,5342,1365,3491,1952,373,936,1068],
+  ratio: [101.5,17.6,81.5,33.6,48.6,144.6,101.1,108.6],
+  n:     [17325,726,7036,2578,924,441,2189,799],
 };
 const decile=[
-  [1, 61.8,12.8,5.6,12.1,3.2,4.1,0.2,0.3],
-  [2, 62.3,12.0,5.5,11.7,4.5,3.6,0.1,0.3],
-  [3, 65.1,11.0,6.0,11.3,3.3,2.9,0.1,0.2],
-  [4, 67.7,11.6,6.3, 8.6,3.5,2.1,0.2,0.0],
-  [5, 66.8,12.4,6.4, 8.3,3.3,2.7,0.1,0.1],
-  [6, 64.6,12.4,9.4, 6.1,4.5,2.6,0.3,0.2],
-  [7, 66.2,10.9,8.4, 5.7,4.3,3.8,0.7,0.0],
-  [8, 65.1,13.2,8.7, 6.0,3.1,3.0,0.9,0.0],
-  [9, 62.4,17.0,10.1,4.7,3.3,1.9,0.4,0.1],
-  [10,61.2,17.9,8.1, 4.6,5.5,2.3,0.2,0.3],
+  [1, 55.8,0.1,35.6,1.9,0.6,1.2,3.4,1.3],
+  [2, 63.7,0.2,25.8,0.7,1.4,1.3,5.1,1.7],
+  [3, 70.4,0.4,19.2,0.2,1.7,1.5,4.8,1.7],
+  [4, 69.7,0.4,17.7,0.5,2.4,1.1,5.6,2.6],
+  [5, 63.9,1.0,19.7,0.9,2.7,1.9,7.2,2.7],
+  [6, 58.7,1.9,19.8,1.9,4.2,1.7,8.5,3.3],
+  [7, 53.3,3.3,17.6,3.5,5.4,2.2,11.1,3.7],
+  [8, 42.0,5.2,18.0,14.7,4.9,1.8,10.8,2.7],
+  [9, 31.6,3.1,23.8,30.9,2.6,0.8,6.7,0.5],
+  [10,32.1,7.0,22.6,25.2,2.9,0.4,5.1,4.7],
 ];
 
 function makeBars(id,values,maxVal,suffix,extraFn){
   const c=document.getElementById(id);
   if(!c)return;
   c.innerHTML=needs.map((n,i)=>{
-    if(values[i]===null||values[i]===0&&i>5)return'';
+    if(values[i]===null)return'';
     const pct=Math.round(values[i]/maxVal*100);
     const extra=extraFn?extraFn(i):'';
     return`<div class="bar-row">
@@ -273,14 +277,13 @@ function makeBars(id,values,maxVal,suffix,extraFn){
   }).join('');
 }
 
-makeBars('bars-all',   data.all,   70,'%',i=>`n=${data.n[i].toLocaleString()}`);
-makeBars('bars-pv',    data.pv,    70,'%',i=>`avg ${data.avg[i].toLocaleString()} PV`);
-makeBars('bars-top100',data.top100,70,'%',null);
-makeBars('bars-top500',data.top500,70,'%',null);
-makeBars('bars-avg',   data.avg,   3600,'',i=>`${data.avg[i].toLocaleString()} PV`);
-makeBars('bars-ratio', data.ratio.map(v=>v||0),32,'x',i=>data.ratio[i]?`${data.ratio[i]}x`:'—');
+makeBars('bars-all',   data.all,   60,'%',i=>`n=${data.n[i].toLocaleString()}`);
+makeBars('bars-pv',    data.pv,    40,'%',i=>`avg ${data.avg[i].toLocaleString()} PV`);
+makeBars('bars-top100',data.top100,40,'%',null);
+makeBars('bars-top500',data.top500,40,'%',null);
+makeBars('bars-avg',   data.avg,   5500,'',i=>`${data.avg[i].toLocaleString()} PV`);
+makeBars('bars-ratio', data.ratio, 150,'x',i=>`${data.ratio[i]}x`);
 
-// Decile table
 function heatColor(v,col){
   const vals=decile.map(r=>r[col]);
   const min=Math.min(...vals),max=Math.max(...vals);
@@ -289,11 +292,11 @@ function heatColor(v,col){
   return`background:${needs[col-1].color}${alpha}`;
 }
 function renderDecileTable(){
-  const decilLabel=(window.getLang&&window.getLang()==='en')?'Decile':'Decil';
+  const decilLabel=(window.getLang&&window.getLang()==='en')?'Decile':'Decilis';
   const tbl=document.getElementById('decile-tbl');
-  tbl.innerHTML=`<thead><tr><th>${decilLabel}</th>${needs.slice(0,6).map(n=>`<th>${n.label}</th>`).join('')}</tr></thead><tbody>`+
+  tbl.innerHTML=`<thead><tr><th>${decilLabel}</th>${needs.map(n=>`<th>${n.label}</th>`).join('')}</tr></thead><tbody>`+
     decile.map(r=>`<tr><td style="font-weight:500;color:var(--color-text-primary)">D${r[0]}${r[0]===10?' ★':''}</td>`+
-      [1,2,3,4,5,6].map(ci=>`<td><span class="heat" style="${heatColor(r[ci],ci)}">${r[ci]}%</span></td>`).join('')+
+      [1,2,3,4,5,6,7,8].map(ci=>`<td><span class="heat" style="${heatColor(r[ci],ci)}">${r[ci]}%</span></td>`).join('')+
     '</tr>').join('')+'</tbody>';
 }
 renderDecileTable();
@@ -352,11 +355,11 @@ function showTab(t,skipHash){
 window.I18N_EN = {
   "tab-dist": "Distribution",
   "tab-decile": "Decile analysis",
-  "stat-articles": "articles total",
+  "stat-articles": "articles total (2016–2026)",
   "stat-pv": "pageviews total",
   "stat-avgpv": "avg. PV / article",
   "stat-categories": "user needs categories",
-  "sec-all": "Number of articles — all (n=11,526)",
+  "sec-all": "Number of articles — all (n=32,018)",
   "sec-pvshare": "Pageview share — weighted by PV",
   "sec-top100": "Top 100 by PV",
   "sec-top500": "Top 500 by PV",
@@ -364,14 +367,14 @@ window.I18N_EN = {
   "sec-engidx": "Engagement index — avg PV top100 / avg PV overall — multiplier when an article \"blows up\"",
   "note-engidx": "The engagement index shows: when an article in a category blows up, by how much it multiplies the category average. A high index = high variance — the category has viral potential, but also many weak articles.",
   "sec-decile": "User needs share per decile (D1 = least read, D10 = top read)",
-  "note-decile": "Help me grows toward the top deciles (5.6% in D1 → 8–10% in D8–D10). Inspire me follows a similar pattern. Update me, by contrast, declines — breaking news has a short-term spike but a weak long-term tail.",
+  "note-decile": "Help me and Update me spike sharply in the top deciles (D8–D10) — mostly driven by a handful of extremely successful finance- or news-related articles, not an even distribution.",
   "sec-findings": "Key findings",
-  "insight-1": "<strong>Give me perspective dominates both production (64%) and PV (61%).</strong> Forbes.cz is primarily an analytical and commentary outlet. This is effectively the North Star need — but it's also a risk: when one category is this dominant, conversion drivers are harder to identify.",
-  "insight-2": "<strong>Inspire me is an overperformer.</strong> It makes up 13% of articles, but 18% of PV and 24% of the top 100. Average performance (3,394 PV/article) is the highest. Entrepreneur profiles and \"from scratch\" stories perform exceptionally well — and per the conversion data, they're also the #1 subscription driver.",
-  "insight-3": "<strong>Keep me engaged has the highest avg PV (3,462) and a 22.7× engagement index.</strong> Rankings and lists go viral. It makes up only 3.9% of production — likely an underrepresented category with high potential.",
-  "insight-4": "<strong>Help me is critically underrepresented.</strong> Only 7.4% of production, only 2 articles in the top 100 PV — but conversion data shows a 14% share of conversions and 14.4% of revenue. Practical guides on finance, career, and business clearly convert better than their production share suggests.",
-  "insight-5": "<strong>Update me declines as interest grows.</strong> It has 12.1% in D1 (least read), but only 4.6% in D10 (top read). Breaking news generates short-term spikes, but the long-term tail is weak — low retention value.",
-  "insight-6": "<strong>Educate me (2.9%) and Divert me (0.3%) are minimally represented.</strong> Educate me is a discovery category well-suited for SEO and new readers — its low share limits the inflow of new readers from the Mass segment."
+  "insight-1": "<strong>Give me perspective dominates production (54%) but less so PV (34%).</strong> Forbes.hu is primarily an analytical/business-news outlet, but the ratio shows this category underperforms relative to its weight — many articles, relatively low average readership (832 PV/article).",
+  "insight-2": "<strong>Inspire me is a standout performer, but drastically underproduced.</strong> Only 2.3% of articles, but 9.3% of PV and 15% of the top 100. Its average performance (5,342 PV/article) is the highest of all categories — 4×-6× above average. Profiles, interviews, and entrepreneur stories clearly overperform.",
+  "insight-3": "<strong>Help me is the largest category after Give me perspective (22%), with mid-range performance.</strong> 1,365 avg PV/article, 81.5× engagement index — meaning when a Help me article blows up, it does so hard (financial calculators, practical advice).",
+  "insight-4": "<strong>Update me is underproduced (8.1%) but disproportionately strong in PV (21.5%) and in the top deciles.</strong> News-type content drives a lot of short-term traffic — but this doesn't necessarily translate into long-term engagement or conversion (see the conversion dashboard).",
+  "insight-5": "<strong>Educate me (1.4%) and Connect me (2.5%) are minimally represented.</strong> Educate me is typically an SEO- and discovery-friendly category — its low share limits the inflow of new, non-paying readers.",
+  "insight-6": "<strong>Important methodology note:</strong> the user needs categories weren't tagged by the newsroom — articles were automatically classified into the BBC User Needs 2.0 framework based on category, tags, and title. This is a first-pass approximation that should be refined with editorial review."
 };
 </script>
 <script src="theme.js"></script>

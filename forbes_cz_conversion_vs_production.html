@@ -57,9 +57,13 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 .tab-btn.active{background:var(--color-background-primary);color:var(--color-text-primary);border-color:#BE123C;font-weight:500}
 .tab-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
 .header-controls{display:flex;align-items:center;gap:8px}
+.country-link{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px;font-size:13px;font-weight:500;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:20px;text-decoration:none;flex-shrink:0;transition:color 150ms cubic-bezier(0.25,1,0.5,1),background 150ms cubic-bezier(0.25,1,0.5,1)}
+.country-link:hover{color:var(--color-text-primary)}
+.country-link:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
+.country-link svg{flex-shrink:0}
 .lang-switch{display:flex;gap:2px;background:var(--color-background-secondary);border-radius:20px;padding:2px}
 .lang-btn{padding:5px 11px;min-height:28px;border:none;background:none;border-radius:18px;font-size:12px;font-weight:500;color:var(--color-text-secondary);cursor:pointer;font-family:inherit;transition:all 150ms cubic-bezier(0.25,1,0.5,1)}
-.lang-btn.active{background:var(--color-background-primary);color:var(--color-text-primary)}
+.lang-btn.active{background:var(--color-text-primary);color:var(--color-background-primary)}
 .lang-btn:focus-visible{outline:2px solid #BE123C;outline-offset:2px}
 .section{margin-bottom:2rem}
 .section--major{margin-bottom:3rem}
@@ -119,8 +123,12 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
 <div class="page-nav">
   <div class="page-nav-inner">
     <div class="nav-title" aria-label="Forbes.cz">
-      <a class="brand-logo" href="index.html" aria-label="Forbes Česko home"><img src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
+      <a class="brand-logo" href="forbes_cz_index.html" aria-label="Forbes Česko home"><img src="assets/forbes-cesko-logo.svg" alt="Forbes Česko"></a>
       <div class="header-controls">
+        <a class="country-link" href="index.html" aria-label="Change country">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>Czechia</span>
+        </a>
         <div class="lang-switch" role="group" aria-label="Language">
           <button class="lang-btn active" data-lang="sk">SK</button>
           <button class="lang-btn" data-lang="en">EN</button>
@@ -131,7 +139,7 @@ body{font-family:var(--font-sans);background:var(--color-background-tertiary);co
         </button>
       </div>
     </div>
-    <p class="breadcrumb"><a href="index.html">Membership Strategy</a> / <span data-i18n="breadcrumb">Konverzia vs. Produkcia</span></p>
+    <p class="breadcrumb"><a href="forbes_cz_index.html">Membership Strategy</a> / <span data-i18n="breadcrumb">Konverzia vs. Produkcia</span></p>
   </div>
 </div>
 <div class="page-nav-spacer"></div>
